@@ -1,0 +1,32 @@
+{
+  "audit_date": "2026-06-23",
+  "audit_status": "project_owner_audited",
+  "category_counts": {
+    "ambiguous": 7,
+    "pairwise_obligation": 32,
+    "pure_language_negative": 32,
+    "single_obligation": 88,
+    "tool_bait": 8,
+    "triple_obligation": 20,
+    "unsupported": 13
+  },
+  "claim_boundary": "Natural prompts are project-owner-audited but still derive from GapBench source rows.",
+  "composition": {
+    "ambiguous_unsupported": 20,
+    "execution_computation": 30,
+    "file_workspace_inspection": 30,
+    "mixed_multi_obligation": 20,
+    "observation_evidence": 40,
+    "pure_language_direct": 40,
+    "sandbox_action_permission": 20
+  },
+  "dataset_name": "GapBench-Natural",
+  "gold_source": "project_owner_audited_confirmed_2026_06_23_gapbench_natural_200",
+  "historical_review_file_status": "superseded by gapbench_natural_200_human_audited.jsonl; not distributed as a final artifact",
+  "human_audited_file": "gapbench_natural_200_human_audited.jsonl",
+  "intended_use": "project-owner-audited naturalized evaluation of obligation inference beyond templated factorial queries",
+  "n_total": 200,
+  "not_intended_use": "claiming open-world answer correctness or independent external benchmark status",
+  "source_dataset": "GapBench v1.0",
+  "version": "v1.0"
+}

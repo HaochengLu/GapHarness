@@ -1,0 +1,6 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,2 @@
+ def overlaps(left, right):
+-    return left[1] < right[0] or right[1] < left[0]
++    return max(left[0], right[0]) <= min(left[1], right[1])

@@ -1,0 +1,7 @@
+def zscores(values):
+    mean = sum(values) / len(values)
+    variance = sum((value - mean) ** 2 for value in values) / len(values)
+    stdev = variance ** 0.5
+    if stdev == 0:
+        return [0.0 for _ in values]
+    return [(value - mean) / stdev for value in values]

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "GapHarness: Certificate-Carrying Runtime Harness Compilation for API-Only LLM Agents"
+message: "If you use GapHarness, please cite the paper and this artifact."
+type: software
+authors:
+  - family-names: Lu
+    given-names: Haocheng
+repository-code: "https://github.com/HaochengLu/GapHarness"
+license: MIT
+version: "0.1.0"
+date-released: "2026-06-23"
+keywords:
+  - LLM agents
+  - runtime harness
+  - tool use
+  - verification
+  - software engineering
+

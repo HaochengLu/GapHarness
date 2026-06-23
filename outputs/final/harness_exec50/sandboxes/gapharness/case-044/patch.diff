@@ -1,0 +1,6 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,2 @@
+ def parse_tags(value):
+-    return value.split(',')
++    return [tag.strip().lower() for tag in value.split(',') if tag.strip()]

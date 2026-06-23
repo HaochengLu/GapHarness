@@ -1,0 +1,9 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,4 +1,6 @@
+ def clamp(value, low, high):
+     if value < low:
+         return low
++    if value > high:
++        return high
+     return value

@@ -1,0 +1,6 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,2 @@
+ def is_valid_email(value):
+-    return '.' in value
++    return '@' in value and '.' in value.split('@')[-1]

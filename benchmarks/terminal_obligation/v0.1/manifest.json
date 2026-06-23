@@ -1,0 +1,27 @@
+{
+  "distribution": {
+    "execution_only": 1,
+    "observation_execution": 4,
+    "sandbox_action_control_state_verification": 45
+  },
+  "gold_source": "generated_for_human_review_pending_audit",
+  "name": "Terminal-Bench-obligation50",
+  "notes": [
+    "Generated scaffold for human audit from public Terminal-Bench task instructions.",
+    "No task in this file has been marked human-audited.",
+    "Expected harnesses use the current GapHarness MVP registry.",
+    "The benchmark task source is online, but the obligation labels are GapHarness-derived candidates pending audit."
+  ],
+  "scope": "Obligation labeling and harness selection derived from public Terminal-Bench task instructions, not full Terminal-Bench container solving.",
+  "size": 50,
+  "source_dataset": "harbor-framework/terminal-bench",
+  "source_fields_used": [
+    "instruction",
+    "difficulty",
+    "tags",
+    "category"
+  ],
+  "source_path": "original-tasks/*/task.yaml",
+  "status": "generated_for_human_review_pending_audit",
+  "version": "v0.1"
+}

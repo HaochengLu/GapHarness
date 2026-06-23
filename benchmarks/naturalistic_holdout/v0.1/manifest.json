@@ -1,0 +1,62 @@
+{
+  "annotation_plan": {
+    "agreement_metrics": [
+      "Cohen kappa for categorical/binary fields",
+      "Krippendorff alpha where multi-label or missing-label handling is needed"
+    ],
+    "annotators": 2,
+    "fields": [
+      "Observation",
+      "Execution",
+      "State",
+      "Action",
+      "Control",
+      "Verification",
+      "capabilities",
+      "expected_status"
+    ],
+    "resolution": "adjudication after independent annotator_a and annotator_b passes"
+  },
+  "audit_status": "candidate_for_human_review_not_gold",
+  "created_at_utc": "2026-06-23T10:54:40+00:00",
+  "dataset_name": "Naturalistic-Holdout Candidate Review Package",
+  "fetch_errors": [],
+  "files": {
+    "candidates_jsonl": "benchmarks/naturalistic_holdout/v0.1/naturalistic_holdout_v0.1_candidates.jsonl",
+    "final_source_copy": "outputs/final/benchmark_sources/naturalistic_holdout_v0.1_candidates.jsonl",
+    "manifest": "benchmarks/naturalistic_holdout/v0.1/manifest.json",
+    "readme": "benchmarks/naturalistic_holdout/v0.1/README.md",
+    "redaction_scan_summary": "benchmarks/naturalistic_holdout/v0.1/redaction_scan_summary.md",
+    "review_sheet_csv": "benchmarks/naturalistic_holdout/v0.1/review_sheet.csv",
+    "schema": "benchmarks/naturalistic_holdout/v0.1/schema.md"
+  },
+  "intended_use": "two-annotator review package for building an independent naturalistic holdout after agreement analysis and adjudication",
+  "n_total": 200,
+  "not_intended_use": "not human-audited gold; do not report benchmark scores as gold labels until annotation, agreement, and adjudication are complete",
+  "redaction_note": "Candidate snippets are still public issue-derived text. Obvious token/email/long-secret patterns were redacted and code blocks omitted, but human reviewers should re-check before public release.",
+  "relationship_to_gapbench": "independent candidate set; not generated from GapBench templates and not a rewrite of GapBench tasks",
+  "repo_project_counts": {
+    "All-Hands-AI/OpenHands": 30,
+    "browser-use/browser-use": 10,
+    "crewAIInc/crewAI": 30,
+    "langchain-ai/langchain": 30,
+    "langchain-ai/langgraph": 35,
+    "microsoft/autogen": 30,
+    "openai/openai-agents-python": 35
+  },
+  "source_policy": "public GitHub issues only; unauthenticated API; no private data; no user API keys or HF tokens used",
+  "source_type_counts": {
+    "public_github_issue_agent_development": 170,
+    "public_github_issue_developer_tooling": 30
+  },
+  "suggested_category_counts": {
+    "agent_workflow": 44,
+    "bug_reproduction": 45,
+    "documentation_question": 24,
+    "feature_request": 53,
+    "general_issue_request": 6,
+    "integration_setup": 22,
+    "performance_or_scaling": 6
+  },
+  "version": "v0.1"
+}

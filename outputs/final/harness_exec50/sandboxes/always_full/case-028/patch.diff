@@ -1,0 +1,7 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,3 +1,3 @@
+ def mask_email(value):
+     name, domain = value.split('@', 1)
+-    return '***@' + domain
++    return name[:1] + '***@' + domain

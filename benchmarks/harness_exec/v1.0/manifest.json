@@ -1,0 +1,8 @@
+{
+  "audit_status": "author-reviewed executable fixtures; independent human audit not claimed",
+  "claim_boundary": "sandboxed executable trace validation, not SWE-bench pass@1",
+  "created": "2026-06-23",
+  "n": 20,
+  "name": "SWE-HarnessExec-20",
+  "version": "v1.0"
+}

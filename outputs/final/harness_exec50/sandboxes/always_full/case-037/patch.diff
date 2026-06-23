@@ -1,0 +1,12 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,8 @@
+ def parse_key_values(text):
+-    return dict(line.split('=') for line in text.splitlines())
++    out = {}
++    for line in text.splitlines():
++        if not line.strip():
++            continue
++        key, value = line.split('=', 1)
++        out[key.strip()] = value.strip()
++    return out

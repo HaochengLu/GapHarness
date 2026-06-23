@@ -1,0 +1,9 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,5 +1,5 @@
+ def group_by(rows, key):
+     out = {}
+     for row in rows:
+-        out[row[key]] = row
++        out.setdefault(row[key], []).append(row)
+     return out

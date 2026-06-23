@@ -1,0 +1,7 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,4 @@
+ def percent_change(old, new):
++    if old == 0:
++        return None
+     return (new - old) / old

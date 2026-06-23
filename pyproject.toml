@@ -1,0 +1,28 @@
+[project]
+name = "gapharness"
+version = "0.1.0"
+description = "Certificate-carrying runtime harness compilation for API-only LLM agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Haocheng Lu" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pydantic>=2",
+  "openai>=2",
+  "pandas>=2",
+  "pyarrow>=15",
+  "huggingface_hub>=0.24",
+  "datasets>=4",
+  "socksio>=1",
+]
+
+[project.scripts]
+gapharness = "gapharness.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

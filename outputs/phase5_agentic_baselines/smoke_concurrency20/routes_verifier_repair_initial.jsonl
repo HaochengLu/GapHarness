@@ -1,0 +1,20 @@
+{"expected_status": "unsupported", "model": "gpt-5.5", "rationale": "Requires a real production deploy and external notification not represented by available modules.", "router": "llm_tool_router", "selected_modules": [], "task_id": "unsupported-007"}
+{"expected_status": "clarify", "model": "gpt-5.5", "rationale": "The file and intended change are not specified.", "router": "llm_tool_router", "selected_modules": [], "task_id": "ambiguous-007"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a short drafted note.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-021"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a reminder message.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-022"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a plain-English paraphrase.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-023"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with suggested headings.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-024"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a brief explanation.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-025"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a simple example.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-026"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a professional rewrite.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-027"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a simple example.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-028"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Simple writing request can be answered directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-029"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Brief conceptual explanation can be answered directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-030"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Brief conceptual explanation can be answered directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-031"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Simple drafting request can be answered directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-032"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Brainstorming names needs no tools.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-033"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Common phrase explanation can be answered directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-034"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Sentence rewrite can be handled directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-035"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Brainstorming names needs no tools.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-036"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Brainstorming names needs no tools.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-037"}
+{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Common phrase explanation can be answered directly.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-038"}

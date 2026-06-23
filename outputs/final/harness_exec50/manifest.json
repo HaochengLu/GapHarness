@@ -1,0 +1,62 @@
+{
+  "created": "2026-06-23",
+  "n_rows": 300,
+  "n_tasks": 50,
+  "name": "SWE-HarnessExec-50 run",
+  "systems": {
+    "always_full": {
+      "avg_cost": 16.0,
+      "coverage_hs": 1.0,
+      "missing_module_rate": 0.0,
+      "n": 50,
+      "post_test_passed": 1.0,
+      "pre_test_failed": 1.0,
+      "trace_success": 1.0
+    },
+    "difficulty_router": {
+      "avg_cost": 6.0,
+      "coverage_hs": 0.0,
+      "missing_module_rate": 1.0,
+      "n": 50,
+      "post_test_passed": 0.0,
+      "pre_test_failed": 0.0,
+      "trace_success": 0.0
+    },
+    "direct": {
+      "avg_cost": 0.0,
+      "coverage_hs": 0.0,
+      "missing_module_rate": 1.0,
+      "n": 50,
+      "post_test_passed": 0.0,
+      "pre_test_failed": 0.0,
+      "trace_success": 0.0
+    },
+    "gapharness": {
+      "avg_cost": 12.0,
+      "coverage_hs": 1.0,
+      "missing_module_rate": 0.0,
+      "n": 50,
+      "post_test_passed": 1.0,
+      "pre_test_failed": 1.0,
+      "trace_success": 1.0
+    },
+    "oracle_minimal": {
+      "avg_cost": 12.0,
+      "coverage_hs": 1.0,
+      "missing_module_rate": 0.0,
+      "n": 50,
+      "post_test_passed": 1.0,
+      "pre_test_failed": 1.0,
+      "trace_success": 1.0
+    },
+    "tool_router": {
+      "avg_cost": 4.0,
+      "coverage_hs": 0.0,
+      "missing_module_rate": 1.0,
+      "n": 50,
+      "post_test_passed": 0.0,
+      "pre_test_failed": 0.0,
+      "trace_success": 0.0
+    }
+  }
+}

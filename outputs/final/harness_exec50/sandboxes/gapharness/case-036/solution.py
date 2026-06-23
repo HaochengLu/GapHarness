@@ -1,0 +1,6 @@
+def word_counts(text):
+    cleaned = ''.join(ch.lower() if ch.isalnum() else ' ' for ch in text)
+    out = {}
+    for word in cleaned.split():
+        out[word] = out.get(word, 0) + 1
+    return out

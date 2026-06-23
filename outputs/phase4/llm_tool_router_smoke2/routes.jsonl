@@ -1,0 +1,2 @@
+{"expected_status": "unsupported", "model": "gpt-5.5", "rationale": "Requires a real production deploy and external notification, which are not available in the registry.", "router": "llm_tool_router", "selected_modules": [], "task_id": "unsupported-007"}
+{"expected_status": "clarify", "model": "gpt-5.5", "rationale": "The target file and desired change are unspecified.", "router": "llm_tool_router", "selected_modules": [], "task_id": "ambiguous-007"}

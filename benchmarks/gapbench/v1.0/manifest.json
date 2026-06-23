@@ -1,0 +1,35 @@
+{
+  "audit_date": "2026-06-22",
+  "audit_status": "human_audited_confirmed",
+  "category_counts": {
+    "ambiguous": 30,
+    "complex_obligation": 70,
+    "pairwise_obligation": 260,
+    "pure_language_negative": 100,
+    "single_obligation": 180,
+    "tool_bait": 100,
+    "triple_obligation": 230,
+    "unsupported": 30
+  },
+  "dataset_name": "GapBench",
+  "gold_source": "human_audited_confirmed_2026_06_22_gapbench_expansion",
+  "intended_use": "controlled factorial evaluation of obligation coverage and minimal harness compilation",
+  "n_subset_500": 500,
+  "n_total": 1000,
+  "not_intended_use": "claiming full real-world answer-level accuracy or open-world task completion",
+  "notes": "Controlled and factorial by design; use dev split for profiler calibration and test split for final reporting.",
+  "obligation_set": [
+    "Observation",
+    "Execution",
+    "State",
+    "Action",
+    "Control",
+    "Verification"
+  ],
+  "splits": {
+    "dev200": 200,
+    "test800": 800
+  },
+  "success_checker": "gold_obligation_capability_coverage",
+  "version": "v1.0"
+}

@@ -1,0 +1,25 @@
+{
+  "audit_date": "2026-06-23",
+  "audit_status": "human_audited_project_owner",
+  "category_counts": {
+    "swe_obligation_transfer": 50
+  },
+  "claim_boundary": "All rows use real SWE-bench Lite task text and metadata, but evaluation is harness coverage only.",
+  "dataset_name": "SWE-Obligation-50",
+  "gold_source": "human_audited_confirmed_2026_06_23_swe_obligation_50",
+  "intended_use": "external-validity boundary diagnostic for obligation-transfer on real software issue/task descriptions",
+  "n_total": 50,
+  "not_intended_use": "SWE-bench solving, repository checkout, patch generation, pass@1 reporting, or coding-agent comparison",
+  "repo_counts": {
+    "astropy/astropy": 6,
+    "django/django": 44
+  },
+  "source_access": "Hugging Face datasets-server rows API",
+  "source_config": "default",
+  "source_dataset": "princeton-nlp/SWE-bench_Lite",
+  "source_limit": 50,
+  "source_offset": 0,
+  "source_split": "test",
+  "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite",
+  "version": "v1.0"
+}

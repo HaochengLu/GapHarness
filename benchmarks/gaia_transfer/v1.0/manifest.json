@@ -1,0 +1,31 @@
+{
+  "audit_date": "2026-06-22",
+  "audit_note": "Project owner confirmed the validation100 plus test100 obligation-transfer labels as gold truth on 2026-06-22. This is obligation-transfer gold, not GAIA answer-level correctness.",
+  "audit_status": "project_owner_audited_confirmed",
+  "category_counts": {
+    "gaia_transfer_level_1": 68,
+    "gaia_transfer_level_2": 75,
+    "gaia_transfer_level_3": 57
+  },
+  "dataset_name": "GAIA-Transfer",
+  "gold_source": "project_owner_audited_confirmed_2026_06_22_gaia_transfer_200",
+  "intended_use": "obligation-transfer evaluation on real assistant benchmark queries",
+  "n_total": 200,
+  "not_intended_use": "claiming full GAIA answer-level accuracy without executing answer attempts",
+  "obligation_set": [
+    "Observation",
+    "Execution",
+    "State",
+    "Action",
+    "Control",
+    "Verification"
+  ],
+  "source_config": "2023_all",
+  "source_dataset": "gaia-benchmark/GAIA",
+  "splits": {
+    "test100": 100,
+    "validation100": 100
+  },
+  "success_checker": "gaia_obligation_transfer_only",
+  "version": "v1.0"
+}

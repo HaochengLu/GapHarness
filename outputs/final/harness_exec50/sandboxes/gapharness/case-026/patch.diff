@@ -1,0 +1,6 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,2 @@
+ def env_flag(value):
+-    return bool(value)
++    return str(value).strip().lower() not in {'', '0', 'false', 'no', 'off'}

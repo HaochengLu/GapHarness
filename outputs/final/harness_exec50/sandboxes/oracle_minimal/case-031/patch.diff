@@ -1,0 +1,11 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,7 @@
+ def nested_get(data, keys, default=None):
+-    return data[keys[0]]
++    current = data
++    for key in keys:
++        if not isinstance(current, dict) or key not in current:
++            return default
++        current = current[key]
++    return current

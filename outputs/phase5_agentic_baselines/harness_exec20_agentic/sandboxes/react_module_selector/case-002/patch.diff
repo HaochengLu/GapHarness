@@ -1,0 +1,6 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,2 @@
+ def slugify(text):
+-    return text.strip().replace(' ', '-')
++    return '-'.join(text.strip().lower().split())

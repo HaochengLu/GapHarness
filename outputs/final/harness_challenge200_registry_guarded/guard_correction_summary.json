@@ -1,0 +1,9 @@
+{
+  "added_real_world_side_effect": 0,
+  "cleared_no_tool_language": 0,
+  "converted_unsupported_to_supported": 20,
+  "guard_applied": 20,
+  "n": 200,
+  "removed_real_world_side_effect": 20,
+  "set_or_preserved_clarification": 0
+}

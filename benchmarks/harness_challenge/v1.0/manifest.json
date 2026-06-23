@@ -1,0 +1,22 @@
+{
+  "audit_status": "author-reviewed targeted diagnostic; independent human audit not claimed",
+  "category_counts": {
+    "hard_tool_bait": 30,
+    "minimal_pair": 50,
+    "real_source_paraphrase": 20,
+    "registry_absence": 30,
+    "sandbox_vs_real_side_effect": 40,
+    "verification_evidence_trap": 30
+  },
+  "created": "2026-06-23",
+  "gold_source": "author_reviewed_targeted_diagnostic_2026_06_23",
+  "intended_use": "diagnostic and stress testing of obligation-sensitive harness synthesis",
+  "n": 200,
+  "name": "HarnessChallenge-200",
+  "not_intended_use": "natural-frequency measurement or answer-level benchmark solving",
+  "split": {
+    "dev50": 50,
+    "test150": 150
+  },
+  "version": "v1.0"
+}

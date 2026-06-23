@@ -1,0 +1,7 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,3 +1,3 @@
+ def parse_iso_date(value):
+-    month, day, year = value.split('/')
++    year, month, day = value.split('-')
+     return {'year': int(year), 'month': int(month), 'day': int(day)}

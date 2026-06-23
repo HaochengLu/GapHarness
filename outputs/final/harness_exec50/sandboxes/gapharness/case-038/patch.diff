@@ -1,0 +1,12 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,8 @@
+ def parse_duration(value):
+-    return int(value[:-1])
++    amount = int(value[:-1])
++    unit = value[-1]
++    if unit == 'h':
++        return amount * 3600
++    if unit == 'm':
++        return amount * 60
++    return amount

@@ -1,0 +1,6 @@
+{
+  "audit_status": "author_seeded_for_fresh_holdout_review",
+  "boundary": "sandbox/mock/local versus real-world side-effect status and affordance boundary",
+  "n": 100,
+  "name": "RealBoundary-100"
+}

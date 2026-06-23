@@ -1,0 +1,8 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,4 @@
+ def is_anagram(left, right):
+-    return sorted(left) == sorted(right)
++    clean_left = sorted(ch.lower() for ch in left if ch.isalnum())
++    clean_right = sorted(ch.lower() for ch in right if ch.isalnum())
++    return clean_left == clean_right

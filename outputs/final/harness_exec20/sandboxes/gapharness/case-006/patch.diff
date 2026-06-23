@@ -1,0 +1,12 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,8 @@
+ def unique_preserve(values):
+-    return sorted(set(values))
++    seen = set()
++    out = []
++    for value in values:
++        if value not in seen:
++            seen.add(value)
++            out.append(value)
++    return out

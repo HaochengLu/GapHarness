@@ -1,0 +1,8 @@
+--- solution.py.before
++++ solution.py.after
+@@ -2,4 +2,4 @@
+ 
+ 
+ def parse_json_lines(text):
+-    return [json.loads(text)]
++    return [json.loads(line) for line in text.splitlines() if line.strip()]

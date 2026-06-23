@@ -1,0 +1,6 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,2 +1,2 @@
+ def join_url(base, path):
+-    return base + '/' + path
++    return base.rstrip('/') + '/' + path.lstrip('/')

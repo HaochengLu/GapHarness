@@ -1,0 +1,20 @@
+{"category": "line_count", "fixture": "lines.txt", "query": "Count lines in a temporary text file.", "task_id": "terminal-smoke-001"}
+{"category": "json_sum", "fixture": "numbers.json", "query": "Compute the sum of numeric JSON fields.", "task_id": "terminal-smoke-002"}
+{"category": "python_syntax", "fixture": "syntax_ok.py", "query": "Run a Python syntax check.", "task_id": "terminal-smoke-003"}
+{"category": "failing_test", "fixture": "test_failure.py", "query": "Capture the failing test message.", "task_id": "terminal-smoke-004"}
+{"category": "config_edit", "fixture": "mock_config.json", "query": "Update a mock config inside the sandbox.", "task_id": "terminal-smoke-005"}
+{"category": "key_compare", "fixture": "config_a.json", "query": "Compare changed keys across two JSON files.", "task_id": "terminal-smoke-006"}
+{"category": "csv_count", "fixture": "rows.csv", "query": "Count rows in a CSV fixture.", "task_id": "terminal-smoke-007"}
+{"category": "grep_error", "fixture": "app.log", "query": "Find error lines in a log file.", "task_id": "terminal-smoke-008"}
+{"category": "checksum", "fixture": "checksum.txt", "query": "Compute a deterministic text checksum.", "task_id": "terminal-smoke-009"}
+{"category": "dry_run_plan", "fixture": "plan.md", "query": "Write a mock dry-run plan.", "task_id": "terminal-smoke-010"}
+{"category": "line_count", "fixture": "nonempty.txt", "query": "Count non-empty lines in a temporary text file.", "task_id": "terminal-smoke-011"}
+{"category": "json_sum", "fixture": "nested_numbers.json", "query": "Compute a nested JSON value total.", "task_id": "terminal-smoke-012"}
+{"category": "python_syntax", "fixture": "syntax_two.py", "query": "Check a second Python file for syntax.", "task_id": "terminal-smoke-013"}
+{"category": "failing_test", "fixture": "test_failure_two.py", "query": "Capture another failing assertion message.", "task_id": "terminal-smoke-014"}
+{"category": "config_edit", "fixture": "dry_run_config.json", "query": "Toggle sandbox dry-run mode.", "task_id": "terminal-smoke-015"}
+{"category": "key_compare", "fixture": "settings_a.json", "query": "Compare keys for another config pair.", "task_id": "terminal-smoke-016"}
+{"category": "csv_count", "fixture": "records.csv", "query": "Count CSV data rows in a second fixture.", "task_id": "terminal-smoke-017"}
+{"category": "grep_error", "fixture": "warnings.log", "query": "Extract warning lines from a log file.", "task_id": "terminal-smoke-018"}
+{"category": "checksum", "fixture": "checksum_two.txt", "query": "Compute a checksum for another text file.", "task_id": "terminal-smoke-019"}
+{"category": "dry_run_plan", "fixture": "notification_payload.json", "query": "Create a mock external-notification payload.", "task_id": "terminal-smoke-020"}

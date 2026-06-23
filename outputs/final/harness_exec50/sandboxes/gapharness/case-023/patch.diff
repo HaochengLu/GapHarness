@@ -1,0 +1,8 @@
+--- solution.py.before
++++ solution.py.after
+@@ -1,4 +1,4 @@
+ def reserve(stock, sku, qty):
+     out = dict(stock)
+-    out[sku] -= 1
++    out[sku] = out.get(sku, 0) - qty
+     return out
