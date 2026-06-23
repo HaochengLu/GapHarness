@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Certificate-carrying runtime harness compilation for API-only LLM agents."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = "MIT"
 authors = [{ name = "Haocheng Lu" }]
 dependencies = []
 
@@ -26,3 +26,6 @@ gapharness = "gapharness.cli:main"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["gapharness*"]
