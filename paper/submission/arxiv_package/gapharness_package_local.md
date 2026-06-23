@@ -1,6 +1,9 @@
 ---
 title: "GapHarness: Certificate-Carrying Runtime Harness Compilation for API-Only LLM Agents"
-author: "Anonymous Authors"
+author:
+  - |
+    Haocheng Lu
+    <haocheng409@gmail.com>
 bibliography: references.bib
 link-citations: true
 geometry: margin=1in

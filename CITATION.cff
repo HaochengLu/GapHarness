@@ -5,9 +5,10 @@ type: software
 authors:
   - family-names: Lu
     given-names: Haocheng
+    email: haocheng409@gmail.com
 repository-code: "https://github.com/HaochengLu/GapHarness"
 license: MIT
-version: "0.1.0"
+version: "0.1.1"
 date-released: "2026-06-23"
 keywords:
   - LLM agents
@@ -15,4 +16,3 @@ keywords:
   - tool use
   - verification
   - software engineering
-
