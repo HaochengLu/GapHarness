@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "pair-117",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 117, check whether ExampleProduct Vector has a recent release note and cite the public source; then check the task budget and require approval before using any high-cost module in case 118.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240334563263165618268d9d6aErVOn0z",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782272123,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Verification\",\n    \"State\",\n    \"Control\"\n  ],\n  \"capabilities\": [\n    \"evidence_sources\",\n    \"source_spans\",\n    \"workspace_inspection\",\n    \"durable_state\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3326,
+      "completion_tokens": 1725,
+      "total_tokens": 5051,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3326,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1635
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

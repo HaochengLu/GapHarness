@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "complex-0059",
+  "cluster": "complex_obligation",
+  "query": "For generated case 7059, find a current public FAQ entry for ExampleProduct Delta and report the source; then calculate exactly 89 * 26; then save the decision \"use minimal harness\" under durable state key gapbench_7061; then update sandbox_config_7062.json with a mock flag enabled=true after permission approval; then validate that every factual claim has a source span for case 7063.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_05d48f69c69b61d5016a3b48e1c204819894453c047c206c0b",
+    "object": "chat.completion",
+    "created": 1782270177,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"execution\",\"workspace_inspection\",\"durable_state\",\"diff\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 265,
+      "total_tokens": 8548,
+      "prompt_tokens": 8283,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 205
+      }
+    }
+  }
+}

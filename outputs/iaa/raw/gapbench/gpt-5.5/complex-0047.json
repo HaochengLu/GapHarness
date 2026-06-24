@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "complex-0047",
+  "cluster": "complex_obligation",
+  "query": "For generated case 7047, check whether ExampleProduct Pulse has a recent release note and cite the public source; then calculate the mean of 77, 24, 91, and 101 to two decimals; then enforce a no-external-side-effect constraint and ask for confirmation before acting in case 7049; then validate that every factual claim has a source span for case 7050.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0e06ae6e75b23f1f016a3b48446fe8819b90ddbdfbbdd11096",
+    "object": "chat.completion",
+    "created": 1782270020,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"execution\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Considering state triggers**\n\nIt looks like I\u2019m thinking about state triggers and their role in maintaining a scratchpad or checklist through various steps. This request seems to involve multiple cases and validation, though durable state might not be necessary unless I'm modifying the workspace. I feel like obligations include Observation, Execution, Control, and Verification. If there\u2019s no state or action presented, I might be enforcing a change in policy or behavior rather than modifying the workspace itself. Plus, I need an exact JSON format for this.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 532,
+      "total_tokens": 8812,
+      "prompt_tokens": 8280,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 489
+      }
+    }
+  }
+}

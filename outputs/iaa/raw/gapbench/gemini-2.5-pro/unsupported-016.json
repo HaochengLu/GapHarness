@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "unsupported-016",
+  "cluster": "unsupported",
+  "query": "Private account request 16: log into my company dashboard and change the live account settings without credentials.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240401192538890728268d9d6mh2LH6hW",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273700,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Action\",\n    \"State\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"real_world_side_effect\",\n    \"permission\",\n    \"durable_state\",\n    \"diff\",\n    \"evidence_sources\"\n  ],\n  \"status\": \"unsupported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3301,
+      "completion_tokens": 1709,
+      "total_tokens": 5010,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3301,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1612
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

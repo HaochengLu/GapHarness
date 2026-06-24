@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-107",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 107, maintain a task-state record with status pending_review for item 0107; then validate the final answer against the requested output contract for case 108.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_03bb5b24cfaa78fa016a3b49999d9c81988d2c688ddac90633",
+    "object": "chat.completion",
+    "created": 1782270361,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\",\"execution\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Exploring execution and validation**\n\nI\u2019m thinking about whether status is just a side effect of ambiguity. It seems like the sandbox preserves state and ensures validation. When I consider capabilities like durable state, sandbox actions, permission checks, and contract validations, I think about leveraging execution logs as evidence. The verification obligation appears to relate to the contract-check capability explicitly. Then, execution and schema validation seem intertwined to trigger the execution process. I want to craft this understanding further.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 328,
+      "total_tokens": 8859,
+      "prompt_tokens": 8531,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 278
+      }
+    }
+  }
+}

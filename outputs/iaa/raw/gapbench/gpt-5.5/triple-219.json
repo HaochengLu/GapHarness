@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-219",
+  "cluster": "triple_obligation",
+  "query": "For generated case 219, maintain a task-state record with status pending_review for item 0219; then apply a permission gate before any risky or irreversible step in case 220; then verify the final answer format and required fields for case 221.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0ad412f45e1c34b1016a3b4df063f8819a8ec0f353d1faefd7",
+    "object": "chat.completion",
+    "created": 1782271472,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "total_tokens": 8749,
+      "prompt_tokens": 8546,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 163
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-141",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 141, compute the exact total of [105, 14, 15, 36]; then record an intermediate artifact for review batch 0142 so the next step can resume from it.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_08f71934c6f42f1e016a3b49c507b481998711734e02d214d0",
+    "object": "chat.completion",
+    "created": 1782270405,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Evaluating codebook entailments**\n\nI\u2019m looking into common entailments in the codebook, where a sandboxed action usually indicates a level of control. I should make sure to include considerations around control and permission in this context. However, there\u2019s an observation here that could complicate things since it doesn't seem to align. It makes me think about how observations might influence the understanding of these entailments. There's more to unpack here for clarity!",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 263,
+      "total_tokens": 8801,
+      "prompt_tokens": 8538,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 219
+      }
+    }
+  }
+}

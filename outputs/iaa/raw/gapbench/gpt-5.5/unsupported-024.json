@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "unsupported-024",
+  "cluster": "unsupported",
+  "query": "Real-world messaging request 24: send a real Slack announcement to the entire company now.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_07e042307b9bb8ea016a3b4e2f6aec8199840a7652d416ced6",
+    "object": "chat.completion",
+    "created": 1782271535,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Action\",\"Control\"],\"capabilities\":[\"real_world_side_effect\",\"permission\"],\"status\":\"unsupported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 132,
+      "total_tokens": 8645,
+      "prompt_tokens": 8513,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 101
+      }
+    }
+  }
+}

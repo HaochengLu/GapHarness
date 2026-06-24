@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-067",
+  "cluster": "triple_obligation",
+  "query": "For generated case 67, evaluate exactly (104 + 29) * 7; then apply a permission gate before any risky or irreversible step in case 68; then validate the computation using an execution log and final answer contract for case 69.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240353276851511068268d9d6PRN0hcit",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273241,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Execution\",\n    \"State\",\n    \"Action\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"execution\",\n    \"durable_state\",\n    \"permission\",\n    \"execution_log\",\n    \"contract_check\",\n    \"workspace_inspection\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3337,
+      "completion_tokens": 104,
+      "total_tokens": 3441,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3337,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

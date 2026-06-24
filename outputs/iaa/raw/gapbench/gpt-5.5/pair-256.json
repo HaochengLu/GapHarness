@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-256",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 256, inspect the workspace file package.json for ExampleProject rho and report what it says; then append one line to sandbox_log_0257.txt in the sandbox workspace after passing the permission gate.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0eb0ae04d10bab8b016a3b4a9f2340819885f17455914b3f11",
+    "object": "chat.completion",
+    "created": 1782270623,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "total_tokens": 8473,
+      "prompt_tokens": 8242,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 190
+      }
+    }
+  }
+}

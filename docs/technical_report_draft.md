@@ -4,7 +4,7 @@
 
 GapHarness studies a minimal runtime synthesis problem for API-only LLM agents. Given a user query, a base model, and a declared registry of runtime modules, the system infers the external obligations required for a warranted answer or action, compiles the lowest-cost module subset that covers those obligations, executes the resulting loop in a sandbox runtime, and verifies both sufficiency and relative minimality through deterministic traces and drop-one ablations.
 
-We introduce an obligation ontology covering Observation, Execution, State, Action, Control, and Verification. On a 1000-task human-audited controlled benchmark, GapHarness matches an oracle minimal harness under gold labels while common routing baselines either under-harness or over-harness. A 200-task GAIA transfer set and a 200-task naturalized review set provide the first path toward validating the ontology beyond templated controlled tasks.
+We introduce an obligation ontology covering Observation, Execution, State, Action, Control, and Verification. On a 1000-task project-owner-reviewed controlled benchmark (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset), GapHarness matches an oracle minimal harness under gold labels while common routing baselines either under-harness or over-harness. A 200-task GAIA transfer set and a 200-task naturalized review set provide the first path toward validating the ontology beyond templated controlled tasks.
 
 ## Core Claim
 
@@ -42,18 +42,18 @@ The first runnable MVP includes:
 - sandbox executor with JSONL traces
 - deterministic sufficiency verifier
 - drop-one minimality verifier
-- 1000-task GapBench-Factorial benchmark, human-audited and confirmed by the project owner
+- 1000-task GapBench-Factorial benchmark, project-owner-reviewed (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset)
 - Direct, Tool Router, Always-full, Difficulty Router, Oracle Minimal baselines
 - frozen GapBench v1.0 and GAIA-Transfer v1.0 manifests, schemas, audit logs, and reproducible result tables
 - a draft GapBench-Natural-200 review package for testing natural user phrasing
 
 ## Current MVP Results
 
-On the 100-task synthetic seed benchmark, the gold profiler path makes GapHarness match the oracle minimal harness exactly: 1.00 success, 2.88 average cost, and 0.00 minimality regret. Direct LLM reaches only 0.18 success, while Always-full reaches 0.86 success but with 16.00 average cost and 0.86 over-harness rate.
+On the 100-task synthetic seed benchmark, the gold profiler path makes GapHarness match the oracle minimal harness exactly: 1.00 success, 2.88 average cost, and 0.00 excess cost. Direct LLM reaches only 0.18 success, while Always-full reaches 0.86 success but with 16.00 average cost and 0.86 over-harness rate.
 
-The LLM profiler cascade reaches 1.00 success after registry canonicalization, with 3.68 average cost and 0.80 minimality regret. This demonstrates the expected tradeoff: a high-recall obligation profiler eliminates under-harnessing but introduces over-harnessing unless calibrated for minimality.
+The LLM profiler cascade reaches 1.00 success after registry canonicalization, with 3.68 average cost and 0.80 excess cost. This demonstrates the expected tradeoff: a high-recall obligation profiler eliminates under-harnessing but introduces over-harnessing unless calibrated for minimality.
 
-On the expanded 1000-task human-audited GapBench, GapHarness again matches Oracle Minimal exactly under the gold profiler: 1.00 success, 3.67 average cost, and 0.00 regret. Direct LLM reaches 0.20 success; Tool Router reaches 0.34 success with 0.60 under-harness rate; Always-full reaches 0.94 success but pays 16.00 average cost and 0.94 over-harness rate.
+On the expanded 1000-task project-owner-reviewed GapBench, GapHarness again matches Oracle Minimal exactly under the gold profiler: 1.00 success, 3.67 average cost, and 0.00 cost delta. Direct LLM reaches 0.20 success; Tool Router reaches 0.34 success with 0.60 under-harness rate; Always-full reaches 0.94 success but pays 16.00 average cost and 0.94 over-harness rate.
 
 The current Phase 2 artifacts include paper-ready tables in `outputs/phase2/` and SVG figures in `figures/phase2/`. Table 1 reports the controlled GapBench-1000 results, Table 2 reports GAIA/Natural smoke evaluations, and Table 3 reports controlled category breakdowns.
 
@@ -63,7 +63,7 @@ The deterministic results above assume gold obligations. Phase 2B asks whether a
 
 We froze the deterministic checkpoint as `phase2-deterministic-artifacts-v1` before running LLM profiler experiments. Subsequent Phase 2B experiments evaluate inferred obligations only and do not modify GapBench v1.0 labels, compiler rules, or deterministic baselines.
 
-On GapBench dev200, three profiler modes were calibrated: single-prompt, recall-biased, and minimality-biased. All three satisfied the pre-registered sufficiency guard. The primary profiler was selected by the stated rule: under-harness rate at most 0.08, success at least 0.90, then lowest minimality regret. This selected `llm_single`.
+On GapBench dev200, three profiler modes were calibrated: single-prompt, recall-biased, and minimality-biased. All three satisfied the pre-registered sufficiency guard. The primary profiler was selected by the stated rule: under-harness rate at most 0.08, success at least 0.90, then lowest excess cost. This selected `llm_single`.
 
 On held-out test800, selected LLM GapHarness reaches 0.89 success at 3.59 average cost, compared with Direct at 0.20 success, Tool Router at 0.32 success, Difficulty Router at 0.41 success, and Always-full at 0.94 success with 16.00 average cost. This result supports the practical value of obligation-first harness synthesis, while also showing that profiler calibration remains an open limitation.
 
@@ -91,9 +91,9 @@ Registry perturbation verifies that GapHarness does not silently hallucinate sup
 
 ### Gold Label Permutation
 
-We test whether GapBench labels have semantic force by corrupting a 200-task subset of supported examples. This is not a realistic corruption model. It is an anti-circularity stress test: corrupted obligation profiles are fed to the compiler, while the verifier still checks against the original human-audited labels.
+We test whether GapBench labels have semantic force by corrupting a 200-task subset of supported examples. This is not a realistic corruption model. It is an anti-circularity stress test: corrupted obligation profiles are fed to the compiler, while the verifier still checks against the original project-owner-reviewed labels.
 
-Correct gold labels yield 1.00 success and 0.00 regret. The permutation generator changes obligations or required capabilities for all 200 corrupted profiles. Corrupted labels reduce success to 0.17, raise under-harness to 0.83, raise wrong-harness to 0.79, and raise over-harness to 0.55. Thus, arbitrary obligation labels do not pass through the compiler-verifier stack unchanged; errors in obligation semantics produce measurable failures.
+Correct gold labels yield 1.00 success and 0.00 cost delta. The permutation generator changes obligations or required capabilities for all 200 corrupted profiles. Corrupted labels reduce success to 0.17, raise under-harness to 0.83, raise wrong-harness to 0.79, and raise over-harness to 0.55. Thus, arbitrary obligation labels do not pass through the compiler-verifier stack unchanged; errors in obligation semantics produce measurable failures.
 
 ### Tool-Bait and Pure-Language Negative Controls
 
@@ -103,9 +103,9 @@ These negative controls support the claim that GapHarness is obligation-sensitiv
 
 ## Benchmark Assets
 
-GapBench v1.0 is a 1000-row controlled benchmark designed to isolate obligation coverage and minimal harness compilation. It includes dev200 and test800 splits, a manifest, a schema description, and an audit log. The project owner confirmed the labels as gold truth on 2026-06-22.
+GapBench v1.0 is a 1000-row controlled benchmark designed to isolate obligation coverage and minimal harness compilation. It includes dev200 and test800 splits, a manifest, a schema description, and an audit log. The labels are single-annotator (project-owner) labels reviewed on 2026-06-22; inter-annotator agreement is reported on an independent subset.
 
-GAIA-Transfer v1.0 contains 200 GAIA-derived rows, with 100 validation and 100 test examples. It is intended as an obligation-transfer benchmark over real assistant queries, not as a claim of full GAIA answer-level accuracy. The project owner confirmed the transfer labels as gold truth on 2026-06-22.
+GAIA-Transfer v1.0 contains 200 GAIA-derived rows, with 100 validation and 100 test examples. It is intended as an obligation-transfer benchmark over real assistant queries, not as a claim of full GAIA answer-level accuracy. The transfer labels are single-annotator (project-owner) labels reviewed on 2026-06-22; inter-annotator agreement is reported on an independent subset.
 
 GapBench-Natural v1.0 draft contains 200 naturalized prompts sampled from audited GapBench source rows. It is currently for human review. The inherited labels should not be treated as final paper claims until the naturalized wording is audited.
 
@@ -116,7 +116,7 @@ GapBench-Natural v1.0 draft contains 200 naturalized prompts sampled from audite
 - Over-harness rate
 - Under-harness rate
 - Wrong-harness rate
-- Minimality regret
+- Cost delta (excess cost)
 - Counterfactual module necessity
 - Redundancy
 
@@ -137,4 +137,4 @@ The main current limitation is that gold-label compiler results isolate the harn
 
 ## GAIA Transfer Status
 
-GAIA `2023_all` now loads locally through Hugging Face Datasets. The repository contains a 200-row human-audited transfer subset: 100 validation examples and 100 test examples. The project owner confirmed these transfer labels as gold truth. GapHarness reaches 1.00 success and 0.00 regret on this transfer subset under the gold profiler.
+GAIA `2023_all` now loads locally through Hugging Face Datasets. The repository contains a 200-row project-owner-reviewed transfer subset: 100 validation examples and 100 test examples. These transfer labels are single-annotator (project-owner) labels; inter-annotator agreement is reported on an independent subset. GapHarness reaches 1.00 success and 0.00 cost delta on this transfer subset under the gold profiler.

@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-209",
+  "cluster": "triple_obligation",
+  "query": "For generated case 209, read requirements.txt in the sandbox workspace for ExampleProject kappa and extract the relevant configuration detail; then record an intermediate artifact for review batch 0210 so the next step can resume from it; then check that the final response satisfies the specified JSON-style contract for case 211.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240359475043840448268d9d6H3V2MPrn",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273611,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Execution\",\n    \"State\",\n    \"Action\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"workspace_inspection\",\n    \"durable_state\",\n    \"sandbox_action\",\n    \"permission\",\n    \"contract_check\",\n    \"execution\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3349,
+      "completion_tokens": 1571,
+      "total_tokens": 4920,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3349,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1467
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

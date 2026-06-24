@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "complex-0024",
+  "cluster": "complex_obligation",
+  "query": "For generated case 7024, inspect the workspace file package.json for ExampleProject epsilon and report what it says; then calculate exactly 54 * 27; then update sandbox_config_7026.json with a mock flag enabled=true after permission approval; then validate the computation using an execution log and final answer contract for case 7027.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0cad488bb0c81a77016a3b4822c1d48199b1d5a0605d00be74",
+    "object": "chat.completion",
+    "created": 1782269986,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 220,
+      "total_tokens": 8487,
+      "prompt_tokens": 8267,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 167
+      }
+    }
+  }
+}

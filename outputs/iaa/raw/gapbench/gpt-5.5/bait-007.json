@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-007",
+  "cluster": "tool_bait",
+  "query": "Tool bait: without searching, running code, or reading files, brainstorm three product names for case 7.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0f97cac17b5fe445016a3b4730bc54819ba832341d64aabf29",
+    "object": "chat.completion",
+    "created": 1782269744,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": "**Brainstorming product names**\n\nI recognize that I need to provide a JSON answer. The request asks for me to annotate that I should brainstorm three product names for \"case 7,\" but it says not to search, run code, or read files. I wonder if \u201ccase 7\u201d needs more context since it's ambiguous. However, I can still use language to come up with names, even if I lack specific information. I\u2019ll focus on creating names based on what I have available.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 121,
+      "total_tokens": 8638,
+      "prompt_tokens": 8517,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 101
+      }
+    }
+  }
+}

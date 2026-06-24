@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-118",
+  "cluster": "single_obligation",
+  "query": "For generated case 118, open the local src/main.py for ExampleProject tau and summarize its main instruction.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_082a8db1bf0f4dcd016a3b4c165c9481989c17a532fb7b4d4f",
+    "object": "chat.completion",
+    "created": 1782270998,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\"],\"capabilities\":[\"workspace_inspection\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 66,
+      "total_tokens": 8583,
+      "prompt_tokens": 8517,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 40
+      }
+    }
+  }
+}

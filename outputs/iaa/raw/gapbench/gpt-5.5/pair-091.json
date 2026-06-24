@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-091",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 91, look up the current public documentation page for ExampleProduct Terra and summarize the relevant update; then evaluate exactly (56 + 40) * 5.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0db55fd56f0569f1016a3b49596bc48199aa2ae51861439a3c",
+    "object": "chat.completion",
+    "created": 1782270297,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"execution\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 137,
+      "total_tokens": 8372,
+      "prompt_tokens": 8235,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 105
+      }
+    }
+  }
+}

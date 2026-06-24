@@ -1,6 +1,6 @@
 # GapBench v1.0 Audit Log
 
-- 2026-06-22: Project owner confirmed all 1000 labels as gold truth.
+- 2026-06-22: Project owner reviewed all 1000 labels (single annotator).
 - 2026-06-22: Dataset frozen as `benchmarks/gapbench/v1.0`.
 - 2026-06-22: Split policy frozen: stratified dev200/test800 by category.
 

@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-228",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 228, create file sandbox_note_0228.txt in the sandbox workspace and require a permission gate before the write; then check that the final response satisfies the specified JSON-style contract for case 229.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_029a9c22173e42d1016a3b4a7eeb888198a0a330e288d31969",
+    "object": "chat.completion",
+    "created": 1782270590,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 251,
+      "total_tokens": 8494,
+      "prompt_tokens": 8243,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 201
+      }
+    }
+  }
+}

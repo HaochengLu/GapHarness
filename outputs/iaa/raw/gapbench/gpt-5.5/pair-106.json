@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-106",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 106, record an intermediate artifact for review batch 0106 so the next step can resume from it; then block any real-world action unless the user explicitly grants permission in case 107.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0c58eb8548a4f2be016a3b498fdcdc819ba1417e9596191d43",
+    "object": "chat.completion",
+    "created": 1782270351,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"State\",\"Action\",\"Control\"],\"capabilities\":[\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 153,
+      "total_tokens": 8690,
+      "prompt_tokens": 8537,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 118
+      }
+    }
+  }
+}

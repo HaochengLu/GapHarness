@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="160" viewBox="0 0 1180 160">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="20.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="85.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">User Query</text>
+<line x1="150.00" y1="79.00" x2="166.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="166.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="231.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Obligation Profiler</text>
+<line x1="296.00" y1="79.00" x2="312.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="312.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="377.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Obligation Vector</text>
+<line x1="442.00" y1="79.00" x2="458.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="458.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="523.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Module Registry</text>
+<line x1="588.00" y1="79.00" x2="604.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="604.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="669.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Exact Compiler</text>
+<line x1="734.00" y1="79.00" x2="750.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="750.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="815.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Executor + Trace</text>
+<line x1="880.00" y1="79.00" x2="896.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="896.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="961.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Verifiers</text>
+<line x1="1026.00" y1="79.00" x2="1042.00" y2="79.00" stroke="#334155" stroke-width="1.5"/>
+<rect x="1042.00" y="55.00" width="130.00" height="48.00" rx="4" fill="#eef2ff" stroke="#334155"/>
+<text x="1107.00" y="84.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Minimality Report</text>
+</svg>

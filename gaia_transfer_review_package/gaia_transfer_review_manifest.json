@@ -1,0 +1,21 @@
+{
+  "audit_status": "superseded_review_package",
+  "config": "2023_all",
+  "created_on": "2026-06-22",
+  "gold_source": "superseded_by_gaia_transfer_human_audited_package",
+  "review_note": "This is the original review package retained for provenance. Use gaia_transfer_human_audited_package.zip and benchmarks/gaia_transfer/v1.0 for audited artifacts.",
+  "source": "gaia-benchmark/GAIA",
+  "splits": {
+    "test": {
+      "count": 100,
+      "csv": "gaia_test_100_review_sheet.csv",
+      "jsonl": "gaia_test_100_for_review.jsonl"
+    },
+    "validation": {
+      "count": 100,
+      "csv": "gaia_validation_100_review_sheet.csv",
+      "jsonl": "gaia_validation_100_for_review.jsonl"
+    }
+  },
+  "superseded_by": "gaia_transfer_human_audited_package.zip"
+}

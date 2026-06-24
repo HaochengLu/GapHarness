@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-053",
+  "cluster": "single_obligation",
+  "query": "For generated case 53, verify the final answer format and required fields for case 53.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0b3c868a957109c0016a3b4bba630481989a5b94124d20eccb",
+    "object": "chat.completion",
+    "created": 1782270906,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 200,
+      "total_tokens": 8714,
+      "prompt_tokens": 8514,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 165
+      }
+    }
+  }
+}

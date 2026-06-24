@@ -1,6 +1,6 @@
 {
   "audit_date": "2026-06-22",
-  "audit_note": "Project owner confirmed the validation100 plus test100 obligation-transfer labels as gold truth on 2026-06-22. This is obligation-transfer gold, not GAIA answer-level correctness.",
+  "audit_note": "Project owner reviewed the validation100 plus test100 obligation-transfer labels (single annotator) on 2026-06-22. This is obligation-transfer gold, not GAIA answer-level correctness.",
   "audit_status": "project_owner_audited_confirmed",
   "category_counts": {
     "gaia_transfer_level_1": 68,

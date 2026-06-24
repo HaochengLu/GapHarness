@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-251",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 251, look up the current public documentation page for ExampleProduct Lantern and summarize the relevant update; then evaluate exactly (70 + 12) * 3.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_009ff3cd36568c0c016a3b4a9575748193a23db26a7e6875b2",
+    "object": "chat.completion",
+    "created": 1782270613,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"execution\",\"execution_log\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 140,
+      "total_tokens": 8375,
+      "prompt_tokens": 8235,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 105
+      }
+    }
+  }
+}

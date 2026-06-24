@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-081",
+  "cluster": "tool_bait",
+  "query": "Without web access, write three placeholder slogans for a mock product launch. Tool-bait generated case 81.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0da78570eaf179f6016a3b47de3a5c81989cb2aa604b8e4b30",
+    "object": "chat.completion",
+    "created": 1782269918,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": "**Generating placeholders for slogans**\n\nI need to provide output in JSON format only for a request that's focused on writing placeholder slogans. Since there\u2019s no web access involved, it seems I should focus on pure language without any direct actions or files. So, it\u2019s really about creating a mock product launch with catchy slogans. I think I can just write some fun, imaginative slogans as placeholders to fit that context. I\u2019ll make sure the format is structured correctly!",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 65,
+      "total_tokens": 8286,
+      "prompt_tokens": 8221,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 45
+      }
+    }
+  }
+}

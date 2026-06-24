@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-008",
+  "cluster": "tool_bait",
+  "query": "Tool bait: without searching, running code, or reading files, brainstorm three product names for case 8.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_001ac071787655b7016a3b473a1724819bad234adc0b18b8ea",
+    "object": "chat.completion",
+    "created": 1782269754,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": "**Clarifying product naming constraints**\n\nI need to provide a JSON response to brainstorm three product names for something called \"case 8.\" However, the user explicitly states not to search, run code, or read files. \"Case 8\" seems to lack context, making it ambiguous. Without specifics about \"case 8,\" I can't generate tailored names. Although brainstorming could be general, the request seems under-specified. I might want to ask the user for clarification on what \"case 8\" entails.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 452,
+      "total_tokens": 8969,
+      "prompt_tokens": 8517,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 432
+      }
+    }
+  }
+}

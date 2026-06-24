@@ -1,0 +1,1010 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  10pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={GapHarness: Obligation-First Minimal Harness Synthesis for API-Only LLM Agents},
+  pdfauthor={Anonymous Authors},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{GapHarness: Obligation-First Minimal Harness Synthesis for
+API-Only LLM Agents}
+\author{Anonymous Authors}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}\label{abstract}
+
+API-only LLM agents increasingly rely on external runtimes for
+retrieval, code execution, state management, action, control, and
+verification. Existing tool routers often choose tools directly, which
+can conflate two separable questions: what external obligations a user
+query imposes, and what smallest runtime harness can satisfy those
+obligations. We introduce GapHarness, a research system that formulates
+agent harnessing as obligation inference followed by minimal runtime
+compilation. Given an obligation profile and a declared module registry,
+GapHarness compiles the lowest-cost module subset that covers required
+obligations and capabilities, executes a deterministic sandbox loop, and
+verifies sufficiency and relative minimality.
+
+We define an obligation ontology covering Observation, Execution, State,
+Action, Control, and Verification, and introduce metrics for
+over-harnessing, under-harnessing, wrong-harnessing, minimality regret,
+and redundancy. On the 1000-task human-audited GapBench controlled
+benchmark, GapHarness matches the oracle minimal harness under gold
+obligations. With LLM-inferred obligations on held-out test800,
+GapHarness reaches 0.89 success, outperforming direct and router
+baselines while exposing a calibration gap. A registry-guarded profiler
+reduces unsupported false positives from 56 to 12 and improves held-out
+success to 0.94, at the cost of higher regret. Stress tests show that
+success depends on declared registry affordances and meaningful
+obligation labels; negative controls show that GapHarness avoids
+tool-bait over-harnessing. Transfer runs on GAIA-Transfer and
+GapBench-Natural identify boundary conditions rather than claiming full
+open-world task solving.
+
+\section{1. Introduction}\label{introduction}
+
+LLM agents are commonly evaluated as end-to-end systems: a model
+receives a request, selects tools, acts in an environment, and produces
+an answer. This framing is useful, but it hides a smaller technical
+problem that appears whenever an API-only model must decide what runtime
+support is needed. A user request may require observation beyond the
+prompt, deterministic execution, durable state, sandbox action, control
+over risky operations, or independent verification. These are
+obligations, not tools.
+
+Tool-using and reasoning-action agents have shown that external actions
+can improve model behavior (\citeproc{ref-yao2023react}{S. Yao et al.
+2023}; \citeproc{ref-schick2023toolformer}{Schick et al. 2023};
+\citeproc{ref-patil2023gorilla}{Patil et al. 2023};
+\citeproc{ref-qin2024toolllm}{Qin et al. 2024}). However, choosing tools
+is not the same as deciding which external obligations must be
+satisfied. A keyword-based router may over-call tools when the user
+explicitly requests no tools, and it may under-call tools when a
+warranted answer requires evidence, state, or verification that is not
+obvious from surface wording. Benchmarks of tool choice and tool
+awareness also show that deciding whether and which tools to use is
+itself a nontrivial capability (\citeproc{ref-huang2023metatool}{Huang
+et al. 2023}).
+
+This paper studies a narrower question:
+
+\begin{quote}
+Given a user query, an obligation profile, and a declared registry of
+runtime modules, can we compile the minimal harness that satisfies the
+external obligations required for a warranted answer or action?
+\end{quote}
+
+GapHarness separates the problem into two stages. First, a profiler
+infers an obligation profile: obligations, required capabilities, output
+contracts, risk level, and unsupported or clarification conditions.
+Second, an exact compiler searches a declared module registry for the
+lowest-cost module subset that covers the obligations and capabilities.
+This separation makes failure interpretable. If a registry does not
+contain an affordance, the system should return unsupported rather than
+hallucinating support. If the profiler over- or under-infers
+obligations, the verifier should expose measurable over-harnessing,
+under-harnessing, or wrong-harnessing.
+
+The goal is not to build another general-purpose agent framework. The
+goal is to make harness synthesis measurable and auditable. Minimality
+is relative to a declared obligation ontology, module registry,
+dependency model, and cost function. This is a controlled technical
+claim, not a claim of universal agent optimality.
+
+\subsection{Contributions}\label{contributions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We formulate agent harnessing as obligation inference plus minimal
+  runtime compilation.
+\item
+  We implement GapHarness, an API-only compiler from obligations to
+  minimal harness modules.
+\item
+  We introduce minimal-sufficiency metrics: over-harnessing,
+  under-harnessing, wrong-harnessing, minimality regret, and redundancy.
+\item
+  We evaluate GapHarness on GapBench-1000, LLM-inferred profiler
+  settings, registry-guarded calibration, transfer subsets, and
+  anti-circularity stress tests.
+\end{enumerate}
+
+\section{2. Related Work}\label{related-work}
+
+\subsection{Tool-using LLM agents}\label{tool-using-llm-agents}
+
+ReAct interleaves model reasoning traces with environment actions
+(\citeproc{ref-yao2023react}{S. Yao et al. 2023}). Toolformer trains
+models to decide when and how to call APIs
+(\citeproc{ref-schick2023toolformer}{Schick et al. 2023}), while Gorilla
+and ToolLLM focus on API selection, API calling, and large tool-use
+corpora (\citeproc{ref-patil2023gorilla}{Patil et al. 2023};
+\citeproc{ref-qin2024toolllm}{Qin et al. 2024}). MetaTool asks whether
+models know when to use tools and which tools to choose
+(\citeproc{ref-huang2023metatool}{Huang et al. 2023}). GapHarness
+differs by placing obligation identification before tool or module
+selection. The compiler does not decide that a query needs ``a search
+tool''; it decides whether the profile imposes Observation,
+Verification, Execution, State, Action, or Control obligations, then
+compiles registry modules that cover those obligations.
+
+\subsection{Retrieval, execution, and
+verification}\label{retrieval-execution-and-verification}
+
+Observation and Verification obligations are motivated by
+retrieval-augmented generation and provenance-aware answering
+(\citeproc{ref-lewis2020rag}{Lewis et al. 2020}). Execution obligations
+are motivated by program-aided reasoning, where a language model
+delegates deterministic computation to a runtime
+(\citeproc{ref-gao2022pal}{Gao et al. 2022}). GapHarness treats these as
+module affordances that can be required, absent, or redundant. Its
+verifier checks whether the chosen harness covers declared obligations
+and capabilities; it does not claim semantic answer correctness for
+arbitrary open-world questions.
+
+\subsection{Agent benchmarks and transfer
+settings}\label{agent-benchmarks-and-transfer-settings}
+
+AgentBench evaluates LLMs as agents across interactive environments
+(\citeproc{ref-liu2024agentbench}{Liu et al. 2024}). GAIA evaluates
+general assistant questions requiring reasoning, multimodality, web
+browsing, and tool use (\citeproc{ref-mialon2024gaia}{Mialon et al.
+2024}). Terminal-Bench evaluates hard terminal-environment tasks
+(\citeproc{ref-merrill2026terminalbench}{Merrill et al. 2026}).
+WildToolBench and MCP-Bench emphasize realistic tool-use behavior and
+cross-tool coordination (\citeproc{ref-yu2026wildtoolbench}{Yu et al.
+2026}; \citeproc{ref-wang2025mcpbench}{Wang et al. 2025}). GapHarness
+uses GAIA-derived and terminal-derived transfer artifacts only as
+obligation-transfer or scaffold evidence. It does not claim full GAIA
+answer-level solving or Terminal-Bench solving.
+
+\subsection{Workflow and harness
+systems}\label{workflow-and-harness-systems}
+
+AutoFlow, AFlow, and WorFBench study workflow generation or workflow
+optimization for agentic systems (\citeproc{ref-li2024autoflow}{Li et
+al. 2024}; \citeproc{ref-zhang2025aflow}{Zhang et al. 2025};
+\citeproc{ref-qiao2025worfbench}{Qiao et al. 2025}). Recent harness work
+treats the execution layer itself as an object of study, including
+automated code harness synthesis, natural-language harnesses, and
+benchmarked harness effects (\citeproc{ref-lou2026autoharness}{Lou et
+al. 2026}; \citeproc{ref-pan2026naturalharness}{Pan et al. 2026};
+\citeproc{ref-yao2026harnessbench}{Y. Yao et al. 2026}). GapHarness is
+complementary: it studies the compiler-like layer that maps obligations
+to the smallest declared runtime harness rather than optimizing a
+complete workflow or measuring complete model-harness configurations.
+
+\section{3. Problem Formulation}\label{problem-formulation}
+
+Let a user query be represented by an obligation profile:
+
+\begin{itemize}
+\tightlist
+\item
+  obligations: a subset of Observation, Execution, State, Action,
+  Control, Verification;
+\item
+  required capabilities: lower-level affordances such as
+  \texttt{evidence\_sources}, \texttt{execution},
+  \texttt{workspace\_inspection}, \texttt{durable\_state},
+  \texttt{sandbox\_action}, \texttt{permission},
+  \texttt{contract\_check}, or \texttt{source\_spans};
+\item
+  output contract and risk metadata;
+\item
+  clarification or unsupported conditions.
+\end{itemize}
+
+Let a registry contain modules. Each module declares:
+
+\begin{itemize}
+\tightlist
+\item
+  obligations it provides;
+\item
+  capabilities it provides;
+\item
+  dependency requirements over obligations and capabilities;
+\item
+  cost;
+\item
+  verifier metadata.
+\end{itemize}
+
+The compiler searches for the lowest-cost subset of modules whose
+provided obligations and capabilities cover the profile and whose
+dependencies are internally satisfied. If no subset covers the profile,
+the compiler returns unsupported. If the profile requires clarification,
+the compiler returns clarify.
+
+This setup yields three useful failure modes:
+
+\begin{itemize}
+\tightlist
+\item
+  under-harnessing: a supported task lacks required obligation or
+  capability coverage;
+\item
+  over-harnessing: the selected harness costs more than the oracle
+  minimal harness;
+\item
+  wrong-harnessing: a nonempty harness is selected but verifier failures
+  remain.
+\end{itemize}
+
+Minimality is not absolute. It is relative to the declared registry and
+cost function.
+
+\section{4. GapHarness}\label{gapharness}
+
+GapHarness contains five components.
+
+The profiler maps a query to an obligation profile. The current system
+supports gold profiles, heuristic profiles, LLM-inferred profiles, and a
+registry-guarded LLM profile variant. The gold profiler is used to
+isolate compiler behavior. The LLM profiler is used to measure practical
+inference quality.
+
+The registry declares available modules. The MVP registry includes web
+retrieval, source-span checking, Python execution, execution-log
+checking, workspace inspection, state storage, sandbox file editing,
+permission gating, contract verification, and trace recording.
+
+The compiler performs exact search over registry subsets and selects the
+lowest-cost valid harness. It returns direct-answer, supported, clarify,
+or unsupported harness status.
+
+The executor is a deterministic sandbox/mock runtime. It records traces
+but does not perform irreversible external side effects.
+
+The verifier checks sufficiency against benchmark gold labels and
+computes drop-one minimality reports.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{paper/figures/figure1_pipeline_print.png}
+\caption{GapHarness pipeline. The figure shows the obligation profiler,
+declared registry, exact compiler, sandbox executor, trace recorder, and
+verifier path. It proves system decomposition; it does not prove
+open-world task solving.}\label{fig:pipeline}
+\end{figure}
+
+\section{5. Benchmarks and Metrics}\label{benchmarks-and-metrics}
+
+\subsection{GapBench}\label{gapbench}
+
+GapBench v1.0 is a 1000-row controlled benchmark designed to isolate
+obligation coverage and minimal harness compilation. It contains
+human-audited labels for obligations, required capabilities, oracle
+minimal harnesses, expected status, success checker, risk level, and
+provenance. The benchmark includes dev200 and test800 splits.
+
+GapBench is controlled and factorial. It is not a complete real-world
+benchmark. Its purpose is to make the compiler and verifier problem
+measurable.
+
+\subsection{Transfer and review sets}\label{transfer-and-review-sets}
+
+GAIA-Transfer v1.0 contains 200 GAIA-derived obligation-transfer rows.
+It evaluates obligation assignment and harness selection only; it is not
+a full GAIA answer-level benchmark.
+
+GapBench-Natural v1.0 contains 200 naturalized prompts inherited from
+GapBench rows. It is a for-review artifact until naturalized prompts are
+audited.
+
+Terminal-Bench-obligation50 is an execution-heavy scaffold derived from
+public Terminal-Bench task instructions. It is appendix material with
+labels pending audit, not a Terminal-Bench solving result.
+
+\subsection{Metrics}\label{metrics}
+
+We report success, average cost, oracle cost, minimality regret,
+over-harnessing, under-harnessing, wrong-harnessing, and redundancy.
+Success is deterministic verifier pass against expected status and gold
+obligation/capability coverage.
+
+\section{6. Experiments}\label{experiments}
+
+\subsection{Gold-obligation compiler
+evaluation}\label{gold-obligation-compiler-evaluation}
+
+Table 1 reports GapBench-1000 under gold obligations. GapHarness reaches
+1.00 success, average cost 3.67, and 0.00 regret, matching oracle
+minimal. Direct answering reaches 0.20 success with 0.74
+under-harnessing. Always-full reaches 0.94 success but over-harnesses at
+0.94 with average cost 16.00. Tool Router and Difficulty Router show
+mixed under- and wrong-harnessing failures.
+
+Table 1 proves that the exact compiler-verifier path matches oracle
+minimal harnesses under human-audited gold obligations. It does not
+prove open-world LLM profiling or answer-level solving.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0769}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+System
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Success
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Avg Cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Oracle Cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Regret
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Over
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Under
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Wrong
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Redundancy
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+direct & 1000 & 0.20 & 0.00 & 3.67 & -3.67 & 0.00 & 0.74 & 0.00 &
+0.00 \\
+tool\_router & 1000 & 0.34 & 2.10 & 3.67 & -1.57 & 0.11 & 0.60 & 0.42 &
+0.06 \\
+difficulty\_router & 1000 & 0.43 & 3.46 & 3.67 & -0.21 & 0.28 & 0.51 &
+0.16 & 0.14 \\
+always\_full & 1000 & 0.94 & 16.00 & 3.67 & 12.33 & 0.94 & 0.00 & 0.00 &
+0.51 \\
+gapharness & 1000 & 1.00 & 3.67 & 3.67 & 0.00 & 0.00 & 0.00 & 0.00 &
+0.00 \\
+oracle\_minimal & 1000 & 1.00 & 3.67 & 3.67 & 0.00 & 0.00 & 0.00 & 0.00
+& 0.00 \\
+\end{longtable}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{paper/figures/figure2_cost_success_frontier.png}
+\caption{Cost-success frontier. The figure shows that Always-full buys
+high success with high cost, while gold GapHarness reaches oracle
+minimal cost. It does not prove that LLM profiling is fully
+calibrated.}\label{fig:frontier}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{paper/figures/figure3_over_under_wrong_bars.png}
+\caption{Over, under, and wrong harnessing rates. The figure separates
+baseline failure modes. It does not claim these rates transfer unchanged
+to all naturalistic tasks.}\label{fig:ouw}
+\end{figure}
+
+\subsection{LLM-inferred obligation
+profiling}\label{llm-inferred-obligation-profiling}
+
+Phase 2B evaluates whether an LLM profiler can infer obligations well
+enough for practical harness synthesis. On held-out test800, the
+selected LLM GapHarness reaches 0.89 success at 3.59 average cost,
+outperforming direct, tool-router, and difficulty-router baselines. It
+remains below the gold oracle, with under-harnessing at 0.09.
+
+Table 2 proves that inferred obligations are useful against simple
+baselines. It does not prove that the profiler is fully calibrated.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0769}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1026}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+System
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Success
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Avg Cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Oracle Cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Regret
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Over
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Under
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Wrong
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Redundancy
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+direct & 800 & 0.20 & 0.00 & 3.69 & -3.69 & 0.00 & 0.74 & 0.00 & 0.00 \\
+tool\_router & 800 & 0.32 & 1.96 & 3.69 & -1.72 & 0.09 & 0.62 & 0.43 &
+0.06 \\
+difficulty\_router & 800 & 0.41 & 3.22 & 3.69 & -0.47 & 0.26 & 0.53 &
+0.15 & 0.13 \\
+always\_full & 800 & 0.94 & 16.00 & 3.69 & 12.31 & 0.94 & 0.00 & 0.00 &
+0.51 \\
+gold\_oracle\_gap\_harness & 800 & 1.00 & 3.69 & 3.69 & 0.00 & 0.00 &
+0.00 & 0.00 & 0.00 \\
+selected\_llm\_gap\_harness & 800 & 0.89 & 3.59 & 3.69 & -0.09 & 0.14 &
+0.09 & 0.01 & 0.05 \\
+\end{longtable}
+
+\subsection{Registry-guarded
+calibration}\label{registry-guarded-calibration}
+
+Phase 2B exposed a systematic failure mode: sandbox/mock/local actions
+were sometimes lowered into unsupported
+\texttt{real\_world\_side\_effect}. Phase 2C adds a deterministic
+registry guard that preserves real external side-effect boundaries but
+removes \texttt{real\_world\_side\_effect} when the query explicitly
+limits action to sandbox/mock/local scope.
+
+On held-out test800, registry guarding improves success from 0.89 to
+0.94 and reduces under-harnessing from 0.09 to 0.03. Unsupported false
+positives fall from 56 to 12. The tradeoff is higher average cost and
+regret: cost rises from 3.59 to 3.98 and regret from -0.09 to 0.30. This
+supports a narrow calibration claim: declared registry boundaries can
+repair a specific profiler failure mode.
+
+Table 3 and Figure 4 prove that registry guarding repairs this
+sandbox-action unsupported false-positive pattern. They do not prove a
+general solution to all profiling failures.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0789}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0789}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1053}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Split
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Profiler
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Success
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Avg Cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Regret
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Over
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Under
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Wrong
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsupported FP
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+dev200 & Phase 2B llm\_single & 200 & 0.92 & 3.68 & 0.06 & 0.19 & 0.08 &
+0.00 & 14 \\
+dev200 & Phase 2C registry\_guarded & 200 & 0.97 & 4.02 & 0.40 & 0.20 &
+0.03 & 0.00 & 4 \\
+test800 & Phase 2B selected llm\_single & 800 & 0.89 & 3.59 & -0.09 &
+0.14 & 0.09 & 0.01 & 56 \\
+test800 & Phase 2C registry\_guarded & 800 & 0.94 & 3.98 & 0.30 & 0.15 &
+0.03 & 0.01 & 12 \\
+\end{longtable}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{paper/figures/figure4_registry_guard_unsupported_fp_reduction.png}
+\caption{Registry guard correction. The figure shows reduced unsupported
+false positives and under-harnessing after a registry guard. It does not
+prove that registry guarding solves GAIA or all transfer
+settings.}\label{fig:guard}
+\end{figure}
+
+\subsection{Stress tests and negative
+controls}\label{stress-tests-and-negative-controls}
+
+Registry perturbation removes six key modules one at a time. For each
+relevant 60-task subset, base registry success is 1.00 and perturbed
+registry success is 0.00. The dominant missing capabilities match the
+removed module: \texttt{execution}, \texttt{source\_spans},
+\texttt{permission}, \texttt{diff}, \texttt{evidence\_sources}, and
+\texttt{contract\_check}. This shows that GapHarness does not silently
+claim support when affordances are absent.
+
+Gold label permutation corrupts 200 supported profiles, while the
+verifier still checks original human-audited labels. Correct labels
+yield 1.00 success. Permuted labels reduce success to 0.17, raise
+under-harnessing to 0.83, and raise wrong-harnessing to 0.79. The
+permutation generator changes obligations or required capabilities for
+all 200 corrupted profiles. This is an anti-circularity test, not a
+realistic noise model.
+
+Negative controls evaluate pure-language and tool-bait prompts.
+GapHarness gold, LLM, and registry-guarded variants all achieve 1.00
+success, 0.00 average cost, and 0.00 over-harnessing. Always-full
+over-harnesses both categories; Tool Router and Difficulty Router
+over-harness tool-bait prompts at 0.51.
+
+Table 4 proves three anti-circularity properties: registry affordances
+matter, labels matter, and tool-like words alone do not trigger
+GapHarness over-harnessing. It does not model all realistic label noise
+or all adversarial prompts.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1364}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1364}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Removed module
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Base
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Perturbed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Unsupported
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Under
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Missing capability
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+python\_executor & 1.00 & 0.00 & 1.00 & 1.00 & execution \\
+source\_span\_checker & 1.00 & 0.00 & 1.00 & 1.00 & source\_spans \\
+permission\_gate & 1.00 & 0.00 & 1.00 & 1.00 & permission \\
+sandbox\_file\_editor & 1.00 & 0.00 & 1.00 & 1.00 & diff \\
+web\_retrieval & 1.00 & 0.00 & 1.00 & 1.00 & evidence\_sources \\
+contract\_verifier & 1.00 & 0.00 & 1.00 & 1.00 & contract\_check \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0968}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Success
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Regret
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Over
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Under
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Wrong
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Verifier Fail
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+correct gold & 200 & 1.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+permuted labels & 200 & 0.17 & 0.24 & 0.55 & 0.83 & 0.79 & 0.83 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\toprule\noalign{}
+Category & System & N & Success & Cost & Over \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+pure-lang & GH gold & 100 & 1.00 & 0.00 & 0.00 \\
+pure-lang & GH LLM & 100 & 1.00 & 0.00 & 0.00 \\
+pure-lang & GH guarded & 100 & 1.00 & 0.00 & 0.00 \\
+pure-lang & Always-full & 100 & 1.00 & 16.00 & 1.00 \\
+tool-bait & GH gold & 100 & 1.00 & 0.00 & 0.00 \\
+tool-bait & GH LLM & 100 & 1.00 & 0.00 & 0.00 \\
+tool-bait & GH guarded & 100 & 1.00 & 0.00 & 0.00 \\
+tool-bait & Tool Router & 100 & 1.00 & 1.26 & 0.51 \\
+tool-bait & Difficulty & 100 & 1.00 & 1.22 & 0.51 \\
+tool-bait & Always-full & 100 & 1.00 & 16.00 & 1.00 \\
+\end{longtable}
+
+\subsection{Transfer and boundary
+results}\label{transfer-and-boundary-results}
+
+GAIA-Transfer gold smoke reaches 1.00 success under gold obligation
+labels. This confirms that the compiler can process the transfer labels,
+not that the system solves GAIA.
+
+GAIA registry-guarded reaches 0.56 success with high over-harnessing and
+under-harnessing. This negative result is useful: the GapBench registry
+guard targets sandbox/mock action calibration, while GAIA failures are
+dominated by multimodal, file, evidence, and state-boundary mismatches.
+
+GapBench-Natural review smoke reaches 1.00 success under inherited
+labels, but should not be treated as final until naturalized prompts are
+audited.
+
+Table 5 proves that the representation can be applied to transfer
+artifacts and exposes boundary failures. It does not claim full GAIA
+solving, Terminal-Bench solving, or final natural-prompt validation.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0882}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0882}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1176}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Result
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Identity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Success
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Cost
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Oracle
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Regret
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Over
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Under
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+GAIA-Transfer gold & transfer smoke & 200 & 1.00 & 1.48 & 1.48 & 0.00 &
+0.00 & 0.00 \\
+GAIA guarded & limitation & 200 & 0.56 & 5.56 & 1.48 & 4.08 & 0.89 &
+0.44 \\
+GapBench-Natural & review smoke & 200 & 1.00 & 2.83 & 2.83 & 0.00 & 0.00
+& 0.00 \\
+Terminal obligation50 & appendix scaffold & 50 & - & - & - & - & - &
+- \\
+\end{longtable}
+
+Boundary notes: GAIA-Transfer evaluates obligation labels only, not GAIA
+answer solving. GAIA guarded is a limitation result dominated by
+multimodal, file, evidence, and state-boundary gaps. GapBench-Natural
+inherits labels pending natural-prompt audit. Terminal obligation50 is
+not a Terminal-Bench solving result.
+
+\section{7. Analysis}\label{analysis}
+
+The experimental story separates three layers.
+
+First, under gold obligations, minimal harness compilation works. The
+compiler matches oracle minimal cost and produces interpretable failures
+when the registry lacks affordances.
+
+Second, LLM profiling is the main practical bottleneck. LLM-inferred
+obligations outperform simple routers but can under-harness or
+over-harness depending on calibration. Registry guarding shows that some
+errors are not random; they can be tied to declared affordance
+boundaries.
+
+Third, stress tests reduce circularity concerns. Registry perturbation
+shows the system depends on declared affordances. Label permutation
+shows labels carry semantic force. Negative controls show the system is
+not merely responding to tool-like words.
+
+These results support a controlled claim: obligation-first minimal
+harness synthesis is a useful way to separate profiler errors from
+compiler/runtime errors.
+
+\section{8. Limitations}\label{limitations}
+
+GapHarness does not solve full GAIA. GAIA-Transfer is
+obligation-transfer only and does not evaluate answer-level accuracy
+against GAIA final answers.
+
+GapHarness does not solve Terminal-Bench. Terminal-Bench-obligation50 is
+a scaffold derived from task instructions, with labels pending audit.
+
+The executor is a deterministic sandbox/mock runtime. It does not
+perform irreversible file edits, real API calls, payments, emails,
+deployments, or production changes.
+
+GapBench is controlled and factorial. This is a strength for isolating
+compiler behavior, but it is not a substitute for large-scale
+naturalistic agent benchmarks.
+
+The LLM profiler remains imperfect. Registry guarding improves one
+systematic failure mode, but GAIA-Transfer shows that broader transfer
+remains limited.
+
+Minimality is registry-relative. Different module registries, cost
+functions, or dependency models would change the compiled minimal
+harness.
+
+\section{9. Conclusion}\label{conclusion}
+
+GapHarness reframes agent harnessing as two separable problems:
+identifying the external obligations imposed by a query, and compiling
+the smallest runtime system that satisfies those obligations. Under
+human-audited gold obligations, the compiler matches oracle minimal
+harnesses on GapBench-1000. With LLM-inferred obligations, GapHarness
+improves over direct and router baselines but exposes calibration
+tradeoffs. Registry guarding repairs a systematic unsupported
+false-positive failure. Stress tests show that success depends on
+declared registry affordances and meaningful obligation labels, while
+negative controls show that GapHarness avoids tool-bait over-harnessing.
+
+The current evidence supports a workshop/arXiv technical report claim:
+obligation-first minimal harness synthesis provides a measurable,
+auditable layer for API-only LLM agents. The next step is not to claim
+broad open-world solving, but to expand audited transfer benchmarks and
+improve LLM obligation profiling under the same evidence boundaries.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\protect\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-gao2022pal}
+Gao, Luyu, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming Yang,
+Jamie Callan, and Graham Neubig. 2022. {``PAL: Program-Aided Language
+Models.''} \emph{arXiv Preprint arXiv:2211.10435}.
+\url{https://arxiv.org/abs/2211.10435}.
+
+\bibitem[\citeproctext]{ref-huang2023metatool}
+Huang, Yue, Jiawen Shi, Yuan Li, Chenrui Fan, Siyuan Wu, Qihui Zhang,
+Yixin Liu, et al. 2023. {``MetaTool Benchmark for Large Language Models:
+Deciding Whether to Use Tools and Which to Use.''} \emph{arXiv Preprint
+arXiv:2310.03128}. \url{https://arxiv.org/abs/2310.03128}.
+
+\bibitem[\citeproctext]{ref-lewis2020rag}
+Lewis, Patrick, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+Karpukhin, Naman Goyal, Heinrich Küttler, et al. 2020.
+{``Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.''}
+In \emph{Advances in Neural Information Processing Systems}.
+\url{https://arxiv.org/abs/2005.11401}.
+
+\bibitem[\citeproctext]{ref-li2024autoflow}
+Li, Zelong, Shuyuan Xu, Kai Mei, Wenyue Hua, Balaji Rama, Om Raheja, Hao
+Wang, He Zhu, and Yongfeng Zhang. 2024. {``AutoFlow: Automated Workflow
+Generation for Large Language Model Agents.''} \emph{arXiv Preprint
+arXiv:2407.12821}. \url{https://arxiv.org/abs/2407.12821}.
+
+\bibitem[\citeproctext]{ref-liu2024agentbench}
+Liu, Xiao, Hao Yu, Hanchen Zhang, Yifan Xu, Xuanyu Lei, Hanyu Lai, Yu
+Gu, et al. 2024. {``AgentBench: Evaluating LLMs as Agents.''} In
+\emph{International Conference on Learning Representations}.
+\url{https://openreview.net/forum?id=zAdUB0aCTQ}.
+
+\bibitem[\citeproctext]{ref-lou2026autoharness}
+Lou, Xinghua, Miguel Lázaro-Gredilla, Antoine Dedieu, Carter Wendelken,
+Wolfgang Lehrach, and Kevin P. Murphy. 2026. {``AutoHarness: Improving
+LLM Agents by Automatically Synthesizing a Code Harness.''} \emph{arXiv
+Preprint arXiv:2603.03329}. \url{https://arxiv.org/abs/2603.03329}.
+
+\bibitem[\citeproctext]{ref-merrill2026terminalbench}
+Merrill, Mike A., Alexander G. Shaw, Nicholas Carlini, Boxuan Li, Harsh
+Raj, Ivan Bercovich, Lin Shi, et al. 2026. {``Terminal-Bench:
+Benchmarking Agents on Hard, Realistic Tasks in Command Line
+Interfaces.''} \emph{arXiv Preprint arXiv:2601.11868}.
+\url{https://arxiv.org/abs/2601.11868}.
+
+\bibitem[\citeproctext]{ref-mialon2024gaia}
+Mialon, Grégoire, Clémentine Fourrier, Craig Swift, Thomas Wolf, Yann
+LeCun, and Thomas Scialom. 2024. {``GAIA: A Benchmark for General AI
+Assistants.''} In \emph{International Conference on Learning
+Representations}. \url{https://arxiv.org/abs/2311.12983}.
+
+\bibitem[\citeproctext]{ref-pan2026naturalharness}
+Pan, Linyue, Lexiao Zou, Shuo Guo, Jingchen Ni, and Hai-Tao Zheng. 2026.
+{``Natural-Language Agent Harnesses.''} \emph{arXiv Preprint
+arXiv:2603.25723}. \url{https://arxiv.org/abs/2603.25723}.
+
+\bibitem[\citeproctext]{ref-patil2023gorilla}
+Patil, Shishir G., Tianjun Zhang, Xin Wang, and Joseph E. Gonzalez.
+2023. {``Gorilla: Large Language Model Connected with Massive APIs.''}
+\emph{arXiv Preprint arXiv:2305.15334}.
+\url{https://arxiv.org/abs/2305.15334}.
+
+\bibitem[\citeproctext]{ref-qiao2025worfbench}
+Qiao, Shuofei, Runnan Fang, Zhisong Qiu, Xiaobin Wang, Ningyu Zhang,
+Yong Jiang, Pengjun Xie, Fei Huang, and Huajun Chen. 2025.
+{``Benchmarking Agentic Workflow Generation.''} In \emph{International
+Conference on Learning Representations}.
+\url{https://arxiv.org/abs/2410.07869}.
+
+\bibitem[\citeproctext]{ref-qin2024toolllm}
+Qin, Yujia, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu,
+Yankai Lin, et al. 2024. {``ToolLLM: Facilitating Large Language Models
+to Master 16000+ Real-World APIs.''} In \emph{International Conference
+on Learning Representations}.
+\url{https://openreview.net/forum?id=dHng2O0Jjr}.
+
+\bibitem[\citeproctext]{ref-schick2023toolformer}
+Schick, Timo, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria
+Lomeli, Luke Zettlemoyer, Nicola Cancedda, and Thomas Scialom. 2023.
+{``Toolformer: Language Models Can Teach Themselves to Use Tools.''} In
+\emph{Advances in Neural Information Processing Systems}.
+\url{https://arxiv.org/abs/2302.04761}.
+
+\bibitem[\citeproctext]{ref-wang2025mcpbench}
+Wang, Zhenting, Qi Chang, Hemani Patel, Shashank Biju, Cheng-En Wu, Quan
+Liu, Aolin Ding, et al. 2025. {``MCP-Bench: Benchmarking Tool-Using LLM
+Agents with Complex Real-World Tasks via MCP Servers.''} \emph{arXiv
+Preprint arXiv:2508.20453}. \url{https://arxiv.org/abs/2508.20453}.
+
+\bibitem[\citeproctext]{ref-yao2023react}
+Yao, Shunyu, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik
+Narasimhan, and Yuan Cao. 2023. {``ReAct: Synergizing Reasoning and
+Acting in Language Models.''} In \emph{International Conference on
+Learning Representations}. \url{https://arxiv.org/abs/2210.03629}.
+
+\bibitem[\citeproctext]{ref-yao2026harnessbench}
+Yao, Yilun, Xinyu Tan, Chao-Hsuan Liu, Yaoming Li, Zhengyang Wang,
+Wenhan Yu, Zhewen Tan, et al. 2026. {``Harness-Bench: Measuring Harness
+Effects Across Models in Realistic Agent Workflows.''} \emph{arXiv
+Preprint arXiv:2605.27922}. \url{https://arxiv.org/abs/2605.27922}.
+
+\bibitem[\citeproctext]{ref-yu2026wildtoolbench}
+Yu, Peijie, Wei Liu, Yifan Yang, Jinjian Li, Zelong Zhang, Xiao Feng,
+and Feng Zhang. 2026. {``Benchmarking LLM Tool-Use in the Wild.''}
+\emph{arXiv Preprint arXiv:2604.06185}.
+\url{https://arxiv.org/abs/2604.06185}.
+
+\bibitem[\citeproctext]{ref-zhang2025aflow}
+Zhang, Jiayi, Jinyu Xiang, Zhaoyang Yu, Fengwei Teng, Xionghui Chen,
+Jiaqi Chen, Mingchen Zhuge, et al. 2025. {``AFlow: Automating Agentic
+Workflow Generation.''} In \emph{International Conference on Learning
+Representations}. \url{https://openreview.net/forum?id=z5uVAKwmjf}.
+
+\end{CSLReferences}
+
+\end{document}

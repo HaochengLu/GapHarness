@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-026",
+  "cluster": "triple_obligation",
+  "query": "For generated case 26, open the local CHANGELOG.md for ExampleProject eta and summarize its main instruction; then evaluate exactly (64 + 36) * 3; then apply a permission gate before any risky or irreversible step in case 28.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_076c9652c37d153c016a3b4c6706bc819aa43946615ae1c500",
+    "object": "chat.completion",
+    "created": 1782271079,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"execution_log\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 509,
+      "total_tokens": 9055,
+      "prompt_tokens": 8546,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 470
+      }
+    }
+  }
+}

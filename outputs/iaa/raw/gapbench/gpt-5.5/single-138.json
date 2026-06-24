@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-138",
+  "cluster": "single_obligation",
+  "query": "For generated case 138, retrieve the most recent public pricing or plan information for ExampleProduct Solstice with a source.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_045fcc85ec34b381016a3b4c43a820819badf1b21003fbce39",
+    "object": "chat.completion",
+    "created": 1782271043,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Gathering pricing information**\n\nI need to provide only JSON formatted answers. It\u2019s important to include any necessary annotations. I\u2019m trying to retrieve the most recent public pricing or plan information along with the source. I want to ensure that this is based on current external information and that I can verify the source. The request for \u201cwith a source\u201d implies that citations are needed, even if they aren\u2019t direct quotes but just references to the source.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 94,
+      "total_tokens": 8613,
+      "prompt_tokens": 8519,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 62
+      }
+    }
+  }
+}

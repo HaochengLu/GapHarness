@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-033",
+  "cluster": "single_obligation",
+  "query": "For generated case 33, retrieve the most recent public pricing or plan information for ExampleProduct Juniper with a source.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0ea6579585726ae1016a3b4af307b4819995a49865412c689e",
+    "object": "chat.completion",
+    "created": 1782270707,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Requesting pricing information**\n\nI need to output JSON only and make sure to annotate it properly. My task is to retrieve the most recent public pricing or plan information, and I want to include the source of that information. I\u2019ll consider aspects like observation and verification, ensuring I provide capabilities and evidence sources with citations. The status should indicate that this is supported, so it\u2019s essential I keep everything clear and correctly formatted for the user!",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 96,
+      "total_tokens": 8319,
+      "prompt_tokens": 8223,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 64
+      }
+    }
+  }
+}

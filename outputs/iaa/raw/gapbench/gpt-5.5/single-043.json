@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-043",
+  "cluster": "single_obligation",
+  "query": "For generated case 43, maintain a task-state record with status pending_review for item 0043.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0c33ac39c9ccf1ef016a3b4b8f9230819992c2a5a59413e26a",
+    "object": "chat.completion",
+    "created": 1782270863,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"State\",\"Action\"],\"capabilities\":[\"durable_state\",\"sandbox_action\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 175,
+      "total_tokens": 8691,
+      "prompt_tokens": 8516,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 144
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-108",
+  "cluster": "triple_obligation",
+  "query": "For generated case 108, retrieve the most recent public pricing or plan information for ExampleProduct Meridian with a source; then save the decision \"use minimal harness\" under durable state key gapbench_0109; then validate that every factual claim has a source span for case 110.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0038d918837c5459016a3b4cd353d8819ab362054e59824e13",
+    "object": "chat.completion",
+    "created": 1782271187,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"execution\",\"durable_state\",\"sandbox_action\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Examining functionality for state retrieval**\n\nI'm considering how to handle workspace inspection and retrieve public pricing information. It suggests there's no need for explicit files, which is intriguing. The durable state key points to a state store. For case 110, I might need to inspect the output to check any factual claims. I'll focus on using durable state and sandbox actions, noting that the status is supported with no significant side effects expected.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 527,
+      "total_tokens": 9079,
+      "prompt_tokens": 8552,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 477
+      }
+    }
+  }
+}

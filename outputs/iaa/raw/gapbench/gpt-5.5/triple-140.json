@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-140",
+  "cluster": "triple_obligation",
+  "query": "For generated case 140, calculate exactly 104 * 48; then save the decision \"use minimal harness\" under durable state key gapbench_0141; then validate the computation using an execution log and final answer contract for case 142.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0fb5f10c26656e66016a3b4d3dd648819998be6702ee8d4a05",
+    "object": "chat.completion",
+    "created": 1782271293,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 160,
+      "total_tokens": 8705,
+      "prompt_tokens": 8545,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 113
+      }
+    }
+  }
+}

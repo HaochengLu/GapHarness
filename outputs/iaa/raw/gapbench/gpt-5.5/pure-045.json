@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pure-045",
+  "cluster": "pure_language_negative",
+  "query": "Make this sentence shorter without changing its meaning: \"The reason we delayed the meeting was because many people were unavailable.\" Generated negative case 45.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0db904d6c53d2306016a3b4abd4ab88190ac9bb29ecd2207cb",
+    "object": "chat.completion",
+    "created": 1782270653,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 57,
+      "total_tokens": 8285,
+      "prompt_tokens": 8228,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 37
+      }
+    }
+  }
+}

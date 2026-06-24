@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-179",
+  "cluster": "triple_obligation",
+  "query": "For generated case 179, find a current public FAQ entry for ExampleProduct Lantern and report the source; then create a durable checklist checkpoint named checkpoint_0180 with three subtasks; then append one line to sandbox_log_0181.txt in the sandbox workspace after passing the permission gate.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0352796312bb1079016a3b4d8725f0819ab10b41bbb1098930",
+    "object": "chat.completion",
+    "created": 1782271367,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Evaluating migration diffs**\n\nIt seems like Example C suggests that there's something peculiar about applying migration, but the capability vocabulary states that a diff of change should be produced. In this case, it doesn't necessarily mean that I have to generate a diff. I do have sandbox_action and permission on my side. I need to ensure that I meet all obligations: Observation, State, Action, Control, and Verification.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 309,
+      "total_tokens": 8566,
+      "prompt_tokens": 8257,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 262
+      }
+    }
+  }
+}

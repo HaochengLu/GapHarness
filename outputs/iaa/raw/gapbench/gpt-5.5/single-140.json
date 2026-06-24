@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-140",
+  "cluster": "single_obligation",
+  "query": "For generated case 140, calculate exactly 104 * 48.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0a8ced3b0fb35ddb016a3b4c4b13f48194bf30ac5dc6fc2303",
+    "object": "chat.completion",
+    "created": 1782271051,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 109,
+      "total_tokens": 8322,
+      "prompt_tokens": 8213,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 80
+      }
+    }
+  }
+}

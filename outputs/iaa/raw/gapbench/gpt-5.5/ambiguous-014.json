@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "ambiguous-014",
+  "cluster": "ambiguous",
+  "query": "Ambiguous repo request 14: fix the issue in the project, but I have not specified the file, error, or expected behavior.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_048438c9143d76d2016a3b46449b94819886cc4b68e3c3f8eb",
+    "object": "chat.completion",
+    "created": 1782269508,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"execution_log\",\"durable_state\",\"diff\",\"sandbox_action\",\"permission\"],\"status\":\"clarify\"}",
+          "reasoning_content": "**Clarifying project issues**\n\nI need to output JSON and annotate it based on a request to fix an unspecified issue in a project. I wonder if I'll need to inspect the workspace to address this. Fixing it may involve observation and verifying states, but I'm facing some ambiguity. The status suggests that I need clarification, especially around side effects. I\u2019ll have to check if workspace inspection and execution permissions are granted to confirm everything is functioning as expected.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 377,
+      "total_tokens": 8900,
+      "prompt_tokens": 8523,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 324
+      }
+    }
+  }
+}

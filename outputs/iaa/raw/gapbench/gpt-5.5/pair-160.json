@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-160",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 160, inspect the workspace file package.json for ExampleProject alpha and report what it says; then verify the final answer format and required fields for case 161.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_00a87c2c7f0ef422016a3b4a1b14ac8194914da404242a4f93",
+    "object": "chat.completion",
+    "created": 1782270491,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 161,
+      "total_tokens": 8692,
+      "prompt_tokens": 8531,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 130
+      }
+    }
+  }
+}

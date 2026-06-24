@@ -40,7 +40,7 @@ Phase 2B 没有修改：
 
 1. under_harness_rate <= 0.08
 2. success >= 0.90
-3. 满足 1 和 2 的 profiler 里选 minimality regret 最低的
+3. 满足 1 和 2 的 profiler 里选 excess cost (cost delta) 最低的
 4. 如果都不满足，选 recall-biased 并把 calibration 写成 limitation
 
 按规则选出：

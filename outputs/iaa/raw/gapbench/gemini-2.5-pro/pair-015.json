@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "pair-015",
+  "cluster": "pairwise_obligation",
+  "query": "For case 15, calculate exactly 52 * 26; then apply a permission gate before any risky step.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240330439225531608268d9d65eAweL2J",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782271853,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Execution\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"execution\",\n    \"execution_log\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3306,
+      "completion_tokens": 889,
+      "total_tokens": 4195,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3306,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 822
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

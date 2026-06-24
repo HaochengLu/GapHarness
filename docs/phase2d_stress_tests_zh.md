@@ -52,8 +52,8 @@ python3 -m scripts.run_phase2d_stress_tests all
 协议：
 
 - 抽取 200 条 supported 且有非空 gold obligations 的 GapBench 样本。
-- correct condition：原始 human-audited gold labels feed compiler，原始 gold verifier。
-- permuted condition：corrupted labels feed compiler，但 verifier 仍检查原始 human-audited gold labels。
+- correct condition：原始 project-owner-reviewed gold labels feed compiler，原始 gold verifier。
+- permuted condition：corrupted labels feed compiler，但 verifier 仍检查原始 project-owner-reviewed gold labels。
 
 corruption 包括：
 

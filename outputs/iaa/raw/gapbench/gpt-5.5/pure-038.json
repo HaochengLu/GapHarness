@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pure-038",
+  "cluster": "pure_language_negative",
+  "query": "Explain the phrase \"less is more\" using a simple everyday example. Generated negative case 38.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0c510dfa101fdb97016a3b4ab3e108819a8dae9b3ee917acb0",
+    "object": "chat.completion",
+    "created": 1782270643,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 43,
+      "total_tokens": 8262,
+      "prompt_tokens": 8219,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 23
+      }
+    }
+  }
+}

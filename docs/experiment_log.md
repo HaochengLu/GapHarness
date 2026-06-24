@@ -50,6 +50,19 @@ Setup:
 - Strong fallback tested on failed samples: `gpt-5.5`.
 - Secrets were not written to repository files.
 
+Model pin (see `docs/reproducibility.md`):
+
+- Provider relay base URL: `https://api.xgapi.top` (an OpenAI-compatible relay,
+  not a first-party OpenAI deployment).
+- Pinned profiler model: `gpt-5.4-mini`; strong fallback `gpt-5.5` is used only on
+  cascade/guard reruns. The bare `gpt-5.5` that appears as the hard-coded default in
+  `gapharness/llm_client.py` is a client-level last-resort fallback, not the pinned
+  profiler model; every reported run sets `GAPHARNESS_MODEL=gpt-5.4-mini` explicitly.
+- Environment variables: `GAPHARNESS_API_KEY` (secret, set in the shell only and
+  never committed), `GAPHARNESS_BASE_URL=https://api.xgapi.top`,
+  `GAPHARNESS_MODEL=gpt-5.4-mini`. The API key is never written to repository files,
+  paper artifacts, or shared command history.
+
 Commands:
 
 ```bash
@@ -86,7 +99,7 @@ Profiler coverage on final cascade:
 Interpretation:
 
 - The LLM profiler is high recall, which eliminates under-harness after canonicalization.
-- High recall introduces over-harness and positive minimality regret.
+- High recall introduces over-harness and positive excess cost.
 - This is a useful paper result: obligation-first synthesis can achieve sufficiency, while minimality depends on profiler calibration and capability lowering.
 
 GAIA transfer status:
@@ -99,7 +112,7 @@ GAIA transfer status:
 Gold audit:
 
 - The user confirmed the current 100-task GapBench-Factorial seed gold labels match their intended labels.
-- The benchmark file was stamped as human-audited for the current version.
+- The benchmark file carries the `human_audited` naming stamp for the current version (a naming convention for project-owner-reviewed rows, not an independent multi-human audit).
 
 GAIA retest:
 
@@ -140,14 +153,14 @@ Subset smoke results:
 
 Important caveat:
 
-- The project owner later confirmed the current GAIA transfer subset labels are acceptable gold truth.
+- The project owner later reviewed the current GAIA transfer subset labels (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset).
 
 ## 2026-06-22 Expanded GapBench + GAIA Audit Confirmation
 
 Audit status:
 
-- The project owner confirmed that the new `gapbench_expansion_review_package` labels are gold truth.
-- The project owner confirmed that the current GAIA transfer subset labels are gold truth.
+- The project owner reviewed the new `gapbench_expansion_review_package` labels (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset).
+- The project owner reviewed the current GAIA transfer subset labels (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset).
 
 Stamped files:
 
@@ -180,7 +193,7 @@ Generated a larger GAIA transfer review package for project-owner checking:
 Audit status:
 
 - The new 100+100 GAIA rows are intentionally marked `gaia_metadata_auto_profile_for_review_2026_06_22`.
-- Existing `benchmarks/gaia_obligation_subset_validation20.jsonl` and `benchmarks/gaia_obligation_subset_test20.jsonl` remain stamped as human-audited.
+- Existing `benchmarks/gaia_obligation_subset_validation20.jsonl` and `benchmarks/gaia_obligation_subset_test20.jsonl` retain the `human_audited` naming stamp (project-owner-reviewed; not an independent multi-human audit).
 
 Gold-compiler smoke:
 
@@ -191,7 +204,7 @@ Gold-compiler smoke:
 
 Audit update:
 
-- The project owner confirmed the GAIA validation100/test100 labels are gold truth.
+- The project owner reviewed the GAIA validation100/test100 labels (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset).
 - Stamped files:
   - `benchmarks/gaia_validation_100_human_audited.jsonl`
   - `benchmarks/gaia_test_100_human_audited.jsonl`
@@ -206,8 +219,8 @@ Audit update:
 
 Frozen benchmark packages:
 
-- `benchmarks/gapbench/v1.0/`: 1000 human-audited rows, 500-row subset, manifest, schema, audit log, dev200 split, test800 split.
-- `benchmarks/gaia_transfer/v1.0/`: 200 human-audited GAIA transfer rows, validation100/test100 splits, manifest, schema, audit log.
+- `benchmarks/gapbench/v1.0/`: 1000 project-owner-reviewed rows (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset), 500-row subset, manifest, schema, audit log, dev200 split, test800 split.
+- `benchmarks/gaia_transfer/v1.0/`: 200 project-owner-reviewed GAIA transfer rows (single-annotator (project-owner) labels; inter-annotator agreement reported on an independent subset), validation100/test100 splits, manifest, schema, audit log.
 - `benchmarks/gapbench_natural/v1.0/`: 200 naturalized GapBench examples for human review, plus CSV review sheet and manifest.
 
 Natural-200 generation:
@@ -269,7 +282,7 @@ Subsequent experiments only evaluate LLM-inferred obligations and do not modify 
 
 Goal:
 
-> When gold obligations are hidden and an LLM profiler infers obligations, can GapHarness preserve high sufficiency while keeping minimality regret interpretable?
+> When gold obligations are hidden and an LLM profiler infers obligations, can GapHarness preserve high sufficiency while keeping excess cost interpretable?
 
 Implemented Phase 2B runner:
 
@@ -290,7 +303,7 @@ Selection rule:
 
 1. under_harness_rate <= 0.08
 2. success >= 0.90
-3. among satisfying profilers, choose lowest minimality regret
+3. among satisfying profilers, choose lowest excess cost
 4. if none satisfy, choose recall-biased and report calibration as limitation
 
 Selected primary profiler: `llm_single`.
@@ -374,7 +387,7 @@ Terminal transfer scaffold:
 - All rows remain `generated_for_human_review_pending_audit`.
 - Generated `review_sheet.csv`, `manifest.json`, and `schema.md`.
 
-TerminalSmoke-20:
+Terminal-Bench-obligation50 (20-case sandbox smoke precursor):
 
 - Generated 20 local sandbox cases.
 - Deterministic smoke checks passed: 20 / 20.
@@ -421,7 +434,7 @@ Interpretation: registry perturbation verifies that GapHarness does not silently
 
 ### Stress Test 2: Gold Label Permutation
 
-Protocol: feed corrupted labels to the compiler while keeping the original human-audited gold labels as verifier truth.
+Protocol: feed corrupted labels to the compiler while keeping the original project-owner-reviewed gold labels as verifier truth.
 
 | Condition | N | Success | Avg Cost | Oracle Cost | Regret | Over | Under | Wrong | Verifier Fail |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

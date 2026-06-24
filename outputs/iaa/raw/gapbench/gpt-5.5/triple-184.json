@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-184",
+  "cluster": "triple_obligation",
+  "query": "For generated case 184, inspect the workspace file package.json for ExampleProject epsilon and report what it says; then save the decision \"use minimal harness\" under durable state key gapbench_0185; then validate the final answer against the requested output contract for case 186.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_027b63a02d10f79a016a3b4da7d4dc81968e8176c9f51216b3",
+    "object": "chat.completion",
+    "created": 1782271399,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 392,
+      "total_tokens": 8647,
+      "prompt_tokens": 8255,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 342
+      }
+    }
+  }
+}

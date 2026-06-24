@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-171",
+  "cluster": "triple_obligation",
+  "query": "For generated case 171, look up the current public documentation page for ExampleProduct Delta and summarize the relevant update; then evaluate exactly (63 + 26) * 4; then save the decision \"use minimal harness\" under durable state key gapbench_0173.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_04ada88994df30a7016a3b4d7cfc64819bbb79ead6bea2dd31",
+    "object": "chat.completion",
+    "created": 1782271357,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 181,
+      "total_tokens": 8731,
+      "prompt_tokens": 8550,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 131
+      }
+    }
+  }
+}

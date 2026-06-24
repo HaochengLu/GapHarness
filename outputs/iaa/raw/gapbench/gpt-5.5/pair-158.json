@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-158",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 158, open the local CHANGELOG.md for ExampleProject tau and summarize its main instruction; then block any real-world action unless the user explicitly grants permission in case 159.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_09ac29967b236210016a3b4a0c7c4081949c50a6c24b913606",
+    "object": "chat.completion",
+    "created": 1782270476,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Evaluating case actions**\n\nI\u2019m thinking about case 159 and whether I should state \"yes\" across the board. Maybe I need to consider the action aspect? This seems to require a \"block\" as a side effect concerning assistant behavior. However, it seems I need to reflect on whether codebook actions truly impact workspace or world. After some deliberation, I\u2019m concluding that it probably shouldn't.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 285,
+      "total_tokens": 8523,
+      "prompt_tokens": 8238,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 249
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "pure-049",
+  "cluster": "pure_language_negative",
+  "query": "Give a two-sentence explanation of why clear variable names help code readability. Generated negative case 49.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240343412179566898268d9d6b0ATvlX5",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782272625,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [],\n  \"capabilities\": [],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3302,
+      "completion_tokens": 393,
+      "total_tokens": 3695,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3302,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 364
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

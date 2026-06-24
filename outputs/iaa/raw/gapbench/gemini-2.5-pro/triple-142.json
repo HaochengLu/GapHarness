@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-142",
+  "cluster": "triple_obligation",
+  "query": "For generated case 142, evaluate exactly (106 + 21) * 10; then block any real-world action unless the user explicitly grants permission in case 143; then validate the computation using an execution log and final answer contract for case 144.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240355495712273628268d9d6FH5RscGc",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273376,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Execution\",\n    \"State\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"execution\",\n    \"durable_state\",\n    \"permission\",\n    \"execution_log\",\n    \"contract_check\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3343,
+      "completion_tokens": 1510,
+      "total_tokens": 4853,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3343,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1423
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

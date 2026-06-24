@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-048",
+  "cluster": "tool_bait",
+  "query": "Do not inspect the repository; give generic advice for naming a Python function. Tool-bait generated case 48.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0d0533e5c81c813b016a3b476e4ca8819384f76f6b0bc876b4",
+    "object": "chat.completion",
+    "created": 1782269806,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 44,
+      "total_tokens": 8562,
+      "prompt_tokens": 8518,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 24
+      }
+    }
+  }
+}

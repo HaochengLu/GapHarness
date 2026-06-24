@@ -1,0 +1,51 @@
+{
+  "dataset": "gapbench",
+  "model": "claude-opus-4-1-20250805",
+  "family": "anthropic",
+  "row_id": "triple-223",
+  "cluster": "triple_obligation",
+  "query": "For generated case 223, retrieve the most recent public pricing or plan information for ExampleProduct Harbor with a source; then parse the inline numbers 42, 21, 63, 882 and return their exact sum; then append one line to sandbox_log_0225.txt in the sandbox workspace after passing the permission gate.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "",
+    "model": "claude-opus-4-1-20250805",
+    "object": "chat.completion",
+    "created": 1782271716,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\"Observation\", \"Execution\", \"State\", \"Action\", \"Control\", \"Verification\"],\n  \"capabilities\": [\"evidence_sources\", \"source_spans\", \"execution\", \"execution_log\", \"durable_state\", \"sandbox_action\", \"permission\"],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3559,
+      "completion_tokens": 80,
+      "total_tokens": 3639,
+      "usage_semantic": "openai",
+      "usage_source": "anthropic",
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 3559,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 3465,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

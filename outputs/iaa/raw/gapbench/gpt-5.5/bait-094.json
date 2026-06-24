@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-094",
+  "cluster": "tool_bait",
+  "query": "Even though the word API appears here, do not call an API; explain API in one sentence. Tool-bait generated case 94.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0e2f244a0c5a7a4d016a3b47e4b2788196a3625a897e720446",
+    "object": "chat.completion",
+    "created": 1782269924,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 42,
+      "total_tokens": 8269,
+      "prompt_tokens": 8227,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 22
+      }
+    }
+  }
+}

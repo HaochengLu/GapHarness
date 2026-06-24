@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "pair-003",
+  "cluster": "pairwise_obligation",
+  "query": "For case 3, find the latest public announcement for ExampleProduct 3 with sources; then create a durable checklist checkpoint for three subtasks.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240330156285973018268d9d6fUWAaz1p",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782271828,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Verification\",\n    \"State\",\n    \"Action\",\n    \"Control\"\n  ],\n  \"capabilities\": [\n    \"evidence_sources\",\n    \"source_spans\",\n    \"durable_state\",\n    \"sandbox_action\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3309,
+      "completion_tokens": 1289,
+      "total_tokens": 4598,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3309,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1194
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

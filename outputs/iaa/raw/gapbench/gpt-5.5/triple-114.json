@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-114",
+  "cluster": "triple_obligation",
+  "query": "For generated case 114, parse the inline numbers 78, 30, 8, 340 and return their exact sum; then maintain a task-state record with status pending_review for item 0115; then apply a permission gate before any risky or irreversible step in case 116.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0b0fc74bb071ac64016a3b4cf6667c8198a36370e7355f1225",
+    "object": "chat.completion",
+    "created": 1782271222,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Parsing execution requirements**\n\nI have some output requirements to follow. It looks like I need to ensure JSON format and include inline numbers and exact sums for the execution part, which involves deterministic computation using exact arithmetic. \n\nAlso, verification must check these arithmetic steps per predefined triggers. I\u2019m considering maintaining a task-state record too, particularly focusing on pending reviews with item 0115. \n\nIt's essential to think about permissions when applying mutations, and I need to ensure that risks are managed appropriately.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 284,
+      "total_tokens": 8838,
+      "prompt_tokens": 8554,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 240
+      }
+    }
+  }
+}

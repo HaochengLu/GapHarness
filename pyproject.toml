@@ -1,11 +1,15 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "gapharness"
-version = "0.1.1"
-description = "Certificate-carrying runtime harness compilation for API-only LLM agents."
+version = "0.1.0"
+description = "Obligation-first minimal harness synthesis research MVP."
 readme = "README.md"
-requires-python = ">=3.10"
-license = "MIT"
-authors = [{ name = "Haocheng Lu" }]
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "GapHarness contributors" }]
 dependencies = []
 
 [project.optional-dependencies]
@@ -23,9 +27,15 @@ dev = [
 [project.scripts]
 gapharness = "gapharness.cli:main"
 
+# Flat-layout project with more than one top-level directory (gapharness/ and
+# scripts/). Declare packages explicitly so setuptools auto-discovery does not
+# fail with "Multiple top-level packages discovered". The reproducibility
+# pipeline imports `scripts.*` as modules, so it is shipped alongside the
+# installable `gapharness` package and its subpackages.
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gapharness*", "scripts*"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
-
-[tool.setuptools.packages.find]
-include = ["gapharness*"]

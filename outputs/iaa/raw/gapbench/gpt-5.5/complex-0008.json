@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "complex-0008",
+  "cluster": "complex_obligation",
+  "query": "For generated case 7008, inspect the workspace file release_notes.md for ExampleProject iota and report what it says; then parse the inline numbers 38, 38, 76, 444 and return their exact sum; then check the task budget and require approval before using any high-cost module in case 7010; then validate the computation using an execution log and final answer contract for case 7011.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0987cbe95c49918c016a3b47e9387c81989fc5b18c00ebf398",
+    "object": "chat.completion",
+    "created": 1782269929,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"execution_log\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 411,
+      "total_tokens": 8695,
+      "prompt_tokens": 8284,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 369
+      }
+    }
+  }
+}
