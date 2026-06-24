@@ -1,0 +1,64 @@
+{
+  "created_on": "2026-06-22",
+  "seed_file": "粘贴的文本 (1)(33).txt",
+  "seed_count": 100,
+  "total_1000_count": 1000,
+  "subset_500_count": 500,
+  "seed_gold_source": "human_audited_confirmed_2026_06_22",
+  "generated_gold_source": "human_audited_confirmed_2026_06_22_gapbench_expansion",
+  "schema": [
+    "category",
+    "expected_failure_if_direct",
+    "expected_status",
+    "gold_obligations",
+    "gold_source",
+    "notes",
+    "oracle_minimal_harness",
+    "query",
+    "required_capabilities",
+    "risk_level",
+    "success_checker",
+    "tags",
+    "task_id"
+  ],
+  "category_counts_1000": {
+    "pure_language_negative": 100,
+    "tool_bait": 100,
+    "single_obligation": 180,
+    "pairwise_obligation": 260,
+    "triple_obligation": 230,
+    "unsupported": 30,
+    "ambiguous": 30,
+    "complex_obligation": 70
+  },
+  "category_counts_500": {
+    "pure_language_negative": 50,
+    "tool_bait": 50,
+    "single_obligation": 90,
+    "pairwise_obligation": 130,
+    "triple_obligation": 115,
+    "complex_obligation": 35,
+    "unsupported": 15,
+    "ambiguous": 15
+  },
+  "obligation_order": [
+    "Observation",
+    "Execution",
+    "State",
+    "Action",
+    "Control",
+    "Verification"
+  ],
+  "module_registry_assumed": [
+    "web_retrieval",
+    "file_state_reader",
+    "python_executor",
+    "state_store",
+    "permission_gate",
+    "sandbox_file_editor",
+    "contract_verifier",
+    "source_span_checker",
+    "execution_log_checker"
+  ],
+  "review_note": "The project owner confirmed on 2026-06-22 that the expanded GapBench labels are gold truth."
+}

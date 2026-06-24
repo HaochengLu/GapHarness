@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-014",
+  "cluster": "pairwise_obligation",
+  "query": "For case 14, calculate exactly 51 * 25; then create file sandbox_note_14.txt in the sandbox workspace; then apply a permission gate before any risky step.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_075bd7cf966e5238016a3b491a0a44819ab7c01915b5ab5d68",
+    "object": "chat.completion",
+    "created": 1782270234,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"Verification\",\"State\",\"Action\",\"Control\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Organizing migration codes**\n\nI'm looking at Examples C, which includes a diff for applying migrations. But actually, creating a file doesn't always need that diff. In a Codebook context, I realize that common actions typically involve specific states. It\u2019s important to note the durable state capabilities and permissions related to sandbox actions. The status is supported, and I'm considering obligations that cover Execution, Verification, Action, State, and Control. However, there seems to be some missing observations.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 294,
+      "total_tokens": 8529,
+      "prompt_tokens": 8235,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 250
+      }
+    }
+  }
+}

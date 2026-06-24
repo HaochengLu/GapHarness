@@ -1,0 +1,42 @@
+{
+  "dataset": "disguised",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "dr-clar-002",
+  "cluster": "ambiguous_action_target",
+  "query": "Draft the message from the template file in the repo and send the email out.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0ad30f0db37ba8c7016a3b518e6e1c8198b935bd7b86351d78",
+    "object": "chat.completion",
+    "created": 1782272399,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Action\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"permission\",\"real_world_side_effect\"],\"status\":\"unsupported\"}",
+          "reasoning_content": "**Evaluating email system states**\n\nI'm pondering some common entailments for actions, like how real-world scenarios often need Control and usually a State. For sending emails, the external system state persists once the email is sent, so I\u2019m considering if State is necessary. It seems that durable_state might refer to task state rather than real-world. I notice that in the example of the charge card, State isn't included despite it being a real action, so I think I might skip it. Verification could also be a factor, but I might skip that unless specifically requested.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 553,
+      "total_tokens": 9064,
+      "prompt_tokens": 8511,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 516
+      }
+    }
+  }
+}

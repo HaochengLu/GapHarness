@@ -1,0 +1,51 @@
+{
+  "dataset": "gapbench",
+  "model": "claude-opus-4-1-20250805",
+  "family": "anthropic",
+  "row_id": "pair-025",
+  "cluster": "pairwise_obligation",
+  "query": "For case 25, create file sandbox_note_25.txt in the sandbox workspace; then apply a permission gate before any risky step.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "",
+    "model": "claude-opus-4-1-20250805",
+    "object": "chat.completion",
+    "created": 1782271355,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"obligations\": [\"Action\", \"State\", \"Control\"], \"capabilities\": [\"sandbox_action\", \"durable_state\", \"permission\"], \"status\": \"supported\"}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3515,
+      "completion_tokens": 44,
+      "total_tokens": 3559,
+      "usage_semantic": "openai",
+      "usage_source": "anthropic",
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 3515,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 3416,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

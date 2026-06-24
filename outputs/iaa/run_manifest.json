@@ -1,0 +1,39 @@
+{
+  "annotators": [
+    {
+      "family": "openai",
+      "max_tokens": 700,
+      "model": "gpt-5.5",
+      "temperature": 0.0
+    },
+    {
+      "family": "anthropic",
+      "max_tokens": 700,
+      "model": "claude-opus-4-1-20250805",
+      "temperature": 0.0
+    },
+    {
+      "family": "google",
+      "max_tokens": "2048 (14 long rows re-fetched at 4096-6144 to avoid reasoning-token truncation)",
+      "model": "gemini-2.5-pro",
+      "temperature": 0.0
+    }
+  ],
+  "cache": "outputs/iaa/raw/<dataset>/<model>/<row_id>.json (full raw API response per call; replays with no API)",
+  "datasets": {
+    "disguised": {
+      "n": 63,
+      "source": "benchmarks/disguised_refusal/v0.1/disguised_refusal.jsonl"
+    },
+    "gapbench": {
+      "n": 120,
+      "sampling": "stratified by (category,status,obligation-multiplicity)",
+      "seed": 1729,
+      "source": "benchmarks/gapbench_1000_human_audited.jsonl",
+      "subset": "outputs/iaa/gapbench_subset.jsonl"
+    }
+  },
+  "independence": "each annotator saw ONLY docs/annotation_codebook.md + the bare query; no gold labels, no registry-guard code, no tuned profiler prompt, no other annotators",
+  "study": "multi-model machine-IAA (M3 gate)",
+  "total_annotations": 549
+}

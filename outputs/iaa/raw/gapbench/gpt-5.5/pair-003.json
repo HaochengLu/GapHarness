@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-003",
+  "cluster": "pairwise_obligation",
+  "query": "For case 3, find the latest public announcement for ExampleProduct 3 with sources; then create a durable checklist checkpoint for three subtasks.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_07ef7b615586c368016a3b491069d88198b81ab5acd0d58597",
+    "object": "chat.completion",
+    "created": 1782270224,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"durable_state\",\"sandbox_action\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 187,
+      "total_tokens": 8415,
+      "prompt_tokens": 8228,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 144
+      }
+    }
+  }
+}

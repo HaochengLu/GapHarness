@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-058",
+  "cluster": "tool_bait",
+  "query": "Without web access, write three placeholder slogans for a mock product launch. Tool-bait generated case 58.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0d4daf86d25da944016a3b47766510819781b1d786e50b09c6",
+    "object": "chat.completion",
+    "created": 1782269814,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": "**Preparing to Generate Slogans**\n\nI'm focusing on crafting slogans in pure language, using JSON format for the response. I want to ensure the output is straightforward without any extra actions or file outputs. It looks like there isn't a need for obligations or unnecessary steps. My goal is to keep it simple and efficient, sticking to the essence of the request. Let\u2019s get right to generating those catchy slogans!",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 57,
+      "total_tokens": 8278,
+      "prompt_tokens": 8221,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 37
+      }
+    }
+  }
+}

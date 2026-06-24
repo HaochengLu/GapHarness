@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-132",
+  "cluster": "single_obligation",
+  "query": "For generated case 132, inspect the workspace file release_notes.md for ExampleProject nu and report what it says.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_01fa306843f1702f016a3b4c2f2b80819891fdf400a244eafb",
+    "object": "chat.completion",
+    "created": 1782271023,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\"],\"capabilities\":[\"workspace_inspection\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Analysing JSON request**\n\nI need to focus on providing just the JSON answer for this request. I should inspect the workspace file related to the observation. It seems I need to report what it says, but I must be careful to ensure that the information is accurate. I also have to note that I shouldn't execute any action or state changes while handling this. It looks straightforward, yet it requires attention to detail!",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 86,
+      "total_tokens": 8604,
+      "prompt_tokens": 8518,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 60
+      }
+    }
+  }
+}

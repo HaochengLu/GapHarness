@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-155",
+  "cluster": "triple_obligation",
+  "query": "For generated case 155, check the workspace artifact src/config.ts for ExampleProject pi before answering; then create a durable checklist checkpoint named checkpoint_0156 with three subtasks; then append one line to sandbox_log_0157.txt in the sandbox workspace after passing the permission gate.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240356526787168118268d9d6sNFmHAEq",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273437,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"State\",\n    \"Action\",\n    \"Control\"\n  ],\n  \"capabilities\": [\n    \"workspace_inspection\",\n    \"durable_state\",\n    \"sandbox_action\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3347,
+      "completion_tokens": 1567,
+      "total_tokens": 4914,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3347,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1485
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

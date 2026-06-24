@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-142",
+  "cluster": "triple_obligation",
+  "query": "For generated case 142, evaluate exactly (106 + 21) * 10; then block any real-world action unless the user explicitly grants permission in case 143; then validate the computation using an execution log and final answer contract for case 144.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_021e5bd2c1975153016a3b4d47a188819ba079d52a917888ef",
+    "object": "chat.completion",
+    "created": 1782271303,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"Control\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Analyzing obligations and execution**\n\nI'm thinking about the obligations related to execution, control, and verification, especially regarding certain cases. The execution log appears vital as evidence, and I wonder if I should maintain a durable state for tasks that depend on prior steps. I think having a persistent log of computation results is essential. However, I\u2019m also considering if this could all be done in one response without a workspace state. Control actions might need to align with permissions, but the idea of capturing execution output interests me.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 422,
+      "total_tokens": 8969,
+      "prompt_tokens": 8547,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 386
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "complex-0056",
+  "cluster": "complex_obligation",
+  "query": "For generated case 7056, inspect the workspace file release_notes.md for ExampleProject rho and report what it says; then save the decision \"use minimal harness\" under durable state key gapbench_7057; then update sandbox_config_7058.json with a mock flag enabled=true after permission approval; then validate the final answer against the requested output contract for case 7059.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_072d9bafbf3c336c016a3b48d6ae50819ba31f16c30be45b1b",
+    "object": "chat.completion",
+    "created": 1782270166,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 179,
+      "total_tokens": 8455,
+      "prompt_tokens": 8276,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 131
+      }
+    }
+  }
+}

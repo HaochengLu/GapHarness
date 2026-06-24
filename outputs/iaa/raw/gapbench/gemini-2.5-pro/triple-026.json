@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-026",
+  "cluster": "triple_obligation",
+  "query": "For generated case 26, open the local CHANGELOG.md for ExampleProject eta and summarize its main instruction; then evaluate exactly (64 + 36) * 3; then apply a permission gate before any risky or irreversible step in case 28.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240351278605728938268d9d6FhQGIdQZ",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273115,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Execution\",\n    \"State\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"workspace_inspection\",\n    \"execution\",\n    \"execution_log\",\n    \"durable_state\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3337,
+      "completion_tokens": 1852,
+      "total_tokens": 5189,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3337,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1760
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

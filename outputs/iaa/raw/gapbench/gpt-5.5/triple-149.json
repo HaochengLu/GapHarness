@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-149",
+  "cluster": "triple_obligation",
+  "query": "For generated case 149, read requirements.txt in the sandbox workspace for ExampleProject kappa and extract the relevant configuration detail; then calculate exactly 41 * 36; then write a mock deployment note to sandbox_deploy_0151.md only inside the sandbox and only after permission gating.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0f2e567edebe3b26016a3b4d66c4408199ad88e659852a9559",
+    "object": "chat.completion",
+    "created": 1782271334,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "total_tokens": 8779,
+      "prompt_tokens": 8553,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 176
+      }
+    }
+  }
+}

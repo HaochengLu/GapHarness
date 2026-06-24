@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-190",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 190, update sandbox_config_0190.json with a mock flag enabled=true after permission approval; then block any real-world action unless the user explicitly grants permission in case 191.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0a428f29f1c04e18016a3b4a42a45c8198a6be942f9c44f73f",
+    "object": "chat.completion",
+    "created": 1782270530,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\",\"diff\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 160,
+      "total_tokens": 8695,
+      "prompt_tokens": 8535,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 117
+      }
+    }
+  }
+}

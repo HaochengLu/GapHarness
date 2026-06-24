@@ -13,7 +13,7 @@ Phase 2C 是 Phase 2B 之后的独立校准实验，不覆盖 Phase 2B 结果。
 - 新增 Phase 2C dev200 / test800 / GAIA-Transfer runner。
 - 追加 Phase 2B frozen checkpoint 记录，明确 `outputs/phase2b/` 为冻结 artifact。
 - 生成 Terminal-Bench-obligation50 scaffold，来源为 public Terminal-Bench task instructions，labels 仍为待人工审核。
-- 运行 TerminalSmoke-20，本地 sandbox-only，无网络、无生产路径、无真实外部副作用。
+- 运行 Terminal-Bench-obligation50 sandbox smoke（20 cases），本地 sandbox-only，无网络、无生产路径、无真实外部副作用。
 
 ## Dev200 结果
 
@@ -59,7 +59,7 @@ Guard correction:
 - Phase 2B `llm_single`: success 0.889, under 0.089, over 0.145, regret -0.094, unsupported FP 56
 - Phase 2C guarded: success 0.944, under 0.034, over 0.153, regret 0.299, unsupported FP 12
 
-结论：registry guard 明显降低 unsupported false positives，并提升 success / 降低 under-harness；代价是平均 cost 和 minimality regret 上升，说明它更偏 sufficiency。
+结论：registry guard 明显降低 unsupported false positives，并提升 success / 降低 under-harness；代价是平均 cost 和 excess cost (cost delta) 上升，说明它更偏 sufficiency。
 
 ## GAIA-Transfer
 
@@ -103,7 +103,7 @@ Guard correction:
 
 官方 Terminal-Bench 主要是可解的容器任务，不天然包含 ambiguous target / unsupported real production mutation 负例；如果需要这些，应另建 GapHarness negative controls，不能混入 official-derived Terminal-Bench scaffold。
 
-## TerminalSmoke-20
+## Terminal-Bench-obligation50 sandbox smoke (20 cases)
 
 已运行本地 sandbox-only smoke：
 
@@ -130,4 +130,4 @@ Guard correction:
 - `llm_registry_guarded` 提升的是 GapBench sandbox/mock action calibration，不是通用 obligation inference。
 - GAIA-Transfer 暴露出明显 transfer gap：当前 profiler 对 GAIA 文件、多模态、证据与状态需求的边界仍不稳定。
 - Terminal-Bench-obligation50 labels 尚未人工 audit，不能作为 paper gold result，只能作为下一阶段 review package。
-- TerminalSmoke-20 是 sandbox trace smoke，不代表真实 Terminal-Bench container benchmark 成绩。
+- Terminal-Bench-obligation50 sandbox smoke（20 cases）是 sandbox trace smoke，不代表真实 Terminal-Bench container benchmark 成绩。

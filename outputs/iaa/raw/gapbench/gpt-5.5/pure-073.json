@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pure-073",
+  "cluster": "pure_language_negative",
+  "query": "Brainstorm three names for a small productivity app, no browsing or tools needed. Generated negative case 73.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0ca9dc839861c20e016a3b4ad460ec819a85874810fd4d70de",
+    "object": "chat.completion",
+    "created": 1782270676,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 33,
+      "total_tokens": 8254,
+      "prompt_tokens": 8221,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 13
+      }
+    }
+  }
+}

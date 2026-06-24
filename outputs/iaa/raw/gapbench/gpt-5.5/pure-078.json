@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pure-078",
+  "cluster": "pure_language_negative",
+  "query": "Create a one-sentence mission statement for a student coding club. Generated negative case 78.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0631f30a5013de97016a3b4ae28b288198964f8c1efd99c1d3",
+    "object": "chat.completion",
+    "created": 1782270690,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 45,
+      "total_tokens": 8263,
+      "prompt_tokens": 8218,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 25
+      }
+    }
+  }
+}

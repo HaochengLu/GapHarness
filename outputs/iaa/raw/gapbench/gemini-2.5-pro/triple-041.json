@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-041",
+  "cluster": "triple_obligation",
+  "query": "For generated case 41, compute the exact total of [78, 11, 82, 6]; then update sandbox_config_0042.json with a mock flag enabled=true after permission approval; then validate the computation using an execution log and final answer contract for case 43.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "response": {
+    "id": "chatcmpl-202606240430102219298548268d9d6JLFn8qKq",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782275427,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Execution\",\n    \"State\",\n    \"Action\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"execution\",\n    \"sandbox_action\",\n    \"permission\",\n    \"execution_log\",\n    \"contract_check\",\n    \"durable_state\",\n    \"workspace_inspection\",\n    \"diff\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3348,
+      "completion_tokens": 2108,
+      "total_tokens": 5456,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3348,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1992
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

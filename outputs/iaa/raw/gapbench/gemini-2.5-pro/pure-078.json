@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "pure-078",
+  "cluster": "pure_language_negative",
+  "query": "Create a one-sentence mission statement for a student coding club. Generated negative case 78.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240344505505268938268d9d6XP0zoBu3",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782272708,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [],\n  \"capabilities\": [],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3300,
+      "completion_tokens": 951,
+      "total_tokens": 4251,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3300,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 922
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

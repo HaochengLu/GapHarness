@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-067",
+  "cluster": "triple_obligation",
+  "query": "For generated case 67, evaluate exactly (104 + 29) * 7; then apply a permission gate before any risky or irreversible step in case 68; then validate the computation using an execution log and final answer contract for case 69.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_07dc601814fcb128016a3b4cac96ac819ab1b96ecce3286f01",
+    "object": "chat.completion",
+    "created": 1782271148,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"State\",\"Control\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 305,
+      "total_tokens": 8851,
+      "prompt_tokens": 8546,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 263
+      }
+    }
+  }
+}

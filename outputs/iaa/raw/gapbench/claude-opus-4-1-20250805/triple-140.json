@@ -1,0 +1,51 @@
+{
+  "dataset": "gapbench",
+  "model": "claude-opus-4-1-20250805",
+  "family": "anthropic",
+  "row_id": "triple-140",
+  "cluster": "triple_obligation",
+  "query": "For generated case 140, calculate exactly 104 * 48; then save the decision \"use minimal harness\" under durable state key gapbench_0141; then validate the computation using an execution log and final answer contract for case 142.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "",
+    "model": "claude-opus-4-1-20250805",
+    "object": "chat.completion",
+    "created": 1782271649,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"obligations\": [\"Execution\", \"State\", \"Action\", \"Control\", \"Verification\"], \"capabilities\": [\"execution\", \"execution_log\", \"durable_state\", \"sandbox_action\", \"contract_check\", \"permission\"], \"status\": \"supported\"}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3541,
+      "completion_tokens": 63,
+      "total_tokens": 3604,
+      "usage_semantic": "openai",
+      "usage_source": "anthropic",
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 3541,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 3486,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

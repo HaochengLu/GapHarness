@@ -1,0 +1,51 @@
+{
+  "dataset": "gapbench",
+  "model": "claude-opus-4-1-20250805",
+  "family": "anthropic",
+  "row_id": "triple-183",
+  "cluster": "triple_obligation",
+  "query": "For generated case 183, retrieve the most recent public pricing or plan information for ExampleProduct Pulse with a source; then create a durable checklist checkpoint named checkpoint_0184 with three subtasks; then validate that every factual claim has a source span for case 185.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "",
+    "model": "claude-opus-4-1-20250805",
+    "object": "chat.completion",
+    "created": 1782271676,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\"Observation\", \"State\", \"Action\", \"Control\", \"Verification\"],\n  \"capabilities\": [\"evidence_sources\", \"source_spans\", \"durable_state\", \"sandbox_action\", \"permission\", \"contract_check\"],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3545,
+      "completion_tokens": 73,
+      "total_tokens": 3618,
+      "usage_semantic": "openai",
+      "usage_source": "anthropic",
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 3545,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 3522,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

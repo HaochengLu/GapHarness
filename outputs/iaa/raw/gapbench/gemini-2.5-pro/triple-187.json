@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-187",
+  "cluster": "triple_obligation",
+  "query": "For generated case 187, check whether ExampleProduct Terra has a recent release note and cite the public source; then apply a permission gate before any risky or irreversible step in case 188; then validate that every factual claim has a source span for case 189.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "response": {
+    "id": "chatcmpl-202606240429036381728408268d9d6ANgwY2wt",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782275376,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"State\",\n    \"Action\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"evidence_sources\",\n    \"source_spans\",\n    \"durable_state\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3339,
+      "completion_tokens": 3336,
+      "total_tokens": 6675,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3339,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 3248
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

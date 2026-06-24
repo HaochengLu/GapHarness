@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+<rect width="100%" height="100%" fill="white"/>
+<line x1="55.00" y1="365.00" x2="585.00" y2="365.00" stroke="#334155" stroke-width="1.5"/>
+<line x1="55.00" y1="55.00" x2="55.00" y2="365.00" stroke="#334155" stroke-width="1.5"/>
+<text x="320.00" y="412.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Avg cost</text>
+<text x="18.00" y="210.00" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" transform="rotate(-90 18.00 210.00)">Success</text>
+<circle cx="55.00" cy="303.00" r="5.00" fill="#64748b"/>
+<text x="63.00" y="297.00" font-family="Arial, sans-serif" font-size="11" text-anchor="start">direct</text>
+<circle cx="124.66" cy="259.91" r="5.00" fill="#3b82f6"/>
+<text x="132.66" y="253.91" font-family="Arial, sans-serif" font-size="11" text-anchor="start">tool_router</text>
+<circle cx="169.58" cy="230.15" r="5.00" fill="#8b5cf6"/>
+<text x="177.58" y="224.15" font-family="Arial, sans-serif" font-size="11" text-anchor="start">difficulty_router</text>
+<circle cx="585.00" cy="73.60" r="5.00" fill="#ef4444"/>
+<text x="593.00" y="67.60" font-family="Arial, sans-serif" font-size="11" text-anchor="start">always_full</text>
+<circle cx="176.67" cy="55.00" r="5.00" fill="#16a34a"/>
+<text x="184.67" y="49.00" font-family="Arial, sans-serif" font-size="11" text-anchor="start">gapharness</text>
+<circle cx="176.67" cy="55.00" r="5.00" fill="#0f766e"/>
+<text x="184.67" y="49.00" font-family="Arial, sans-serif" font-size="11" text-anchor="start">oracle_minimal</text>
+</svg>

@@ -4,6 +4,7 @@ This index points to the artifacts used by the current final manuscript draft, `
 
 ## Manuscript
 
+- Current manuscript draft (v3, certificate-as-contract reframe): `paper/drafts/gapharness_manuscript_v3.md`
 - Final PDF: `paper/submission/arxiv_package/gapharness_arxiv.pdf`
 - Markdown source: `paper/submission/arxiv_package/gapharness_manuscript_v2.md`
 - Package-local Markdown source: `paper/submission/arxiv_package/gapharness_package_local.md`
@@ -43,6 +44,8 @@ Path note: root-level manifests use repository-relative paths such as `benchmark
 - SWE-HarnessExec-20 LLM pipeline traces: `outputs/final/harness_exec20_llm_pipeline/traces.jsonl`
 - SWE-HarnessExec-50 executable trace scale-up: `outputs/final/harness_exec50/traces.jsonl`
 - Bootstrap confidence intervals: `outputs/final/bootstrap_ci/bootstrap_ci_report.md`
+- Multi-model inter-annotator-agreement (IAA) report, a proxy for human IAA: `outputs/iaa/iaa_report.md` (metrics `outputs/iaa/iaa_metrics.json`; replayable raw responses `outputs/iaa/raw/`; human review sheet `outputs/iaa/human_review_sheet.csv`)
+- Privileged-resource cost-of-coverage (feedback-level) analysis: `paper/tables/table_feedback_cost.md` (script `scripts/run_feedback_cost_analysis.py`)
 
 ## Reviewer-Hardening Results
 
@@ -75,6 +78,8 @@ Path note: root-level manifests use repository-relative paths such as `benchmark
 - Manuscript Table 17, external-validity and boundary diagnostics: `paper/tables/table5_boundary_diagnostics_revised.md`
 - Appendix Table 18, negative controls: source rows in `outputs/final/phase2d/negative_controls/`
 - Appendix Table 19, related work comparison: `paper/tables/related_work_comparison_table.md`
+- Privileged-resource cost-of-coverage (feedback-level) table, the honest replacement for the removed rigged certificate-utility proxy: `paper/tables/table_feedback_cost.md`
+- Canonicalize no-lexical ablation (planned future work; placeholder, no results yet): `paper/tables/table_canonicalize_ablation.md`
 - Legacy/supporting table files not directly numbered in the current manuscript: `paper/tables/table3_phase2c_registry_guarded_revised.md`, `paper/tables/table6_llm_tool_router_baseline.md`, `paper/tables/table8_cost_sensitivity.md`, `paper/tables/table11_compiler_scaling.md`, `paper/tables/table12_swe_harness_exec20_llm_pipeline.md`
 
 ## Revised Paper Figures

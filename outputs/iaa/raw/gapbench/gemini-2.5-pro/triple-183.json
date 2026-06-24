@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "triple-183",
+  "cluster": "triple_obligation",
+  "query": "For generated case 183, retrieve the most recent public pricing or plan information for ExampleProduct Pulse with a source; then create a durable checklist checkpoint named checkpoint_0184 with three subtasks; then validate that every factual claim has a source span for case 185.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240357369122656668268d9d6gz9nYPCs",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273480,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"State\",\n    \"Action\",\n    \"Control\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"evidence_sources\",\n    \"source_spans\",\n    \"durable_state\",\n    \"sandbox_action\",\n    \"permission\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3340,
+      "completion_tokens": 1649,
+      "total_tokens": 4989,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3340,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1554
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

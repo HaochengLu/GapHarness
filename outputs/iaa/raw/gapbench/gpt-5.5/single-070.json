@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-070",
+  "cluster": "single_obligation",
+  "query": "For generated case 70, calculate exactly 107 * 50.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_05756dd7028c0605016a3b4bdc701881988667d8bb0dbffa5b",
+    "object": "chat.completion",
+    "created": 1782270940,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Evaluating execution verification**\n\nI need to ensure we provide an answer in JSON format while annotating the request. It's crucial to confirm whether exact calculations trigger Execution Verification. The arithmetic computations need to be checked for accuracy as per the requirements. Also, I'm pondering the role of execution logs as evidence. While the request doesn't specifically ask to show logs, the verification capability might relate to a contract. Overall, I want to ensure the status is supported for exact arithmetic verification.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 151,
+      "total_tokens": 8660,
+      "prompt_tokens": 8509,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 122
+      }
+    }
+  }
+}

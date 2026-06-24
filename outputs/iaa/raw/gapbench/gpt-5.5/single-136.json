@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-136",
+  "cluster": "single_obligation",
+  "query": "For generated case 136, apply a permission gate before any risky or irreversible step in case 136.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_07337c9a5295432d016a3b4c371610819a878bca7dfd70e673",
+    "object": "chat.completion",
+    "created": 1782271031,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 254,
+      "total_tokens": 8770,
+      "prompt_tokens": 8516,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 213
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-216",
+  "cluster": "triple_obligation",
+  "query": "For generated case 216, compute the exact total of [107, 47, 82, 71]; then append one line to sandbox_log_0217.txt in the sandbox workspace after passing the permission gate; then validate the computation using an execution log and final answer contract for case 218.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_09f14c27ad0e589e016a3b4de4c6bc81969fb55a879778052e",
+    "object": "chat.completion",
+    "created": 1782271460,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 201,
+      "total_tokens": 8757,
+      "prompt_tokens": 8556,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 154
+      }
+    }
+  }
+}

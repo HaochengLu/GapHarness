@@ -1,0 +1,51 @@
+{
+  "dataset": "gapbench",
+  "model": "claude-opus-4-1-20250805",
+  "family": "anthropic",
+  "row_id": "triple-144",
+  "cluster": "triple_obligation",
+  "query": "For generated case 144, create a durable checklist checkpoint named checkpoint_0144 with three subtasks; then enforce a no-external-side-effect constraint and ask for confirmation before acting in case 145; then verify the final answer format and required fields for case 146.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "",
+    "model": "claude-opus-4-1-20250805",
+    "object": "chat.completion",
+    "created": 1782271657,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\"State\", \"Action\", \"Control\", \"Verification\"],\n  \"capabilities\": [\"durable_state\", \"sandbox_action\", \"permission\", \"contract_check\"],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3546,
+      "completion_tokens": 58,
+      "total_tokens": 3604,
+      "usage_semantic": "openai",
+      "usage_source": "anthropic",
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 3546,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 3501,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

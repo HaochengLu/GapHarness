@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "pair-080",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 80, inspect the workspace file tasks/todo.md for ExampleProject alpha and report what it says; then validate the final answer against the requested output contract for case 81.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240331455976932478268d9d6NvaV9boh",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782271930,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Execution\",\n    \"State\",\n    \"Verification\"\n  ],\n  \"capabilities\": [\n    \"workspace_inspection\",\n    \"durable_state\",\n    \"evidence_sources\",\n    \"contract_check\",\n    \"execution\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3322,
+      "completion_tokens": 1685,
+      "total_tokens": 5007,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3322,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1596
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

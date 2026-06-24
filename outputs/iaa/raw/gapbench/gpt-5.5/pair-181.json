@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-181",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 181, compute the exact total of [72, 48, 61, 37]; then record an intermediate artifact for review batch 0182 so the next step can resume from it.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0c8d6fff58b37bcb016a3b4a2f82dc8193870cb7a2cbdf1237",
+    "object": "chat.completion",
+    "created": 1782270511,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Execution\",\"State\",\"Action\",\"Verification\"],\"capabilities\":[\"execution\",\"execution_log\",\"durable_state\",\"sandbox_action\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 189,
+      "total_tokens": 8727,
+      "prompt_tokens": 8538,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 149
+      }
+    }
+  }
+}

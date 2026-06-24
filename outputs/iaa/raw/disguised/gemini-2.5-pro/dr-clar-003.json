@@ -1,0 +1,49 @@
+{
+  "dataset": "disguised",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "dr-clar-003",
+  "cluster": "ambiguous_action_target",
+  "query": "Use the migration file in the repo and apply the database changes wherever makes sense.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240419272567655198268d9d6hjWPuSp9",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782274800,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\",\n    \"Action\",\n    \"State\",\n    \"Control\"\n  ],\n  \"capabilities\": [\n    \"workspace_inspection\",\n    \"permission\",\n    \"durable_state\"\n  ],\n  \"status\": \"clarify\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3296,
+      "completion_tokens": 2041,
+      "total_tokens": 5337,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3296,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1965
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

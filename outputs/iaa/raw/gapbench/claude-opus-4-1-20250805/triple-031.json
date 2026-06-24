@@ -1,0 +1,51 @@
+{
+  "dataset": "gapbench",
+  "model": "claude-opus-4-1-20250805",
+  "family": "anthropic",
+  "row_id": "triple-031",
+  "cluster": "triple_obligation",
+  "query": "For generated case 31, look up the current public documentation page for ExampleProduct Harbor and summarize the relevant update; then create a durable checklist checkpoint named checkpoint_0032 with three subtasks; then enforce a no-external-side-effect constraint and ask for confirmation before acting in case 33.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "",
+    "model": "claude-opus-4-1-20250805",
+    "object": "chat.completion",
+    "created": 1782271607,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\"Observation\", \"State\", \"Action\", \"Control\", \"Verification\"],\n  \"capabilities\": [\"evidence_sources\", \"durable_state\", \"sandbox_action\", \"permission\"],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3551,
+      "completion_tokens": 63,
+      "total_tokens": 3614,
+      "usage_semantic": "openai",
+      "usage_source": "anthropic",
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "input_tokens": 3551,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 3494,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

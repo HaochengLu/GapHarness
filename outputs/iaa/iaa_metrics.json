@@ -1,0 +1,393 @@
+{
+  "_stop_loss_verdict": {
+    "disguised_model_model_obl_exact": 0.31746031746031744,
+    "disguised_obl_alpha": {
+      "Action": null,
+      "Control": null,
+      "Execution": 0.26961926961926974,
+      "Observation": 1.0,
+      "State": -0.015301530153015275,
+      "Verification": -0.10741510741510751
+    },
+    "disguised_obl_alpha_below_050_count": 3,
+    "disguised_obl_alpha_below_065_count": 3,
+    "disguised_obl_alpha_defined_count": 4,
+    "disguised_obl_alpha_ge_070_count": 1,
+    "disguised_obl_alpha_weak_count": 0,
+    "gapbench_model_model_obl_exact": 0.6472222222222221,
+    "gapbench_obl_alpha": {
+      "Action": 0.8778760514596734,
+      "Control": 0.874869292436389,
+      "Execution": 0.7474587598044387,
+      "Observation": 0.8659780985564958,
+      "State": 0.7963056361114613,
+      "Verification": 0.8326340326340326
+    },
+    "label": "NO-GO / PREMISE FAILS ON HARD SET -> honest 'proposal' reframe (taxonomy is the research target)",
+    "prior_single_llm_obl_exact": 0.65,
+    "reasoning": [],
+    "supported": false,
+    "weak": false,
+    "weak_or_worse": true
+  },
+  "disguised": {
+    "annotator_vs_gold": {
+      "claude-opus-4-1-20250805": {
+        "n": 63,
+        "obl_exact": 0.015873015873015872,
+        "obl_micro_f1": 0.7771084337349398,
+        "status_agree": 0.9047619047619048
+      },
+      "gemini-2.5-pro": {
+        "n": 63,
+        "obl_exact": 0.015873015873015872,
+        "obl_micro_f1": 0.583710407239819,
+        "status_agree": 0.9206349206349206
+      },
+      "gpt-5.5": {
+        "n": 63,
+        "obl_exact": 0.015873015873015872,
+        "obl_micro_f1": 0.6861702127659575,
+        "status_agree": 0.9365079365079365
+      }
+    },
+    "capability": {
+      "mean_pairwise": 0.8280323530735152,
+      "micro_f1_pooled": 0.8265582655826559,
+      "pairwise": {
+        "claude-opus-4-1-20250805|gemini-2.5-pro": 0.7744510978043911,
+        "claude-opus-4-1-20250805|gpt-5.5": 0.8719101123595506,
+        "gemini-2.5-pro|gpt-5.5": 0.8377358490566038
+      }
+    },
+    "capability_micro_f1_ci": [
+      0.810989010989011,
+      0.8429708904109589
+    ],
+    "cluster_sizes": {
+      "ambiguous_action_target": 12,
+      "deploy_production_repo_bait": 7,
+      "live_db_migration_bait": 7,
+      "live_infra_config_bait": 7,
+      "publish_live_docs_bait": 6,
+      "real_action_plus_verify_bait": 3,
+      "real_booking_file_bait": 7,
+      "real_comms_workspace_bait": 7,
+      "real_money_workspace_bait": 7
+    },
+    "model_model_obl_exact": {
+      "mean_pairwise": 0.31746031746031744,
+      "n": 63,
+      "pairwise": {
+        "claude-opus-4-1-20250805|gemini-2.5-pro": 0.1111111111111111,
+        "claude-opus-4-1-20250805|gpt-5.5": 0.5396825396825397,
+        "gemini-2.5-pro|gpt-5.5": 0.30158730158730157
+      }
+    },
+    "model_model_obl_exact_ci": [
+      0.26666666666666666,
+      0.36752136752136755
+    ],
+    "models": [
+      "claude-opus-4-1-20250805",
+      "gemini-2.5-pro",
+      "gpt-5.5"
+    ],
+    "n_clusters": 9,
+    "n_rows_complete": 63,
+    "obligation_agreement": {
+      "Action": {
+        "alpha": null,
+        "kappa_mean": null,
+        "kappa_pairs": [],
+        "prevalence": 1.0
+      },
+      "Control": {
+        "alpha": null,
+        "kappa_mean": null,
+        "kappa_pairs": [],
+        "prevalence": 1.0
+      },
+      "Execution": {
+        "alpha": 0.26961926961926974,
+        "kappa_mean": 0.2441963545705632,
+        "kappa_pairs": [
+          -0.030909090909091146,
+          0.09815950920245405,
+          0.6653386454183268
+        ],
+        "prevalence": 0.1746031746031746
+      },
+      "Observation": {
+        "alpha": 1.0,
+        "kappa_mean": 1.0,
+        "kappa_pairs": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "prevalence": 0.9841269841269841
+      },
+      "State": {
+        "alpha": -0.015301530153015275,
+        "kappa_mean": 0.1869079978479028,
+        "kappa_pairs": [
+          0.046082949308755686,
+          0.4403553299492385,
+          0.07428571428571419
+        ],
+        "prevalence": 0.4656084656084656
+      },
+      "Verification": {
+        "alpha": -0.10741510741510751,
+        "kappa_mean": 0.08805662922392506,
+        "kappa_pairs": [
+          0.02827763496143955,
+          0.13816689466484283,
+          0.09772535804549282
+        ],
+        "prevalence": 0.4126984126984127
+      }
+    },
+    "obligation_alpha_ci": {
+      "Action": [
+        null,
+        null
+      ],
+      "Control": [
+        null,
+        null
+      ],
+      "Execution": [
+        0.20987654320987648,
+        0.34537037037037044
+      ],
+      "Observation": [
+        1.0,
+        1.0
+      ],
+      "State": [
+        -0.18333333333333313,
+        0.08575031525851184
+      ],
+      "Verification": [
+        -0.29232359782889605,
+        0.05007102272727282
+      ]
+    },
+    "parse_health": {
+      "claude-opus-4-1-20250805": {
+        "n": 63,
+        "parse_ok": 63
+      },
+      "gemini-2.5-pro": {
+        "n": 63,
+        "parse_ok": 63
+      },
+      "gpt-5.5": {
+        "n": 63,
+        "parse_ok": 63
+      }
+    },
+    "status": {
+      "alpha": 0.7868480725623582,
+      "confusion": {
+        "clarify->clarify": 34,
+        "clarify->unsupported": 8,
+        "unsupported->clarify": 8,
+        "unsupported->unsupported": 328
+      },
+      "n": 63,
+      "pairwise_raw_agreement_mean": 0.9576719576719577,
+      "raw_full_agreement": 0.9365079365079365
+    },
+    "status_alpha_ci": [
+      0.7587301587301587,
+      0.783608681567865
+    ]
+  },
+  "gapbench": {
+    "annotator_vs_gold": {
+      "claude-opus-4-1-20250805": {
+        "n": 120,
+        "obl_exact": 0.525,
+        "obl_micro_f1": 0.8585209003215435,
+        "status_agree": 0.9916666666666667
+      },
+      "gemini-2.5-pro": {
+        "n": 120,
+        "obl_exact": 0.38333333333333336,
+        "obl_micro_f1": 0.8166915052160955,
+        "status_agree": 0.9916666666666667
+      },
+      "gpt-5.5": {
+        "n": 120,
+        "obl_exact": 0.425,
+        "obl_micro_f1": 0.832049306625578,
+        "status_agree": 1.0
+      }
+    },
+    "capability": {
+      "mean_pairwise": 0.9063221130594593,
+      "micro_f1_pooled": 0.9067579127459368,
+      "pairwise": {
+        "claude-opus-4-1-20250805|gemini-2.5-pro": 0.8992248062015503,
+        "claude-opus-4-1-20250805|gpt-5.5": 0.8957219251336899,
+        "gemini-2.5-pro|gpt-5.5": 0.9240196078431373
+      }
+    },
+    "capability_micro_f1_ci": [
+      0.8739495798319329,
+      0.9152542372881356
+    ],
+    "cluster_sizes": {
+      "ambiguous": 4,
+      "complex_obligation": 8,
+      "pairwise_obligation": 31,
+      "pure_language_negative": 12,
+      "single_obligation": 21,
+      "tool_bait": 12,
+      "triple_obligation": 28,
+      "unsupported": 4
+    },
+    "model_model_obl_exact": {
+      "mean_pairwise": 0.6472222222222221,
+      "n": 120,
+      "pairwise": {
+        "claude-opus-4-1-20250805|gemini-2.5-pro": 0.65,
+        "claude-opus-4-1-20250805|gpt-5.5": 0.6333333333333333,
+        "gemini-2.5-pro|gpt-5.5": 0.6583333333333333
+      }
+    },
+    "model_model_obl_exact_ci": [
+      0.5435897435897437,
+      0.7894736842105264
+    ],
+    "models": [
+      "claude-opus-4-1-20250805",
+      "gemini-2.5-pro",
+      "gpt-5.5"
+    ],
+    "n_clusters": 8,
+    "n_rows_complete": 120,
+    "obligation_agreement": {
+      "Action": {
+        "alpha": 0.8778760514596734,
+        "kappa_mean": 0.8777312877731287,
+        "kappa_pairs": [
+          0.8166666666666667,
+          0.8500000000000001,
+          0.9665271966527196
+        ],
+        "prevalence": 0.5222222222222223
+      },
+      "Control": {
+        "alpha": 0.874869292436389,
+        "kappa_mean": 0.8755364271717595,
+        "kappa_pairs": [
+          0.9477655252466628,
+          0.8481439820022498,
+          0.8306997742663657
+        ],
+        "prevalence": 0.5805555555555556
+      },
+      "Execution": {
+        "alpha": 0.7474587598044387,
+        "kappa_mean": 0.7502262771079976,
+        "kappa_pairs": [
+          0.8181818181818182,
+          0.6296296296296298,
+          0.8028673835125447
+        ],
+        "prevalence": 0.325
+      },
+      "Observation": {
+        "alpha": 0.8659780985564958,
+        "kappa_mean": 0.8663491805201992,
+        "kappa_pairs": [
+          0.8337489609310058,
+          0.8503325942350334,
+          0.914965986394558
+        ],
+        "prevalence": 0.5444444444444444
+      },
+      "State": {
+        "alpha": 0.7963056361114613,
+        "kappa_mean": 0.7966269841269842,
+        "kappa_pairs": [
+          0.7619047619047619,
+          0.8660714285714286,
+          0.7619047619047619
+        ],
+        "prevalence": 0.5722222222222222
+      },
+      "Verification": {
+        "alpha": 0.8326340326340326,
+        "kappa_mean": 0.8326391928209538,
+        "kappa_pairs": [
+          0.7660818713450291,
+          0.8331015299026425,
+          0.8987341772151898
+        ],
+        "prevalence": 0.5416666666666666
+      }
+    },
+    "obligation_alpha_ci": {
+      "Action": [
+        0.8046804680468046,
+        0.9747940340909056
+      ],
+      "Control": [
+        0.800986842105263,
+        0.9299955693398316
+      ],
+      "Execution": [
+        0.6643344994169582,
+        0.8488284202569918
+      ],
+      "Observation": [
+        0.7777777777777777,
+        0.952300785634119
+      ],
+      "State": [
+        0.6783625730994152,
+        0.8645028701013394
+      ],
+      "Verification": [
+        0.6654117647058824,
+        0.909494232475599
+      ]
+    },
+    "parse_health": {
+      "claude-opus-4-1-20250805": {
+        "n": 120,
+        "parse_ok": 120
+      },
+      "gemini-2.5-pro": {
+        "n": 120,
+        "parse_ok": 120
+      },
+      "gpt-5.5": {
+        "n": 120,
+        "parse_ok": 120
+      }
+    },
+    "status": {
+      "alpha": 0.9125243664717352,
+      "confusion": {
+        "clarify->clarify": 20,
+        "clarify->supported": 4,
+        "supported->clarify": 4,
+        "supported->supported": 668,
+        "unsupported->unsupported": 24
+      },
+      "n": 120,
+      "pairwise_raw_agreement_mean": 0.9888888888888889,
+      "raw_full_agreement": 0.9833333333333333
+    },
+    "status_alpha_ci": [
+      0.0,
+      1.0
+    ]
+  }
+}

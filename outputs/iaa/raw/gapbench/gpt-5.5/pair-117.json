@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-117",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 117, check whether ExampleProduct Vector has a recent release note and cite the public source; then check the task budget and require approval before using any high-cost module in case 118.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0e7b7d5dcf1a4450016a3b49a93230819a8eb9bb403bdcd7ac",
+    "object": "chat.completion",
+    "created": 1782270377,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"workspace_inspection\",\"durable_state\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 360,
+      "total_tokens": 8896,
+      "prompt_tokens": 8536,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 314
+      }
+    }
+  }
+}

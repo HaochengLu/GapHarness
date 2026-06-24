@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "ambiguous-002",
+  "cluster": "ambiguous",
+  "query": "Unclear target 2: update whichever file is best and make the appropriate change.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0e6b2016ea7afdc3016a3b463337e8819b998ce6bfc776cc27",
+    "object": "chat.completion",
+    "created": 1782269491,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"diff\",\"permission\"],\"status\":\"clarify\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 362,
+      "total_tokens": 8874,
+      "prompt_tokens": 8512,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 318
+      }
+    }
+  }
+}

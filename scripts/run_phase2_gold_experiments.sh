@@ -24,14 +24,14 @@ python3 -m gapharness.cli make-report \
   --out outputs/summary_gaia_transfer200_human_audited_gold.md
 
 python3 -m gapharness.cli run-benchmark \
-  --benchmark benchmarks/gapbench_natural/v1.0/gapbench_natural_200_for_review.jsonl \
+  --benchmark benchmarks/gapbench_natural/v1.0/gapbench_natural_200_human_audited.jsonl \
   --system gapharness \
   --profiler gold \
-  --out outputs/results_gapbench_natural200_review_gold.jsonl
+  --out outputs/results_gapbench_natural200_human_audited_gold.jsonl
 
 python3 -m gapharness.cli make-report \
-  --results outputs/results_gapbench_natural200_review_gold.jsonl \
-  --out outputs/summary_gapbench_natural200_review_gold.md
+  --results outputs/results_gapbench_natural200_human_audited_gold.jsonl \
+  --out outputs/summary_gapbench_natural200_human_audited_gold.md
 
 python3 -m scripts.generate_phase2_artifacts
 python3 -m unittest discover -s tests

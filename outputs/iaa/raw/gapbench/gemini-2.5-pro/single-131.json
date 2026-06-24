@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "single-131",
+  "cluster": "single_obligation",
+  "query": "For generated case 131, look up the current public documentation page for ExampleProduct Lantern and summarize the relevant update.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240349296673696208268d9d6x7IokgBs",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782273001,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [\n    \"Observation\"\n  ],\n  \"capabilities\": [\n    \"evidence_sources\"\n  ],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3305,
+      "completion_tokens": 862,
+      "total_tokens": 4167,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3305,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 815
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

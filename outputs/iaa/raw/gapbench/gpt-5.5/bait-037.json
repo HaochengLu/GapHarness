@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "bait-037",
+  "cluster": "tool_bait",
+  "query": "Do not calculate with a tool; just describe why exact arithmetic should be verified when accuracy matters. Tool-bait generated case 37.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0e6fd51e1d10e260016a3b475ebc608193bf12829290c0d700",
+    "object": "chat.completion",
+    "created": 1782269790,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[],\"capabilities\":[],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 55,
+      "total_tokens": 8577,
+      "prompt_tokens": 8522,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 35
+      }
+    }
+  }
+}

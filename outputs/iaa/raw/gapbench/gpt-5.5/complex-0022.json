@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "complex-0022",
+  "cluster": "complex_obligation",
+  "query": "For generated case 7022, open the local CHANGELOG.md for ExampleProject gamma and summarize its main instruction; then calculate the mean of 52, 13, 174, and 65 to two decimals; then create a durable checklist checkpoint named checkpoint_7024 with three subtasks; then validate the computation using an execution log and final answer contract for case 7025.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0b531d83c84a2536016a3b48102f58819893072904822748ee",
+    "object": "chat.completion",
+    "created": 1782269968,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"durable_state\",\"sandbox_action\",\"execution_log\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Evaluating checkpoint creation**\n\nI'm trying to decide on creating a durable checklist checkpoint. It seems that while it\u2019s a safe local mutation, I need to think about whether this action needs permission. The user requested it, but I haven't confirmed that yet. There\u2019s a potential need for Control and permissions, especially since permissions can add risk. However, creating a checkpoint appears to be a reversible and safe action, so maybe I can skip the Control. Final validation will require Verification.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 403,
+      "total_tokens": 8680,
+      "prompt_tokens": 8277,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 354
+      }
+    }
+  }
+}

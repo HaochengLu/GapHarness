@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-095",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 95, find the latest public announcement for ExampleProduct Zenith and list the source used; then create file sandbox_note_0096.txt in the sandbox workspace and require a permission gate before the write.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_08e3e282627c447a016a3b49613cdc819bbedcb7cdff3fa22a",
+    "object": "chat.completion",
+    "created": 1782270305,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 190,
+      "total_tokens": 8432,
+      "prompt_tokens": 8242,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 147
+      }
+    }
+  }
+}

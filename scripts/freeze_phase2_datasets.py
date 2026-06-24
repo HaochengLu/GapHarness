@@ -65,7 +65,7 @@ def freeze_gapbench(path1000: Path, path500: Path) -> None:
     (base / "audit_log.md").write_text(
         """# GapBench v1.0 Audit Log
 
-- 2026-06-22: Project owner confirmed all 1000 labels as gold truth.
+- 2026-06-22: Project owner reviewed all 1000 labels (single annotator).
 - 2026-06-22: Dataset frozen as `benchmarks/gapbench/v1.0`.
 - 2026-06-22: Split policy frozen: stratified dev200/test800 by category.
 
@@ -99,7 +99,7 @@ def freeze_gaia(validation_path: Path, test_path: Path, transfer_path: Path) -> 
         "audit_status": "project_owner_audited_confirmed",
         "audit_date": "2026-06-22",
         "gold_source": "project_owner_audited_confirmed_2026_06_22_gaia_transfer_200",
-        "audit_note": "Project owner confirmed the validation100 plus test100 obligation-transfer labels as gold truth on 2026-06-22. This is obligation-transfer gold, not GAIA answer-level correctness.",
+        "audit_note": "Project owner reviewed the validation100 plus test100 obligation-transfer labels (single annotator) on 2026-06-22. This is obligation-transfer gold, not GAIA answer-level correctness.",
         "obligation_set": OBLIGATIONS,
         "success_checker": "gaia_obligation_transfer_only",
         "category_counts": dict(Counter(row["category"] for row in transfer)),
@@ -112,7 +112,7 @@ def freeze_gaia(validation_path: Path, test_path: Path, transfer_path: Path) -> 
         """# GAIA-Transfer v1.0 Audit Log
 
 - 2026-06-22: `load_dataset("gaia-benchmark/GAIA", "2023_all")` succeeded locally.
-- 2026-06-22: Project owner confirmed validation100/test100 transfer labels as gold truth.
+- 2026-06-22: Project owner reviewed validation100/test100 transfer labels (single annotator).
 - 2026-06-22: Dataset frozen as `benchmarks/gaia_transfer/v1.0`.
 
 ## Positioning
@@ -180,12 +180,22 @@ def load_jsonl(path: Path) -> List[Mapping[str, object]]:
 
 def write_jsonl(path: Path, rows: Iterable[Mapping[str, object]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("\n".join(json.dumps(row, sort_keys=True) for row in rows) + "\n", encoding="utf-8")
+    # ensure_ascii=False keeps non-ASCII characters (e.g. U+2019) as raw UTF-8
+    # bytes so a freeze re-run reproduces the committed checksums instead of
+    # emitting \uXXXX escapes that would diverge from the audited GAIA files.
+    path.write_text(
+        "\n".join(json.dumps(row, sort_keys=True, ensure_ascii=False) for row in rows) + "\n",
+        encoding="utf-8",
+    )
 
 
 def write_json(path: Path, payload: Mapping[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    # ensure_ascii=False preserves UTF-8 bytes for manifest/schema content too.
+    path.write_text(
+        json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,19 @@
+{
+  "checkpoint": "phase2-deterministic-artifacts-v1",
+  "files": [
+    "benchmarks/gapbench/v1.0/manifest.json",
+    "benchmarks/gaia_transfer/v1.0/manifest.json",
+    "benchmarks/gapbench_natural/v1.0/manifest.json",
+    "outputs/summary_gapbench1000_all_gold.md",
+    "outputs/summary_gaia_transfer200_human_audited_gold.md",
+    "outputs/summary_gapbench_natural200_review_gold.md",
+    "outputs/phase2/table1_gapbench1000_gold.md",
+    "outputs/phase2/table2_transfer_and_review_smokes.md",
+    "outputs/phase2/table3_category_breakdown.md",
+    "outputs/phase2/failure_mode_summary.md",
+    "docs/technical_report_draft.md",
+    "scripts/run_phase2_gold_experiments.sh"
+  ],
+  "notes": "Subsequent Phase 2B experiments evaluate LLM-inferred obligations and do not modify GapBench v1.0 labels, compiler rules, or deterministic baselines.",
+  "status": "frozen"
+}

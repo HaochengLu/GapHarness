@@ -1,0 +1,56 @@
+{
+  "benchmark": "benchmarks/gapbench/v1.0/splits/test800.jsonl",
+  "category_counts": {
+    "ambiguous": 24,
+    "complex_obligation": 30,
+    "pairwise_obligation": 30,
+    "pure_language_negative": 30,
+    "single_obligation": 30,
+    "tool_bait": 30,
+    "triple_obligation": 30,
+    "unsupported": 24
+  },
+  "delta": {
+    "harness_success": 0.03947368421052633,
+    "obl_f1": 0.0,
+    "over_harness_rate": 0.02631578947368421,
+    "under_harness_rate": -0.039473684210526314
+  },
+  "full": {
+    "harness_success": 0.8377192982456141,
+    "n": 228.0,
+    "obl_f1": 0.9067164179104479,
+    "obl_fn": 34.0,
+    "obl_fp": 66.0,
+    "obl_precision": 0.8804347826086957,
+    "obl_recall": 0.9346153846153846,
+    "obl_tp": 486.0,
+    "over_harness_rate": 0.07894736842105263,
+    "under_harness_rate": 0.07017543859649122
+  },
+  "lexical_injection_diagnostics": {
+    "rows_full_added_contract_check_capability": 12,
+    "rows_full_added_execution_capability": 0,
+    "rows_full_added_execution_obligation": 0,
+    "rows_full_added_verification_obligation": 0,
+    "rows_observation_capability_choice_differs": 0,
+    "rows_with_profile_difference": 12
+  },
+  "model": "gpt-5.4-mini",
+  "n": 228,
+  "no_lexical": {
+    "harness_success": 0.7982456140350878,
+    "n": 228.0,
+    "obl_f1": 0.9067164179104479,
+    "obl_fn": 34.0,
+    "obl_fp": 66.0,
+    "obl_precision": 0.8804347826086957,
+    "obl_recall": 0.9346153846153846,
+    "obl_tp": 486.0,
+    "over_harness_rate": 0.05263157894736842,
+    "under_harness_rate": 0.10964912280701754
+  },
+  "per_category": 30,
+  "raw_profiler": "llm_single",
+  "subset_seed": 20260624
+}

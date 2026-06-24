@@ -193,15 +193,26 @@ def run_certificate_utility() -> None:
 
 
 def certificate_utility_row(dataset: str, label: str, rows: Sequence[Mapping[str, object]], cert_expected: bool) -> Mapping[str, object]:
+    # NOTE (de-rigged 2026-06-24): the former version of this row reported
+    # `scripted_audit_accuracy_proxy`, `debug_work_units_proxy`, and
+    # `missing_cause_localized`. Those three "metrics" were computed by helper
+    # functions that keyed their value on `has_certificate(row)` via hardcoded
+    # constants (e.g. route_penalty = 2.0 if not has_certificate else 0.6), so
+    # the certificate "advantage" was assumed, not measured. That is circular
+    # and has been deleted. We keep only fields that are objectively derivable
+    # from the actual frozen route and the deterministic minimality verifier,
+    # none of which is a function of certificate presence. The honest
+    # certificate-vs-cost comparison now lives in
+    # scripts/run_feedback_cost_analysis.py (Table feedback-cost).
     rows = [dict(row, _phase6_certificate_available=cert_expected or has_certificate(row)) for row in rows]
     total = len(rows)
     success = mean(metric(row, "success") for row in rows)
     cert_available = mean(has_certificate(row) for row in rows)
     redundant_modules = mean(len(row.get("minimality_report", {}).get("redundant_modules", [])) for row in rows)
     redundancy_rate = mean(row.get("minimality_report", {}).get("redundancy", 0.0) for row in rows)
-    localized = mean(cause_localized(row) for row in rows if not bool(row.get("verifier_passed"))) if any(not bool(row.get("verifier_passed")) for row in rows) else 1.0
-    audit_acc_proxy = mean(diagnostic_accuracy_proxy(row) for row in rows)
-    debug_work_units = mean(debug_work_proxy(row) for row in rows)
+    all_necessary_rate = mean(
+        bool(row.get("minimality_report", {}).get("all_modules_necessary", True)) for row in rows
+    )
     return {
         "dataset": dataset,
         "system": label,
@@ -209,11 +220,9 @@ def certificate_utility_row(dataset: str, label: str, rows: Sequence[Mapping[str
         "harness_success": success,
         "certificate_expected": cert_expected,
         "certificate_available": cert_available,
-        "scripted_audit_accuracy_proxy": audit_acc_proxy,
-        "debug_work_units_proxy": debug_work_units,
         "redundant_modules": redundant_modules,
         "redundancy_rate": redundancy_rate,
-        "missing_cause_localized": localized,
+        "all_modules_necessary_rate": all_necessary_rate,
     }
 
 
@@ -227,31 +236,14 @@ def has_certificate(row: Mapping[str, object]) -> bool:
     return bool(isinstance(agentic, Mapping) and agentic.get("certificate_available"))
 
 
-def cause_localized(row: Mapping[str, object]) -> float:
-    if bool(row.get("verifier_passed")):
-        return 1.0
-    failures = row.get("verifier_failures", []) or []
-    if has_certificate(row):
-        return 1.0 if failures else 0.8
-    if failures:
-        return 0.7
-    route = row.get("route", {})
-    return 0.5 if route else 0.0
-
-
-def diagnostic_accuracy_proxy(row: Mapping[str, object]) -> float:
-    if bool(row.get("verifier_passed")):
-        return 1.0
-    base = cause_localized(row)
-    redundant = len(row.get("minimality_report", {}).get("redundant_modules", []))
-    return max(0.0, base - 0.05 * redundant)
-
-
-def debug_work_proxy(row: Mapping[str, object]) -> float:
-    modules = len(row.get("harness", {}).get("modules", []) or [])
-    failures = len(row.get("verifier_failures", []) or [])
-    route_penalty = 2.0 if not has_certificate(row) else 0.6
-    return 1.0 + 0.35 * modules + 0.8 * failures + route_penalty
+# REMOVED (de-rigged 2026-06-24): cause_localized, diagnostic_accuracy_proxy,
+# and debug_work_proxy. Each of these returned a value that depended on
+# has_certificate(row) through hardcoded constants (e.g. a 2.0-vs-0.6 route
+# penalty, or +0.2/+0.3 localization bonuses for certificate rows). They
+# manufactured the certificate advantage they were supposed to measure, so the
+# rigged Table-18 headline they fed has been removed. No replacement proxy is
+# introduced here; the honest certificate-cost story is sourced entirely from
+# real cached rows in scripts/run_feedback_cost_analysis.py.
 
 
 def make_audit_packet_row(dataset: str, system: str, row: Mapping[str, object]) -> Mapping[str, object]:
@@ -307,16 +299,30 @@ def write_audit_sheet(path: Path, rows: Sequence[Mapping[str, object]]) -> None:
 
 def render_certificate_utility_report(rows: Sequence[Mapping[str, object]]) -> str:
     lines = [
-        "# Certificate Utility Proxy",
+        "# Certificate Availability and Objective Route Properties",
         "",
-        "This is a deterministic diagnostic utility proxy plus a human audit packet. It does not report completed human timing; the review sheet is prepared for that follow-up.",
+        "De-rigged 2026-06-24. The previous version of this table reported a "
+        "`Debug Work`, `Audit Acc. Proxy`, and `Missing Cause Localized` column "
+        "whose values were computed as a function of certificate presence via "
+        "hardcoded constants; that made the certificate 'advantage' circular and "
+        "those columns have been removed. This table now reports only properties "
+        "that are objectively derivable from the actual frozen route and the "
+        "deterministic minimality verifier and that are NOT functions of "
+        "certificate presence: harness success, whether a checkable certificate "
+        "is present, and minimality (redundant modules / redundancy rate / share "
+        "of routes whose modules are all necessary). The honest "
+        "certificate-versus-privileged-resource-cost comparison lives in "
+        "`paper/tables/table_feedback_cost.md` and "
+        "`scripts/run_feedback_cost_analysis.py`. A human audit packet (review "
+        "sheet) accompanies this table for follow-up manual debugging-time "
+        "measurement; no human timing is reported here.",
         "",
-        "| Dataset | System | N | HS | Cert. | Audit Acc. Proxy | Debug Work | Redundant Modules | Missing Cause Localized |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+        "| Dataset | System | N | HS | Cert. avail. | Redundant Modules | Redundancy | All-necessary |",
+        "|---|---|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
-            "| {dataset} | {system} | {n} | {harness_success:.2f} | {certificate_available:.2f} | {scripted_audit_accuracy_proxy:.2f} | {debug_work_units_proxy:.2f} | {redundant_modules:.2f} | {missing_cause_localized:.2f} |".format(**row)
+            "| {dataset} | {system} | {n} | {harness_success:.2f} | {certificate_available:.2f} | {redundant_modules:.2f} | {redundancy_rate:.2f} | {all_modules_necessary_rate:.2f} |".format(**row)
         )
     return "\n".join(lines) + "\n"
 

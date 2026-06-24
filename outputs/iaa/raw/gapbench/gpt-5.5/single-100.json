@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "single-100",
+  "cluster": "single_obligation",
+  "query": "For generated case 100, create file sandbox_note_0100.txt in the sandbox workspace and require a permission gate before the write.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0bc7c8ee2352f7a7016a3b4bfc5db88199af830d434b47d740",
+    "object": "chat.completion",
+    "created": 1782270972,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"State\",\"Action\",\"Control\"],\"capabilities\":[\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 112,
+      "total_tokens": 8634,
+      "prompt_tokens": 8522,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 77
+      }
+    }
+  }
+}

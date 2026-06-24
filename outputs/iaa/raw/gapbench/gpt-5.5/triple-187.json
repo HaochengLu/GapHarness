@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-187",
+  "cluster": "triple_obligation",
+  "query": "For generated case 187, check whether ExampleProduct Terra has a recent release note and cite the public source; then apply a permission gate before any risky or irreversible step in case 188; then validate that every factual claim has a source span for case 189.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0968e2bc512d9dda016a3b4dbc5c5481988b5e4b5567f28f42",
+    "object": "chat.completion",
+    "created": 1782271420,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"evidence_sources\",\"source_spans\",\"execution\",\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 458,
+      "total_tokens": 9006,
+      "prompt_tokens": 8548,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 400
+      }
+    }
+  }
+}

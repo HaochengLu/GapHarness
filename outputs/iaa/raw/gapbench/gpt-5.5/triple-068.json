@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "triple-068",
+  "cluster": "triple_obligation",
+  "query": "For generated case 68, create a durable checklist checkpoint named checkpoint_0068 with three subtasks; then append one line to sandbox_log_0069.txt in the sandbox workspace after passing the permission gate; then check that the final response satisfies the specified JSON-style contract for case 70.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0365ed30f7bb2ac9016a3b4cbb2890819bbd500e5f0e1a2c1f",
+    "object": "chat.completion",
+    "created": 1782271163,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"Execution\",\"State\",\"Action\",\"Control\",\"Verification\"],\"capabilities\":[\"workspace_inspection\",\"execution\",\"durable_state\",\"sandbox_action\",\"permission\",\"contract_check\"],\"status\":\"supported\"}",
+          "reasoning_content": "**Evaluating contract details**\n\nI'm pondering about the specified contract, but I notice it\u2019s not in the prompt. It could mean the requester has specified it elsewhere, so I need to be careful and observe. Should I include observations or capabilities for workspace inspection? Also, if the contract were in the prompt, I'd address it. Status shows it supports sandbox mutation. I wonder if appending one line to the log might not need reading the file first. I could just write to append directly.",
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 566,
+      "total_tokens": 9120,
+      "prompt_tokens": 8554,
+      "prompt_tokens_details": {
+        "cached_tokens": 7936
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 516
+      }
+    }
+  }
+}

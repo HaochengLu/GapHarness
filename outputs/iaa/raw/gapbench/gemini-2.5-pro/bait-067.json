@@ -1,0 +1,49 @@
+{
+  "dataset": "gapbench",
+  "model": "gemini-2.5-pro",
+  "family": "google",
+  "row_id": "bait-067",
+  "cluster": "tool_bait",
+  "query": "No browsing needed: write a short fictional changelog entry for a pretend app. Tool-bait generated case 67.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "response": {
+    "id": "chatcmpl-202606240325279223464268268d9d6ZpCefRSo",
+    "model": "gemini-2.5-pro",
+    "object": "chat.completion",
+    "created": 1782271538,
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"obligations\": [],\n  \"capabilities\": [],\n  \"status\": \"supported\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3305,
+      "completion_tokens": 960,
+      "total_tokens": 4265,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 3305,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 931
+      },
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "input_tokens_details": null,
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    }
+  }
+}

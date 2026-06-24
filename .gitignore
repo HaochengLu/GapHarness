@@ -1,17 +1,29 @@
-.DS_Store
+# Scratch / working dirs
+tmp/
+
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Test / tooling caches
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.venv/
-venv/
-dist/
-build/
-*.egg-info/
-.env
-.env.*
-!.env.example
-outputs/results_seed_gold.jsonl
-outputs/summary_seed_gold.md
 
+# OS
+.DS_Store
+
+# Secrets (kept outside the repo; never commit)
+.env
+.env.local
+*.env
+.gapharness_env
+
+# Embedded release clone (separate git repo)
+release/

@@ -1,0 +1,42 @@
+{
+  "dataset": "gapbench",
+  "model": "gpt-5.5",
+  "family": "openai",
+  "row_id": "pair-236",
+  "cluster": "pairwise_obligation",
+  "query": "For generated case 236, inspect the workspace file tasks/todo.md for ExampleProject rho and report what it says; then append one line to sandbox_log_0237.txt in the sandbox workspace after passing the permission gate.",
+  "request": {
+    "temperature": 0.0,
+    "max_tokens": 700
+  },
+  "response": {
+    "id": "resp_0d4e5dde94a6dbf2016a3b4a8bb548819986313cb3db163602",
+    "object": "chat.completion",
+    "created": 1782270603,
+    "model": "gpt-5.5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"obligations\":[\"Observation\",\"State\",\"Action\",\"Control\"],\"capabilities\":[\"workspace_inspection\",\"durable_state\",\"sandbox_action\",\"permission\"],\"status\":\"supported\"}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 186,
+      "total_tokens": 8430,
+      "prompt_tokens": 8244,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 145
+      }
+    }
+  }
+}
