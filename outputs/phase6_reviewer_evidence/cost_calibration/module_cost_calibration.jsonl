@@ -1,9 +1,0 @@
-{"api_price_proxy": 5, "declared_cost": 3, "latency_ms": 750, "module": "web_retrieval", "risk_class": "external evidence", "tokens": 850}
-{"api_price_proxy": 1, "declared_cost": 1, "latency_ms": 80, "module": "source_span_checker", "risk_class": "verification", "tokens": 120}
-{"api_price_proxy": 1, "declared_cost": 2, "latency_ms": 250, "module": "python_executor", "risk_class": "sandbox execution", "tokens": 80}
-{"api_price_proxy": 1, "declared_cost": 1, "latency_ms": 60, "module": "execution_log_checker", "risk_class": "verification", "tokens": 80}
-{"api_price_proxy": 1, "declared_cost": 2, "latency_ms": 120, "module": "file_state_reader", "risk_class": "workspace observation", "tokens": 250}
-{"api_price_proxy": 1, "declared_cost": 1, "latency_ms": 30, "module": "state_store", "risk_class": "state", "tokens": 50}
-{"api_price_proxy": 1, "declared_cost": 4, "latency_ms": 200, "module": "sandbox_file_editor", "risk_class": "sandbox action", "tokens": 300}
-{"api_price_proxy": 1, "declared_cost": 1, "latency_ms": 40, "module": "permission_gate", "risk_class": "control", "tokens": 80}
-{"api_price_proxy": 1, "declared_cost": 1, "latency_ms": 80, "module": "contract_verifier", "risk_class": "verification", "tokens": 180}

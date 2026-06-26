@@ -1,6 +1,0 @@
---- solution.py.before
-+++ solution.py.after
-@@ -1,2 +1,2 @@
- def parse_bool(value):
--    return value == 'true'
-+    return str(value).strip().lower() in {'1', 'true', 'yes', 'y'}

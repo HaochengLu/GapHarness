@@ -1,7 +1,0 @@
---- solution.py.before
-+++ solution.py.after
-@@ -1,2 +1,3 @@
- def is_palindrome(value):
--    return value == value[::-1]
-+    cleaned = ''.join(ch.lower() for ch in value if ch.isalnum())
-+    return cleaned == cleaned[::-1]

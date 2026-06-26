@@ -1,6 +1,0 @@
---- solution.py.before
-+++ solution.py.after
-@@ -1,2 +1,2 @@
- def sort_records(records):
--    return sorted(records, key=lambda row: row['name'])
-+    return sorted(records, key=lambda row: (row['score'], row['name']))

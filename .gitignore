@@ -27,3 +27,23 @@ venv/
 
 # Embedded release clone (separate git repo)
 release/
+
+# LaTeX build artifacts (the repo ships the compiled PDF, not .tex sources)
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Generated submission/build packages (the v3 PDF is the source of truth)
+paper/submission/
+
+# Review/audit packaging artifacts (intermediate; never part of the public repo)
+*_review_package/
+*_human_audited_package/
+*.zip
+
+# Intermediate experiment outputs (regenerable; canonical set lives in
+# outputs/final/, outputs/iaa/, outputs/ablation/)
+outputs/phase*/

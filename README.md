@@ -1,123 +1,160 @@
 # GapHarness
 
-GapHarness is a research system for **Certificate-Carrying Runtime Harness Compilation** for API-only LLM agents.
+**Certificate-Carrying Runtime Harness Compilation for API-Only LLM Agents** — and an honest reliability study of the obligation instrument it depends on.
 
-Given an obligation profile and a finite registry of modules with declared affordances and design-time costs, GapHarness compiles the lowest declared-cost module subset that satisfies the required obligations, capabilities, and dependencies, or explicitly returns unsupported. The compiler is exact within the declared registry and emits certificate-carrying outputs that expose coverage, dependency satisfaction, missing affordances, and registry-relative minimality evidence. Obligation inference is separated from certified, registry-constrained support selection so the two questions can be audited independently.
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Tests](https://img.shields.io/badge/tests-129%20passing-brightgreen)
+![Core deps](https://img.shields.io/badge/core%20compiler-standard%20library-lightgrey)
+![Status](https://img.shields.io/badge/manuscript-v3%20(in%20preparation)-orange)
 
-The project treats an agent harness as a runtime system that covers external obligations a stateless LLM cannot satisfy by itself:
+📄 **Paper:** [`paper/drafts/gapharness_manuscript_v3.pdf`](paper/drafts/gapharness_manuscript_v3.pdf) (compiled) · source [`gapharness_manuscript_v3.md`](paper/drafts/gapharness_manuscript_v3.md) · roadmap [`docs/PUBLICATION_PLAN.md`](docs/PUBLICATION_PLAN.md)
 
-- Observation
-- Execution
-- State
-- Action
-- Control
-- Verification
+---
 
-The first milestone is not a flashy demo. It is a small, reproducible system that can support a technical report or workshop paper:
+## The problem it solves
 
-- runnable compiler and executor
-- synthetic gold benchmark seed
-- baseline comparisons
-- counterfactual drop-one ablation
-- Markdown report generation
+API-only LLM agents — no fine-tuning, just a base model plus tool/module APIs — must decide, **before acting**, what external runtime support a request needs and whether the declared runtime can supply it. Two questions are routinely conflated:
 
-## Phase 2 Status
+1. **Which obligations** does the request impose? (observe external evidence, execute deterministic code, keep durable state, take a real action, gate permissions, verify a contract)
+2. **Which declared modules** can discharge those obligations, at what cost?
 
-The current workspace has moved from MVP demo to a paper-ready experiment package.
+A direct tool-router picks tools but silently misses an obligation (e.g. the sandbox editor or the permission gate). An always-full harness over-provisions and blurs the safety boundary. Either way, nothing tells a third party *whether the assembled harness is actually sufficient* — or, if the task is impossible under the declared registry, *what exactly is missing*.
 
-- `benchmarks/gapbench/v1.0/`: frozen 1000-row GapBench v1.0, with manifest, schema, audit log, and dev200/test800 splits.
-- `benchmarks/gaia_transfer/v1.0/`: frozen 200-row GAIA transfer set, with 100 validation and 100 test examples carrying single-annotator (project-owner) labels; inter-annotator agreement is reported on an independent subset.
-- `benchmarks/gapbench_natural/v1.0/`: 200 naturalized GapBench examples for human review. Labels are inherited from audited GapBench v1.0, but the naturalized user queries should be reviewed before final paper claims.
-- `outputs/phase2/`: paper tables derived from the GapBench-1000 gold run.
-- `figures/phase2/`: lightweight SVG figures for the technical report.
-- `outputs/phase2b/`: LLM profiler dev200 calibration, selected-profiler held-out test800 sweep, diagnostic tables, and cached LLM profiles.
-- `outputs/phase2c/`: registry-guarded profiler calibration, held-out test800 report, GAIA transfer stress result, and Terminal-Bench-obligation50 traces.
-- `outputs/phase2d/`: registry perturbation, gold-label permutation, and pure/tool-bait negative-control stress tests.
-- `benchmarks/terminal_obligation/v0.1/`: Terminal-Bench instruction-derived obligation50 scaffold for human review.
+> Worked example: *"Using the files in this workspace, run the tests, patch only the sandbox copy, and tell me whether the fix passes — do not touch production."* A router may select a code executor but miss the workspace reader, sandbox editor, permission gate, or trace verifier. GapHarness infers all six obligations, compiles the minimal declared support set, and returns a **certificate-carrying refusal** if (say) sandbox editing or permission gating is absent.
 
-## Current Paper Package
+## The approach
 
-The current final technical-report package is under `paper/submission/arxiv_package/`.
+GapHarness recasts harnessing as a **decidable pre-execution typing pass** that *separates* the two questions:
 
-- GapHarness-Repair adds verifier-guided profile patching and recompilation while preserving compiler certificates.
-- Strong strategy baselines include Workflow Generator, Verifier-Repair Router, and ReAct-style Module Selector over the same declared registry/executor/verifier.
-- `benchmarks/harness_exec/v1.1/` and `outputs/final/harness_exec50/` contain SWE-HarnessExec-50, a provided-patch sandbox pytest trace scale-up. It is not SWE-bench pass@1, real-repository checkout, or model-generated repair.
+1. **Profile** — lift a request to an obligation profile over six obligations: **Observation, Execution, State, Action, Control, Verification**.
+2. **Compile** — emit the lowest declared-cost registry subset that discharges the required obligations, capabilities, and dependencies — **or** an explicit, certificate-carrying refusal naming the missing affordance.
+
+## The guarantee (what's novel)
+
+The output is a **proof-carrying witness** — a coverage certificate or a refusal certificate — that a third party verifies in **linear time, without trusting the compiler or the LLM**. The optimizer behind it is conceded textbook **weighted set cover + monotone dependency closure**: **no algorithmic claim**. The contribution is the **certificate-as-contract** between profiling and execution, together with an honest measurement of how reliable the obligation instrument actually is.
+
+---
+
+## Results at a glance
+
+Every number below is reproducible from this repository (LLM annotations are cached for API-free replay).
+
+| Dimension | What is measured | Result |
+|---|---|---|
+| **Compiler correctness** | Optimum vs an **independently implemented** min-cost solver (no shared code), on every supported row | **1,390 / 1,390 agree · 0 mismatches** |
+| **Reliability — status decision** | Krippendorff's α across **3 independent model families** (supported / unsupported / clarify) | **0.91** controlled · **0.79** adversarial |
+| **Reliability — coarse obligations** | α for **Observation / Action / Control** | **≥ 0.87** controlled · reproduce adversarially |
+| **Reliability — fine obligations** | α for **Execution / State / Verification** on adversarial inputs | **≤ 0.27** — *do not* reproduce |
+| **Fail-closed safety** | Adversarial scope-confusion minimal pairs (e.g. "deploy to production from the repo") | returns **unsupported** — does **not** invert |
+| **Certificate vs coverage** | Harness success at **medium, non-leaky** feedback (GapBench test800 / HarnessChallenge-200) | **0.91 / 0.79** — equals baselines, **+ checkable witness** |
+| **Canonicalization ablation** | Δ held-out coverage with lexical normalization removed; obligation micro-F1 | **+0.039** coverage · F1 **unchanged (0.907)** |
+| **Engineering** | Unit tests · core compiler dependencies | **129 passing** · **standard-library only** |
+
+**How to read the headline.** The reliability study is the central empirical result, and it is honest about its own limits: the support decision that the certificate rests on is reproducible, even adversarially, and so are the coarse obligations — but the *fine* obligations collapse to at-or-below-chance agreement on adversarial inputs. We therefore present the six-way typing as a **proposed instrument with measured, heterogeneous reliability**, and ship the codebook + review sheet ([`outputs/iaa/`](outputs/iaa/), [`docs/annotation_codebook.md`](docs/annotation_codebook.md)) for the decisive human pass.
+
+## What is **not** claimed
+
+- ❌ Open-world answer correctness, or GAIA / Terminal-Bench / SWE-bench solving / pass@1.
+- ❌ A raw-coverage win over iterative-repair agents — under non-leaky feedback they reach **equal** coverage; the *checkable witness*, not coverage, is the differentiator.
+- ❌ Human-audited multi-annotator gold labels — the benchmarks are single-annotator (project-owner) labels; inter-annotator agreement is reported on an independent subset (multi-model agreement as a **proxy**), and a human IAA pass is the scaffolded next step.
+- ❌ Any new approximation or complexity result for set cover.
+
+---
+
+## Benchmarks & artifacts
+
+| Path | Contents |
+|---|---|
+| [`benchmarks/gapbench/v1.0/`](benchmarks/gapbench/v1.0/) | **GapBench v1.0** — 1,000 tasks (single-annotator labels) with schema, manifest, audit log, and dev200 / test800 splits |
+| [`benchmarks/boundary_scope/v0.1/`](benchmarks/boundary_scope/v0.1/) | 16 adversarial scope-confusion **minimal pairs** for the fail-closed classifier |
+| [`benchmarks/disguised_refusal/v0.1/`](benchmarks/disguised_refusal/v0.1/) | 63 disguised-unsupported + clarify items used in the reliability study |
+| [`benchmarks/gaia_transfer/v1.0/`](benchmarks/gaia_transfer/v1.0/) | 200-row GAIA **obligation-transfer** set (transfer only — not GAIA answer solving) |
+| `benchmarks/{gapbench_natural,terminal_obligation,harness_exec,harness_challenge,…}/` | naturalized, Terminal-Bench-obligation50, and SWE-HarnessExec boundary-diagnostic scaffolds (see manuscript for scope caveats) |
+| [`outputs/iaa/`](outputs/iaa/) | the inter-annotator reliability study — report, metrics, cached raw annotations (API-free replay), human review sheet |
+| [`outputs/final/`](outputs/final/) | frozen canonical results + `checksums.sha256` manifest |
+| [`outputs/ablation/`](outputs/ablation/) | canonicalization no-lexical ablation |
+| [`paper/figures/figure5-7*`](paper/figures/) | reliability (headline), certificate-vs-coverage, and ablation figures (`scripts/generate_v3_figures.py`) |
+| [`paper/tables/`](paper/tables/) | result tables, incl. `table_feedback_cost.md` and `table_canonicalize_ablation.md` |
 
 ## Quickstart
 
-The code path is intentionally standard-library only for the MVP, so it can run before Python 3.12 and `uv` are installed.
+The core code path is **standard-library only**. Use **Python 3.9+** (pinned interpreter `3.9`; see `.python-version`).
 
 ```bash
 python3 -m scripts.build_seed_benchmark --out benchmarks/gapbench_factorial_seed.jsonl
-python3 -m gapharness.cli run-benchmark --benchmark benchmarks/gapbench_factorial_seed.jsonl --system all --profiler gold --out outputs/results_gold.jsonl
-python3 -m gapharness.cli make-report --results outputs/results_gold.jsonl --out outputs/summary_gold.md
-python3 -m unittest discover -s tests
+python3 -m gapharness.cli run-benchmark --benchmark benchmarks/gapbench_factorial_seed.jsonl --system all --profiler gold --out /tmp/results_gold.jsonl
+python3 -m gapharness.cli make-report --results /tmp/results_gold.jsonl --out /tmp/summary_gold.md
+python3 -m unittest discover -s tests        # 129 tests
 ```
 
-To reproduce the current Phase 2 deterministic gold artifacts:
+Editable install (gives the `gapharness` console script):
 
 ```bash
-bash scripts/run_phase2_gold_experiments.sh
-```
-
-Phase 2B LLM profiler calibration and held-out sweep:
-
-```bash
-python3 -m scripts.run_phase2b_llm_sweep dev
-python3 -m scripts.run_phase2b_llm_sweep test
-```
-
-The Phase 2B commands require `GAPHARNESS_API_KEY`, `GAPHARNESS_BASE_URL`, and `GAPHARNESS_MODEL` in the runtime environment.
-
-Phase 2C registry-guarded calibration:
-
-```bash
-python3 -m scripts.run_phase2b_llm_sweep phase2c-dev
-python3 -m scripts.run_phase2b_llm_sweep phase2c-test
-python3 -m scripts.run_phase2b_llm_sweep phase2c-gaia
-```
-
-Phase 2D stress tests and negative controls:
-
-```bash
-python3 -m scripts.run_phase2d_stress_tests all
-```
-
-For the paper-ready environment, use Python 3.10+ and install optional dev dependencies:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 pytest
 ```
 
-## MVP Scope
+## Reproduce the experiments
 
-The current executor is a deterministic sandbox/mock runtime. It does not perform irreversible file edits, real API calls, emails, or deployments. This is deliberate: the first technical report should validate the obligation profiler/compiler/verifier logic before broadening the external action surface.
+Deterministic gold + verification artifacts (no API):
 
-## Repository Layout
+```bash
+bash scripts/run_phase2_gold_experiments.sh
+bash scripts/check_repro.sh
+python3 -m scripts.verify_independent_oracle          # 1,390 / 1,390 · 0 mismatches
+shasum -a 256 -c outputs/final/checksums.sha256       # verifies the frozen artifact set
+```
+
+Reliability study and ablation (LLM responses are cached for API-free replay):
+
+```bash
+python3 -m scripts.run_independent_annotators          # 3 model families -> outputs/iaa/raw/
+python3 -m scripts.compute_iaa                          # Krippendorff alpha, kappa, micro-F1
+python3 -m scripts.run_canonicalize_ablation --offline  # replays from cached raw profiles
+python3 -m scripts.generate_v3_figures                  # regenerates figures 5-7
+```
+
+LLM sweeps from scratch require an OpenAI-compatible endpoint. Set `GAPHARNESS_API_KEY`, `GAPHARNESS_BASE_URL`, `GAPHARNESS_MODEL` (profiler `gpt-5.4-mini`, fallback `gpt-5.5`); see [`docs/reproducibility.md`](docs/reproducibility.md). **Never commit the key.**
+
+## Safety / MVP scope
+
+The default executor is a deterministic sandbox/mock runtime: no irreversible file edits, real API calls, emails, or deployments. The SWE-HarnessExec runner makes real local edits and runs pytest inside generated fixtures only. The certificate-carrying refusal is evaluated as a **pre-execution** witness; a live side-effect-logging executor is future work.
+
+## Repository layout
 
 ```text
 gapharness/
-  schema.py          typed data model
-  registry.py        module affordance registry
-  profiler.py        gold and heuristic obligation profilers
-  compiler.py        exact minimal harness compiler
-  executor.py        deterministic sandbox/mock executor
-  verifiers.py       sufficiency and minimality checks
-  baselines.py       direct/tool-router/full/difficulty/oracle systems
-  evaluation.py      benchmark runner and metrics
-  seed_data.py       100-task synthetic seed benchmark generator
-  cli.py             command-line entrypoint
-benchmarks/
-docs/
-figures/
-outputs/
-scripts/
-tests/
+  schema.py             typed data model
+  registry.py           module affordance registry
+  profiler.py           gold and heuristic obligation profilers
+  llm_profiler.py       LLM profile normalization + fail-closed scope classifier
+  compiler.py           exact certificate-carrying minimal-harness compiler
+  independent_oracle.py independent min-cost solver (compiler cross-check)
+  dominance_registry.py dominance-bearing registry for the equivalence replay
+  executor.py           deterministic sandbox/mock executor
+  verifiers.py          sufficiency and minimality checks
+  baselines.py          direct / tool-router / full / difficulty / oracle systems
+  evaluation.py         benchmark runner and metrics
+  cli.py                command-line entrypoint
+benchmarks/   task sets and splits        outputs/   frozen results, IAA study, ablation
+paper/        v3 manuscript + PDF,        docs/      codebook, reproducibility, plan
+              figures, tables, appendix   scripts/   experiment + figure generators
+tests/        129 unit tests
 ```
 
-## Current Research Claim
+## Citation
 
-GapHarness makes a bounded systems claim: obligation-first compilation separates profile inference from certified, registry-constrained support selection, improving auditability and certificate availability without claiming raw-cost dominance over iterative repair. Minimality is **relative** to a declared registry and cost model. The system should explicitly return unsupported or clarification-needed when obligations cannot be covered instead of pretending completion. It does not measure open-world answer correctness, SWE-bench pass@1, or dominance over arbitrary agent frameworks.
+```bibtex
+@unpublished{lu2026gapharness,
+  title  = {GapHarness: Certificate-Carrying Runtime Harness Compilation for
+            API-Only LLM Agents, and a Reliability Study of the Obligation Instrument},
+  author = {Lu, Haocheng},
+  year   = {2026},
+  note   = {Manuscript in preparation}
+}
+```
+
+## Current research claim
+
+GapHarness makes a **bounded systems claim** — a systems-and-measurement contribution, not an algorithm. Obligation-first compilation separates profile inference from certified, registry-constrained support selection, improving auditability and certificate availability **without** claiming raw-coverage dominance over iterative repair. The reliability study measures exactly where the obligation instrument can be trusted today (the status decision and coarse obligations, even adversarially) and where it cannot (the fine obligations, adversarially). Minimality is **relative** to a declared registry and cost model, and the system returns *unsupported* or *clarification-needed* rather than pretending completion.

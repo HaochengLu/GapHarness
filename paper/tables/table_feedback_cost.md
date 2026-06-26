@@ -1,6 +1,6 @@
 # Privileged-Resource Cost of Coverage (feedback-level analysis)
 
-Sourced entirely from cached, deterministic feedback-level replay rows (`outputs/phase6_reviewer_evidence/feedback_levels/`), themselves replayed from frozen Phase 4 / Phase 5 results. No new API calls and no hardcoded certificate bonus: every column below is read off the cached rows or counted from objective per-row facts. The `Certificate` column is an OBSERVED property (GapHarness emits a system-generated, checkable witness; the baselines emit none), not an assumption about its utility.
+Sourced entirely from cached, deterministic feedback-cost replay rows (`outputs/final/feedback_cost/feedback_cost_rows.jsonl`), themselves replayed from frozen results. No new API calls and no hardcoded certificate bonus: every column below is read off the cached rows or counted from objective per-row facts. The `Certificate` column is an OBSERVED property (GapHarness emits a system-generated, checkable witness; the baselines emit none), not an assumption about its utility.
 
 ## Headline: MEDIUM, non-leaky feedback (missing obligation family)
 

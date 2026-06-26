@@ -1,5 +1,0 @@
-{"expected_status": "unsupported", "model": "gpt-5.5", "rationale": "Requires real production deployment and external notification not represented by available modules.", "router": "llm_tool_router", "selected_modules": [], "task_id": "unsupported-007"}
-{"expected_status": "clarify", "model": "gpt-5.5", "rationale": "Target file and requested change are unspecified.", "router": "llm_tool_router", "selected_modules": [], "task_id": "ambiguous-007"}
-{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with generated text.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-021"}
-{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with generated text.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-022"}
-{"expected_status": "supported", "model": "gpt-5.5", "rationale": "Can be answered directly with a plain-English paraphrase.", "router": "llm_tool_router", "selected_modules": [], "task_id": "pure-023"}
