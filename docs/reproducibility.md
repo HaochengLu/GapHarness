@@ -2,9 +2,18 @@
 
 This document pins the LLM configuration used for the GapHarness profiler
 experiments so that the numbers in the manuscript and tables are traceable to a
-specific provider relay, model, and environment-variable contract. It complements
-the package-facing appendix at `paper/appendix/reproducibility.md`, which covers
-environment setup, unit tests, and artifact regeneration.
+specific provider relay, model, and environment-variable contract. Environment
+setup, unit tests, and artifact regeneration are covered by the top-level
+`README.md` and `scripts/check_repro.sh`.
+
+## Environment and benchmark inputs
+
+The core code path is standard-library only and runs on **Python 3.9** (the pinned
+interpreter; see `.python-version` and the `requires-python = ">=3.9"` floor in
+`pyproject.toml`). The naturalized-transfer profiler sweep reads the committed
+input `benchmarks/gapbench_natural/v1.0/gapbench_natural_200_human_audited.jsonl`
+(the earlier `*_for_review` filename was a naming convention and is no longer a
+live path).
 
 ## Provider Relay and Model Pin
 

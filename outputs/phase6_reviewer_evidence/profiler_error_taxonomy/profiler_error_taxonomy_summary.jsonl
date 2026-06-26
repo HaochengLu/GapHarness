@@ -1,9 +1,0 @@
-{"dataset": "GapBench test800", "error_category": "false_unsupported", "n": 56, "rate_among_failed": 0.6292134831460674}
-{"dataset": "GapBench test800", "error_category": "clarify_unsupported_confusion", "n": 18, "rate_among_failed": 0.20224719101123595}
-{"dataset": "GapBench test800", "error_category": "dependency_missed", "n": 15, "rate_among_failed": 0.16853932584269662}
-{"dataset": "GapBench test800", "error_category": "capability_too_coarse", "n": 2, "rate_among_failed": 0.02247191011235955}
-{"dataset": "HarnessChallenge-200", "error_category": "dependency_missed", "n": 31, "rate_among_failed": 0.5081967213114754}
-{"dataset": "HarnessChallenge-200", "error_category": "unsupported_false_positive", "n": 30, "rate_among_failed": 0.4918032786885246}
-{"dataset": "HarnessChallenge-200", "error_category": "missing_multi_obligation", "n": 23, "rate_among_failed": 0.3770491803278688}
-{"dataset": "HarnessChallenge-200", "error_category": "verification_control_boundary_confusion", "n": 19, "rate_among_failed": 0.3114754098360656}
-{"dataset": "HarnessChallenge-200", "error_category": "capability_too_coarse", "n": 4, "rate_among_failed": 0.06557377049180328}

@@ -129,4 +129,3 @@ Current manuscript draft: `paper/drafts/gapharness_manuscript_v3.md` (certificat
 - `outputs/final/phase2d/registry_perturbation_report.md`
 - `outputs/final/phase2d/gold_label_permutation_report.md`
 - `outputs/final/phase2d/negative_control_analysis_report.md`
-- `outputs/phase6_reviewer_evidence/certificate_utility/certificate_audit_packet_review_sheet.csv`

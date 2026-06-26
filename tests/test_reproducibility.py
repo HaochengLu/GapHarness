@@ -116,7 +116,7 @@ class PythonVersionPinTest(unittest.TestCase):
         self.assertTrue(pin.startswith("3.9"), f"unexpected .python-version pin: {pin!r}")
 
     def test_reproducibility_doc_is_consistent(self):
-        doc = _read("paper/appendix/reproducibility.md")
+        doc = _read("docs/reproducibility.md")
         self.assertIn("Python 3.9", doc)
         # The doc may mention the historical for_review name when explaining the
         # fix, but it must not present it as a live benchmark *path* (i.e. a

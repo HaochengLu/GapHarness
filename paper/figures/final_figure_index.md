@@ -55,7 +55,5 @@ The reframed manuscript `paper/drafts/gapharness_manuscript_v3.md` (built to `ga
 
 ## Appendix Figure Candidates
 
-- `figures/final/regret_distribution.svg`
-- `figures/final/drop_one_necessity.svg`
 - obligation-level F1 from `outputs/final/phase2b/table2_obligation_level_f1.md`
 - category breakdowns from `outputs/final/phase2/` and `outputs/final/phase2b/`

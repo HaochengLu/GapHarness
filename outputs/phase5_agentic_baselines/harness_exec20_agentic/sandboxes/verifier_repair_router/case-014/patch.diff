@@ -1,6 +1,0 @@
---- solution.py.before
-+++ solution.py.after
-@@ -1,2 +1,2 @@
- def redact_token(value):
--    return value[:4] + '...'
-+    return value[:4] + '...' + value[-4:]
